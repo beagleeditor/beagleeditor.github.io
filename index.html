@@ -1,42 +1,88 @@
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
-    <title>Beagle Editor</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+  <title>BeagleEditor - A "beagleful" editor</title>
 </head>
+
 <body>
-    <div class="img-header">
-        <img src="assets/BeagleEditor.png" alt="Beagle Editor Icon">
-        <h1>Beagle Editor</h1>
-    </div>
+  <div class="header">
+    <h1>BeagleEditor</h1>
     <div class="links">
-        <div class="index">
-            <a href="index.html">Home</a>
-        </div>
-        <div class="download">
-            <a href="download.html">Downloads</a>
-        </div>
-        <div class="screenshots">
-            <a href="screenshots.html">Screenshots</a>
-        </div>
-        <div class="marketplace">
-            <a href="marketplace.html">Plugins Marketplace</a>
-        </div>
-        <div class="docu">
-            <a href="docu.html">Documentation</a>
-        </div>
-        <div class="changelog">
-            <a href="changelog.html">Changelog</a>
-        </div>
+      <a href="/">Home</a>
+      <a href="/download.html">Downloads</a>
+      <a href="/screenshots.html">Screenshots</a>
+      <a href="/marketplace.html">Marketplace</a>
+      <a href="/docs.html">Documentation</a>
+      <a href="/changelog.html">Changelog</a>
+      <a href="https://github.com/beaglesoftware/editor">GitHub</a>
     </div>
-    <h2>Welcome to new editor, now supports popular programming language, plugins and more</h2>
-    <p>The new editor called Beagle Editor, now supports popular programming languages. It uses syntax highlighting and autocompletion. Beagle Editor is developed by Mani Arasteh. New editor can be used for Python, C#, C++, CSS, C, JavaScript and HTML. Download it from Releases in GitHub or from link here (Download from site downloads from GitHub Releases directly without selecting version which it can be outdated)</p>
-    <p>You can find plugins from <a href="marketplace.html">BeagleEditor plugins marketplace</a></p>
-    <p>If you want it, <a href="download.html">Click here</a>!</p>
-    <div class="Version">
-        <p>Current Version: 2024.4</p>
+    <div class="github-container">
     </div>
+    <!-- Hamburger Menu -->
+    <div class="hamburger" onclick="toggleMenu()">
+      &#9776;
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="close-btn" onclick="toggleMenu()">×</div>
+    <a href="/">Home</a>
+    <a href="/download.html">Downloads</a>
+    <a href="/screenshots.html">Screenshots</a>
+    <a href="/marketplace.html">Marketplace</a>
+    <a href="/docs.html">Documentation</a>
+    <a href="/changelog.html">Changelog</a>
+    <a href="https://github.com/beaglesoftware/editor">GitHub</a>
+  </div>
+
+  <div class="container">
+    <h1 style="text-align: center; font-size: 50px;">Minimal. Lightweight.<br> Powerful.</h1>
+    <button>
+      <a href="/download.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+          <path d="M8 0a.5.5 0 0 1 .5.5v8.793l2.646-2.647a.5.5 0 0 1 .708.707l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 .708-.707L7.5 8.293V.5A.5.5 0 0 1 8 0z"/>
+          <path d="M0 12a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-3z"/>
+        </svg>
+        Download
+      </a>
+    </button>
+    <br><br><br>
+    <div style="text-align: center;"><img style="border-radius: 10px; filter: drop-shadow(2px 2px 100px rgb(4, 184, 244));"
+      src="screenshots/screenshot3.png" alt="BeagleEditor Screenshot"></div>
+    <br><br>
+    <h3 style="text-align: center; font-size: 40px;"><br>Autocomplete. Syntax highlighting. and so many powerful
+      features!</h3>
+    <h2 style="font-size: 40px;">Fast and lightweight. </h2>
+    <h2>You can run it as fast as possible! Note: App size may increase in new version (TypeScript)</h2>
+    <h3 style="font-size: 40px;">Support for multiple programming languages! Python, CSS, C#, C, C++, HTML,
+        JavaScript! (Rust coming soon)</h3>
+    <div style="background-color: #ffd19f; border-radius: 15px;"><br>
+      <h3>&#9888; Warning: Best for quick edit or very small projects! You need an advanced code editor/IDE if you
+        want to work on bigger projects</h3><br>
+    </div>
+    <br><br>
+    <h3 style="font-size: 40px;">Highlight syntaxes for a beautiful style!</h3>
+    <div style="text-align: center;"><img style="border-radius: 15px; filter: drop-shadow(2px 2px 100px rgb(4, 184, 244));"
+      src="screenshots/screenshot5.png" alt="Screenshot 5"></div>
+    <br><br><br><br><br><br><br><br><br><br>
+    <h3 style="font-size: 40px;">Code faster with autocompletion</h3>
+  </div>
+  <div style="text-align: center;"><img style="border-radius: 15px; filter: drop-shadow(2px 2px 100px rgb(4, 184, 244));"
+    src="screenshots/screenshot7.gif" alt="Screenshot 7"></div>
+    <br><br><br><br><br><br>
+  <div class="footer">Copyright &copy; BeagleSoftware. All rights reserved.</div>
+  <script>
+    function toggleMenu() {
+      var menu = document.getElementById("mobile-menu");
+      menu.classList.toggle("show");
+    }
+  </script>
 </body>
+
 </html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Command Line Code Block</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <style>
+        pre {
+            position: relative;
+            background-color: #282a36;
+            padding: 1em;
+            border-radius: 5px;
+            color: #f8f8f2;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #6272a4;
+            color: #f8f8f2;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        .copy-btn:hover {
+            background: #50fa7b;
+        }
+    </style>
+</head>
+<body>
+
+<pre>
+    <code class="language-bash">
+        echo "Hello, World!"
+    </code>
+    <button class="copy-btn">Copy</button>
+</pre>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-bash.min.js"></script>
+<script>
+    document.querySelector('.copy-btn').addEventListener('click', function() {
+        const code = document.querySelector('code').innerText;
+        navigator.clipboard.writeText(code).then(() => {
+            alert('Code copied to clipboard!');
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
+    });
+</script>
+
+</body>
+</html>
