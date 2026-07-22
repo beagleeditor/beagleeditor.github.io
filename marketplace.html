@@ -1,50 +1,84 @@
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>BeagleEditor Marketplace</title>
-</head>
-<style>
-    .plugin-downloads {
-        display: grid;
-        border-radius: 50px;
-        grid-template-columns: 1fr 1fr 1fr;
-        column-gap: 5px;
-    }
-</style>
-<body>
-    <h1>BeagleEditor Marketplace</h1>
-    <div class="links">
-        <div class="index">
-            <a href="index.html">Home</a>
+
+    <meta
+      name="description"
+      content="Discover plugins and extensions for BeagleEditor."
+    />
+
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <a href="index.html" class="logo"> BeagleEditor </a>
+
+      <nav class="nav-links">
+        <a href="index.html"> Home </a>
+
+        <a href="download.html"> Download </a>
+
+        <a href="screenshots.html"> Screenshots </a>
+
+        <a href="marketplace.html"> Marketplace </a>
+
+        <a href="docs.html"> Documentation </a>
+
+        <a href="changelog.html"> Changelog </a>
+        <a href="features.html">Features</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="contributing.html">Contributing</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="marketplace-page">
+        <h1>BeagleEditor Marketplace</h1>
+
+        <p class="hero-description">
+          Extend BeagleEditor with plugins created by the community.
+        </p>
+
+        <div class="plugin-grid">
+          <article class="plugin-card">
+            <h2>Git</h2>
+
+            <span class="plugin-tag"> Development Tool </span>
+
+            <p>
+              Adds Git integration to BeagleEditor. Manage repositories and use
+              Git features directly from the editor.
+            </p>
+
+            <div class="plugin-actions">
+              <a
+                class="button primary"
+                href="https://github.com/beagleeditor/beagleeditor-plugins/releases/download/v1/Git.py"
+              >
+                Download
+              </a>
+
+              <a
+                class="button secondary"
+                href="https://github.com/beagleeditor/beagleeditor-plugins/blob/main/Git.py"
+              >
+                Source
+              </a>
+            </div>
+          </article>
         </div>
-        <div class="download">
-            <a href="download.html">Downloads</a>
-        </div>
-        <div class="screenshots">
-            <a href="screenshots.html">Screenshots</a>
-        </div>
-        <div class="marketplace">
-            <a href="marketplace.html">Plugins Marketplace</a>
-        </div>
-        <div class="docu">
-            <a href="docu.html">Documentation</a>
-        </div>
-        <div class="changelog">
-            <a href="changelog.html">Changelog</a>
-        </div>
-    </div>
-    <div class="plugin-name">
-        <h4>Git:</h4>
-    </div>
-    <div class="plugin-description">
-        <p>When you use BeagleEditor, it doesn't have Git integration. But this plugin, adds Git integration to BeagleEditor</p>
-    </div>
-    <div class="plugin-downloads">
-        <p><a href="https://github.com/beaglesoftware/beagleeditor-plugins/releases/download/v1/Git.py">Download</a></p>
-        <p><a href="https://github.com/beaglesoftware/beagleeditor-plugins/blob/main/Git.py">GitHub</a></p>
-    </div>
-</body>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 BeagleSoftware. All rights reserved.</p>
+    </footer>
+  </body>
 </html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>404 - Page Not Found | BeagleEditor</title>
+
+    <meta
+      name="description"
+      content="The page you are looking for does not exist."
+    />
+
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <a href="index.html" class="logo"> BeagleEditor </a>
+    </header>
+
+    <main>
+      <section class="error-page">
+        <div class="error-card">
+          <h1>404</h1>
+
+          <h2>File not found.</h2>
+
+          <p>Looks like this file was deleted, moved, or never existed.</p>
+
+          <div class="code-error">
+            <pre><code>
+Error: PageNotFound
+
+    at BeagleEditor.Web
+    at requested_route
+    at line 404
+
+</code></pre>
+          </div>
+
+          <div class="error-actions">
+            <a href="index.html" class="button primary"> Go Home </a>
+
+            <a href="docs.html" class="button secondary"> Documentation </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 BeagleSoftware. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

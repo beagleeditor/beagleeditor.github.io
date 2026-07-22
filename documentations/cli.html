@@ -1,38 +1,187 @@
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style.css">
-    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
-    <title>Beagle Editor Documentation - CLI</title>
-</head>
-<body>
-    <h1>Beagle Editor Documentation</h1>
-    <div class="links">
-        <div class="index">
-            <a href="../index.html">Home</a>
-        </div>
-        <div class="download">
-            <a href="../download.html">Downloads</a>
-        </div>
-        <div class="screenshots">
-            <a href="../screenshots.html">Screenshots</a>
-        </div>
-        <div class="marketplace">
-            <a href="../marketplace.html">Plugins Marketplace</a>
-        </div>
-        <div class="docu">
-            <a href="../docu.html">Documentation</a>
-        </div>
-        <div class="changelog">
-            <a href="../changelog.html">Changelog</a>
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>BeagleEditor Documentation - CLI</title>
+
+    <meta
+      name="description"
+      content="Information about the BeagleEditor CLI history and the upcoming BEdit Rust-based terminal editor."
+    />
+
+    <link
+      rel="shortcut icon"
+      href="../assets/favicon.ico"
+      type="image/x-icon"
+    />
+
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <a href="../index.html" class="logo"> BeagleEditor </a>
+
+      <nav class="nav-links">
+        <a href="../index.html"> Home </a>
+
+        <a href="../download.html"> Download </a>
+
+        <a href="../screenshots.html"> Screenshots </a>
+
+        <a href="../marketplace.html"> Marketplace </a>
+
+        <a href="../docs.html"> Documentation </a>
+
+        <a href="../changelog.html"> Changelog </a>
+
+        <a
+          class="github-link"
+          href="https://github.com/beagleeditor/editor"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        ☰
+      </button>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="../index.html"> Home </a>
+
+      <a href="../download.html"> Download </a>
+
+      <a href="../screenshots.html"> Screenshots </a>
+
+      <a href="../marketplace.html"> Marketplace </a>
+
+      <a href="../docs.html"> Documentation </a>
+
+      <a href="../changelog.html"> Changelog </a>
+
+      <a href="https://github.com/beagleeditor/editor"> GitHub </a>
     </div>
-    <h2>Command line interface</h2>
-    <p>An editor that was killed in BeagleEditor V2. Sorry, but bugs for this editor was hard to fix for me. You can't use it, anymore. </p>
-    <h3>Downloads</h3>
-    <p>You need to say goodbye to CLI, because it is discontinued</p>
-    <p>Look at this chart-like text:</p>
-    <h4>Beta (without GUI) -> Stable (v1) -> Deprecated (v2) -> Discontinued (v3.0.1)</h4>
-</body>
+
+    <main>
+      <section class="docs-page">
+        <article class="docs-content">
+          <h1>BeagleEditor CLI</h1>
+
+          <p class="docs-lead">
+            Learn about the history of the original BeagleEditor CLI and the
+            upcoming next-generation terminal editor.
+          </p>
+
+          <div class="warning">
+            <h2>⚠ Legacy CLI Discontinued</h2>
+
+            <p>
+              The original BeagleEditor CLI was discontinued in version 3.0.1.
+              Maintaining the old CLI became difficult due to compatibility
+              issues and technical limitations.
+            </p>
+          </div>
+
+          <h2>What happened?</h2>
+
+          <p>
+            The first BeagleEditor CLI was created as a lightweight
+            terminal-based editor. It provided a simple editing experience
+            without requiring a graphical interface.
+          </p>
+
+          <p>
+            Over time, development moved toward the desktop version of
+            BeagleEditor, allowing better support for plugins, language
+            features, and a modern user interface.
+          </p>
+
+          <h2>CLI history</h2>
+
+          <div class="feature-card">
+            <h3>Development timeline</h3>
+
+            <p>Beta → Stable v1 → Deprecated v2 → Discontinued v3.0.1</p>
+          </div>
+
+          <h2>The future: BEdit</h2>
+
+          <p>
+            A new command-line editor is coming soon:
+            <strong>BEdit</strong>.
+          </p>
+
+          <p>
+            BEdit is a next-generation terminal editor written in
+            <strong>Rust</strong>, designed to be fast, lightweight, and
+            powerful.
+          </p>
+
+          <p>
+            Unlike the old CLI, BEdit will be developed as a new project with a
+            modern architecture focused on:
+          </p>
+
+          <ul>
+            <li>High performance</li>
+
+            <li>A clean terminal user interface</li>
+
+            <li>Extensibility and plugins</li>
+
+            <li>Modern editor features</li>
+          </ul>
+
+          <h2>BEdit status</h2>
+
+          <div class="feature-card">
+            <h3>🚧 Coming Soon</h3>
+
+            <p>
+              BEdit is currently planned and under development. More
+              information, releases, and documentation will be available soon.
+            </p>
+          </div>
+
+          <h2>What should I use now?</h2>
+
+          <p>
+            For the current BeagleEditor experience, use the desktop
+            application. It provides the actively developed editor experience
+            with features such as:
+          </p>
+
+          <ul>
+            <li>Fast code editing</li>
+
+            <li>Plugin support</li>
+
+            <li>Syntax highlighting</li>
+
+            <li>Language tooling support</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 BeagleSoftware. All rights reserved.</p>
+    </footer>
+
+    <script>
+      const hamburger = document.getElementById("hamburger");
+
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      hamburger.addEventListener("click", () => {
+        mobileMenu.classList.toggle("open");
+      });
+    </script>
+  </body>
 </html>

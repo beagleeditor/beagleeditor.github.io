@@ -1,40 +1,154 @@
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
-    <title>Beagle Editor Documentation</title>
-</head>
-<body>
-    <h1>BeagleEditor Documentation</h1>
-    <div class="links">
-        <div class="index">
-            <a href="index.html">Home</a>
-        </div>
-        <div class="download">
-            <a href="download.html">Downloads</a>
-        </div>
-        <div class="screenshots">
-            <a href="screenshots.html">Screenshots</a>
-        </div>
-        <div class="marketplace">
-            <a href="marketplace.html">Plugins Marketplace</a>
-        </div>
-        <div class="docu">
-            <a href="docu.html">Documentation</a>
-        </div>
-        <div class="changelog">
-            <a href="changelog.html">Changelog</a>
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>BeagleEditor Documentation</title>
+
+    <meta
+      name="description"
+      content="Learn how to use BeagleEditor, install plugins, configure the CLI, and customize your editor."
+    />
+
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <a href="/" class="logo"> BeagleEditor </a>
+
+      <nav class="nav-links">
+        <a href="/"> Home </a>
+
+        <a href="/download.html"> Download </a>
+
+        <a href="/screenshots.html"> Screenshots </a>
+
+        <a href="/marketplace.html"> Marketplace </a>
+
+        <a href="/docs.html"> Documentation </a>
+
+        <a href="/changelog.html"> Changelog </a>
+
+        <a href="features.html">Features</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="contributing.html">Contributing</a>
+
+        <a
+          class="github-link"
+          href="https://github.com/beagleeditor/editor"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        ☰
+      </button>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="/"> Home </a>
+
+      <a href="/download.html"> Download </a>
+
+      <a href="/screenshots.html"> Screenshots </a>
+
+      <a href="/marketplace.html"> Marketplace </a>
+
+      <a href="/docs.html"> Documentation </a>
+
+      <a href="/changelog.html"> Changelog </a>
+
+      <a href="https://github.com/beagleeditor/editor"> GitHub </a>
     </div>
-    <h3>Welcome to Beagle Editor documentation</h3>
-    <h4>Contents</h4>
-    <ul>
-        <li>
-            <a href="documentations/plugins.html"><h5>Plugins</h5></a>
-            <a href="documentations/cli.html"><h5>CLI</h5></a>
-        </li>
-    </ul>
-</body>
+
+    <main>
+      <section class="hero docs-hero">
+        <div class="hero-content">
+          <h1>
+            Documentation.
+            <br />
+            Everything you need.
+          </h1>
+
+          <p class="hero-description">
+            Learn how to install, configure, and extend BeagleEditor with
+            plugins and command-line tools.
+          </p>
+        </div>
+      </section>
+
+      <section class="features">
+        <h2>Explore the documentation</h2>
+
+        <p>
+          Guides and references to help you get the most out of BeagleEditor.
+        </p>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>🧩 Plugins</h3>
+
+            <p>
+              Learn how to install, create, and manage BeagleEditor plugins.
+            </p>
+
+            <a href="documentations/plugins.html" class="button secondary">
+              Read Plugins Docs
+            </a>
+          </article>
+
+          <article class="feature-card">
+            <h3>⌨ CLI</h3>
+
+            <p>
+              Learn about BeagleEditor commands, arguments, and terminal usage.
+            </p>
+
+            <a href="documentations/cli.html" class="button secondary">
+              Read CLI Docs
+            </a>
+          </article>
+
+          <article class="feature-card">
+            <h3>⚙ Configuration</h3>
+
+            <p>Customize themes, settings, shortcuts, and editor behavior.</p>
+
+            <a href="#" class="button secondary"> Coming Soon </a>
+          </article>
+
+          <article class="feature-card">
+            <h3>🚀 Getting Started</h3>
+
+            <p>
+              A beginner-friendly guide to installing and using BeagleEditor.
+            </p>
+
+            <a href="#" class="button secondary"> Coming Soon </a>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 BeagleSoftware. All rights reserved.</p>
+    </footer>
+
+    <script>
+      const hamburger = document.getElementById("hamburger");
+
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      hamburger.addEventListener("click", () => {
+        mobileMenu.classList.toggle("open");
+      });
+    </script>
+  </body>
 </html>

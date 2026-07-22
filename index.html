@@ -1,89 +1,217 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" color-scheme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="style.css">
-  <title>BeagleEditor - A "beagleful" editor</title>
-</head>
+    <title>BeagleEditor — Lightweight Modern Code Editor</title>
 
-<body>
-  <div class="header">
-    <h1>BeagleEditor</h1>
-    <div class="links">
+    <meta
+      name="description"
+      content="BeagleEditor is a lightweight and modern code editor built for speed, simplicity, and everyday programming."
+    />
+
+    <meta name="theme-color" content="#ffffff" />
+
+    <meta
+      property="og:title"
+      content="BeagleEditor — Lightweight Code Editor"
+    />
+    <meta
+      property="og:description"
+      content="A fast and minimal code editor designed for developers who want simplicity without sacrificing power."
+    />
+    <meta property="og:image" content="assets/gradient.png" />
+    <meta property="og:type" content="website" />
+
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <a href="/" class="logo" aria-label="BeagleEditor homepage">
+        BeagleEditor
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="/download.html">Download</a>
+        <a href="/screenshots.html">Screenshots</a>
+        <a href="/marketplace.html">Marketplace</a>
+        <a href="/docs.html">Documentation</a>
+        <a href="/changelog.html">Changelog</a>
+
+        <a
+          class="github-link"
+          href="https://github.com/beagleeditor/editor"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        ☰
+      </button>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
       <a href="/">Home</a>
-      <a href="/download.html">Downloads</a>
+      <a href="/download.html">Download</a>
       <a href="/screenshots.html">Screenshots</a>
       <a href="/marketplace.html">Marketplace</a>
       <a href="/docs.html">Documentation</a>
       <a href="/changelog.html">Changelog</a>
-      <a href="https://github.com/beaglesoftware/editor">GitHub</a>
+      <a href="https://github.com/beagleeditor/editor"> GitHub </a>
+      <a href="features.html">Features</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="contributing.html">Contributing</a>
     </div>
-    <div class="github-container">
-    </div>
-    <!-- Hamburger Menu -->
-    <div class="hamburger" onclick="toggleMenu()">
-      &#9776;
-    </div>
-  </div>
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobile-menu">
-    <div class="close-btn" onclick="toggleMenu()">×</div>
-    <a href="/">Home</a>
-    <a href="/download.html">Downloads</a>
-    <a href="/screenshots.html">Screenshots</a>
-    <a href="/marketplace.html">Marketplace</a>
-    <a href="/docs.html">Documentation</a>
-    <a href="/changelog.html">Changelog</a>
-    <a href="https://github.com/beaglesoftware/editor">GitHub</a>
-  </div>
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <h1 class="hero-h1">
+            Minimal.
+            <br />
+            Lightweight.
+            <br />
+            Powerful.
+          </h1>
 
-  <div class="container">
-    <h1 style="text-align: center; font-size: 50px;">Minimal. Lightweight.<br> Powerful.</h1>
-    <button>
-      <a href="/download.html">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
-          <path d="M8 0a.5.5 0 0 1 .5.5v8.793l2.646-2.647a.5.5 0 0 1 .708.707l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 .708-.707L7.5 8.293V.5A.5.5 0 0 1 8 0z"/>
-          <path d="M0 12a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-3z"/>
-        </svg>
-        Download
-      </a>
-    </button>
-    <br><br><br><br><br><br><br>
-    <br><br><br><br>
-    <div style="text-align: center;"><img style="border-radius: 10px; filter: drop-shadow(2px 2px 100px rgb(4, 184, 244));"
-      src="screenshots/screenshot3.png" alt="BeagleEditor Screenshot"></div>
-    <br><br>
-    <h3 style="text-align: center; font-size: 40px;"><br>Autocomplete. Syntax highlighting. and so many powerful
-      features!</h3>
-    <h2 style="font-size: 40px;">Fast and lightweight. </h2>
-    <h2>You can run it as fast as possible! Note: App size may increase in new version (TypeScript)</h2>
-    <h3 style="font-size: 40px;">Support for multiple programming languages! Python, CSS, C#, C, C++, HTML,
-        JavaScript! (Rust coming soon)</h3>
-    <div style="background-color: #ffd19f; border-radius: 15px;"><br>
-      <h3>&#9888; Warning: Best for quick edit or very small projects! You need an advanced code editor/IDE if you
-        want to work on bigger projects</h3><br>
-    </div>
-    <br><br>
-    <h3 style="font-size: 40px;">Highlight syntaxes for a beautiful style!</h3>
-    <div style="text-align: center;"><img style="border-radius: 15px; filter: drop-shadow(2px 2px 100px rgb(4, 184, 244));"
-      src="screenshots/screenshot5.png" alt="Screenshot 5"></div>
-    <br><br><br><br><br><br><br><br><br><br>
-    <h3 style="font-size: 40px;">Code faster with autocompletion</h3>
-  </div>
-  <div style="text-align: center;"><img style="border-radius: 15px; filter: drop-shadow(2px 2px 100px rgb(4, 184, 244));"
-    src="screenshots/screenshot7.gif" alt="Screenshot 7"></div>
-    <br><br><br><br><br><br>
-  <div class="footer">Copyright &copy; BeagleSoftware. All rights reserved.</div>
-  <script>
-    function toggleMenu() {
-      var menu = document.getElementById("mobile-menu");
-      menu.classList.toggle("show");
-    }
-  </script>
-</body>
+          <p class="hero-description">
+            BeagleEditor is a fast, lightweight code editor designed for quick
+            edits, scripting, and everyday programming.
+          </p>
 
+          <div class="hero-buttons">
+            <a href="/download.html" class="button primary"> Download </a>
+
+            <a
+              href="https://github.com/beagleeditor/editor"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="button secondary"
+            >
+              View on GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-image">
+          <img
+            src="screenshots/screenshot3.png"
+            alt="BeagleEditor screenshot"
+            loading="eager"
+          />
+        </div>
+      </section>
+
+      <section class="features">
+        <h2>Everything you need.</h2>
+
+        <p class="section-description">
+          A focused editor experience with the tools you need for everyday
+          coding.
+        </p>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>⚡ Fast</h3>
+
+            <p>Starts quickly and stays responsive, even on older hardware.</p>
+          </article>
+
+          <article class="feature-card">
+            <h3>🧠 Smart Editing</h3>
+
+            <p>Autocomplete, syntax highlighting, and helpful editing tools.</p>
+          </article>
+
+          <article class="feature-card">
+            <h3>🌍 Multi-language</h3>
+
+            <p>
+              Support for Python, C, C++, C#, HTML, CSS, JavaScript, and more.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>🪶 Lightweight</h3>
+
+            <p>Designed to stay simple, clean, and efficient.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="showcase">
+        <div class="showcase-text">
+          <h2>Code faster.</h2>
+
+          <p>
+            Intelligent autocomplete helps you write code with fewer keystrokes
+            and less friction.
+          </p>
+        </div>
+
+        <img
+          src="screenshots/screenshot7.gif"
+          alt="BeagleEditor autocomplete demonstration"
+          loading="lazy"
+        />
+      </section>
+
+      <section class="showcase reverse">
+        <div class="showcase-text">
+          <h2>Beautiful syntax highlighting.</h2>
+
+          <p>
+            Enjoy readable code with clean themes and colorful syntax
+            highlighting.
+          </p>
+        </div>
+
+        <img
+          src="screenshots/screenshot5.png"
+          alt="BeagleEditor syntax highlighting"
+          loading="lazy"
+        />
+      </section>
+
+      <section class="warning">
+        <h2>⚠ Lightweight by design</h2>
+
+        <p>
+          BeagleEditor focuses on fast editing and everyday development. For
+          extremely large projects, a full IDE may provide additional advanced
+          tooling.
+        </p>
+      </section>
+
+      <section class="cta">
+        <div class="cta-content">
+          <h2>Ready to try BeagleEditor?</h2>
+
+          <p>Download the latest version and start coding today.</p>
+
+          <a href="/download.html" class="button primary"> Download Now </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 BeagleSoftware. All rights reserved.</p>
+    </footer>
+
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      hamburger.addEventListener("click", () => {
+        mobileMenu.classList.toggle("open");
+      });
+    </script>
+  </body>
 </html>

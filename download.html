@@ -1,178 +1,161 @@
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css"
-      rel="stylesheet"
+
+    <title>BeagleEditor - Download</title>
+
+    <meta
+      name="description"
+      content="Download BeagleEditor for Windows, macOS, and Linux."
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css" rel="stylesheet" />
+
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+
     <link rel="stylesheet" href="style.css" />
-    <title>BeagleEditor - Downloads</title>
-    <style>
-      select {
-        width: 200px;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        background-color: #f9f9f9;
-        font-size: 16px;
-        color: #333;
-        appearance: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        background-image: url('data:image/svg+xml;utf8,<svg fill="none" height="24" stroke="%23333" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><polyline points="6 9 12 15 18 9"/></svg>');
-        background-repeat: no-repeat;
-        background-position: right 10px center;
-      }
-
-      select:focus {
-        border-color: #007bff;
-        outline: none;
-        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-      }
-
-      #dlbtn {
-        padding: 10px;
-        border: 1px solid #007bff;
-        border-radius: 5px;
-        background-color: #007bff;
-        color: #fff;
-        font-size: 16px;
-        cursor: pointer;
-        width: 300px;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        position: relative;
-        overflow: hidden;
-      }
-
-      #dlbtn::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 300%;
-        height: 300%;
-        background: rgba(255, 255, 255, 0.15);
-        transition: all 0.75s ease;
-        transform: translate(-50%, -50%) rotate(45deg);
-      }
-
-      #dlbtn:hover::before {
-        width: 0;
-        height: 0;
-      }
-
-      #dlbtn:hover {
-        background: linear-gradient(45deg, #007bff, #0056b3);
-        border-color: #003f7f;
-        transform: scale(1.1) rotate(3deg);
-        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-      }
-
-      code {
-        display: block;
-        padding: 10px;
-        background-color: #f5f5f5;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        font-family: monospace;
-        white-space: pre-wrap;
-      }
-
-      .shell-keyword {
-        color: #d73a49;
-        font-weight: bold;
-      }
-
-      .shell-command {
-        color: #6f42c1;
-      }
-
-      .shell-argument {
-        color: #005cc5;
-      }
-
-      .shell-option {
-        color: #22863a;
-      }
-    </style>
   </head>
+
   <body>
-    <div class="header">
-      <h1>BeagleEditor</h1>
-      <div class="links">
-        <a href="index.html"></a>
-      </div>
-      <div class="github-container"></div>
-      <!-- Hamburger Menu -->
-      <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    <header class="header">
+      <a href="/" class="logo"> BeagleEditor </a>
+
+      <nav class="nav-links">
+        <a href="/"> Home </a>
+
+        <a href="/download.html"> Download </a>
+
+        <a href="/screenshots.html"> Screenshots </a>
+
+        <a href="/marketplace.html"> Marketplace </a>
+
+        <a href="/docs.html"> Documentation </a>
+
+        <a href="/changelog.html"> Changelog </a>
+
+        <a href="features.html">Features</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="contributing.html">Contributing</a>
+
+        <a
+          class="github-link"
+          href="https://github.com/beagleeditor/editor"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        ☰
+      </button>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="/"> Home </a>
+
+      <a href="/download.html"> Download </a>
+
+      <a href="/screenshots.html"> Screenshots </a>
+
+      <a href="/marketplace.html"> Marketplace </a>
+
+      <a href="/docs.html"> Documentation </a>
+
+      <a href="/changelog.html"> Changelog </a>
+
+      <a href="https://github.com/beagleeditor/editor"> GitHub </a>
     </div>
-    <br /><br /><br />
-    <div class="container">
-      <h2>Download BeagleEditor</h2>
-      <p>Choose your platform to download BeagleEditor</p>
-      <select id="os">
-        <option value="selectanoption">Select an option...</option>
-        <option value="windows">Windows</option>
-        <option value="mac">macOS</option>
-        <option value="linux">Linux</option>
-      </select>
-      <br><br>
-      <a id="dllink" onclick='openLink()'><button id="dlbtn">Download</button></a>
-      <br><br>
-      <pre><code style="display: none;" id="installcmd"></code></pre>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
-      <script>
-        function openLink() {
-          open("https://github.com/beaglesoftware/editor/releases/");
+
+    <main>
+      <section class="download-page">
+        <div class="download-banner">
+          <h1>Download BeagleEditor</h1>
+
+          <p>Choose your platform and start coding today.</p>
+        </div>
+
+        <div class="download-card">
+          <label for="os"> Select your platform </label>
+
+          <select id="os">
+            <option value="">Select an option...</option>
+
+            <option value="windows">Windows</option>
+
+            <option value="mac">macOS</option>
+
+            <option value="linux">Linux</option>
+          </select>
+
+          <a
+            id="download-button"
+            class="button primary"
+            href="https://github.com/beagleeditor/editor/releases"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Download
+          </a>
+
+          <div class="install-box">
+            <pre>
+<code id="install-command"></code>
+            </pre>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 BeagleSoftware. All rights reserved.</p>
+    </footer>
+
+    <script>
+      const osSelector = document.getElementById("os");
+
+      const downloadButton = document.getElementById("download-button");
+
+      const installCommand = document.getElementById("install-command");
+
+      osSelector.addEventListener("change", () => {
+        switch (osSelector.value) {
+          case "windows":
+            downloadButton.textContent = "Download for Windows";
+
+            installCommand.textContent = "";
+
+            break;
+
+          case "mac":
+            downloadButton.textContent = "Download for macOS";
+
+            installCommand.textContent = "";
+
+            break;
+
+          case "linux":
+            downloadButton.textContent = "Linux Installation";
+
+            installCommand.textContent = "";
+
+            break;
+
+          default:
+            downloadButton.textContent = "Download";
+
+            installCommand.textContent = "";
         }
-        document.getElementById("os").addEventListener("change", function () {
-          var os = document.getElementById("os").value;
-          if (os === "windows") {
-            if (document.getElementById("installcmd").style.display === "flow") {
-              document.getElementById("installcmd").style.display = "none";
-            } if (document.getElementById("dlbtn").style.display === "none") {
-              location.reload();
-            }
-            document.getElementById("dlbtn").textContent = "Download for Windows";
-          }
-          if (os === "mac") {
-            if (document.getElementById("dlbtn").style.display === "none") {
-              location.reload();
-            }
-            document.getElementById("dlbtn").textContent = "Download for macOS";
-            document.getElementById("installcmd").style.display = "flow";
-            document.getElementById("installcmd").textContent = "brew install beaglesoftware/cask/beagleeditor";
-          }
-          if (os === "linux") {
-            document.getElementById("dlbtn").style.display = "none";
-            document.getElementById("installcmd").style.display = "flow";
-            document.getElementById("installcmd").textContent = "sh -c '$(curl -fsSL  https://raw.githubusercontent.com/beaglesoftware/editor/refs/heads/main/tools/install.sh)'";
-          }
-        });
-        document.getElementById("os").addEventListener("change", function () {
-          var os = document.getElementById("os").value;
-          var codeElement = document.getElementById("installcmd");
+      });
 
-          if (os === "mac") {
-            document.getElementById("dlbtn").textContent = "Download for macOS";
-            codeElement.textContent = "brew install beaglesoftware/cask/beagleeditor";
-          } else if (os === "linux") {
-            document.getElementById("dlbtn").style.display = "none";
-            codeElement.textContent = "sh -c '$(curl -fsSL https://raw.githubusercontent.com/beaglesoftware/editor/refs/heads/main/tools/install.sh)'";
-          } else {
-            document.getElementById("dlbtn").textContent = "Download";
-            codeElement.textContent = "";
-          }
+      const hamburger = document.getElementById("hamburger");
 
-          Prism.highlightElement(codeElement);
-        });
-      </script>
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      hamburger.addEventListener("click", () => {
+        mobileMenu.classList.toggle("open");
+      });
+    </script>
   </body>
 </html>
