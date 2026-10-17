@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Editor settings &amp; themes — BeagleEditor Documentation</title>
+<meta name="description" content="Customize appearance, typography, and editing behavior.">
+<link rel="icon" href="../assets/favicon.ico"><link rel="stylesheet" href="../style.css?v=20261017-docs-sidebar">
+<script src="/theme.js" defer></script><script src="/scroll-reveal.js?v=2" defer></script><script src="/site-nav.js" defer></script>
+</head>
+<body>
+<header class="header"><a href="/" class="logo" aria-label="BeagleEditor homepage">BeagleEditor</a><nav class="nav-links" aria-label="Main navigation"><a href="/" data-nav-link>Home</a><a href="/features.html" data-nav-link>Features</a><a href="/download.html" data-nav-link>Download</a><a href="/screenshots.html" data-nav-link>Screenshots</a><a href="/docs.html" data-nav-link>Docs</a><a href="/roadmap.html" data-nav-link>Roadmap</a><a class="github-link" href="https://github.com/beagleeditor/editor" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav><button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">☰</button></header>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" inert><a href="/">Home</a><a href="/features.html">Features</a><a href="/download.html">Download</a><a href="/screenshots.html">Screenshots</a><a href="/docs.html">Docs</a><a href="/roadmap.html">Roadmap</a><a href="https://github.com/beagleeditor/editor" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav>
+<main class="extensions-docs-page docs-site-page"><div class="extensions-docs-top"><a href="../docs.html">Documentation</a><span aria-hidden="true">/</span><span>Editor settings &amp; themes</span></div><div class="extensions-docs-layout docs-site-layout"><aside class="extensions-docs-sidebar docs-site-sidebar" aria-label="Documentation navigation">
+  <p class="extensions-docs-kicker">BEAGLEEDITOR GUIDE</p><h2>Documentation</h2>
+  <nav aria-label="Documentation pages">
+    <a href="/docs.html" data-doc-page="docs.html">Welcome</a>
+    <a href="/documentations/getting-started.html" data-doc-page="getting-started.html">Getting started</a>
+    <a href="/documentations/keyboard-shortcuts.html" data-doc-page="keyboard-shortcuts.html">Keyboard shortcuts</a>
+    <a href="/documentations/editor-settings.html" data-doc-page="editor-settings.html">Editor settings &amp; themes</a>
+    <a href="/documentations/workspace-tools.html" data-doc-page="workspace-tools.html">Workspace tools</a>
+    <a href="/documentations/language-support.html" data-doc-page="language-support.html">Language support</a>
+    <a href="/documentations/troubleshooting.html" data-doc-page="troubleshooting.html">Troubleshooting</a>
+    <span class="docs-nav-group">Extensions</span>
+    <a class="docs-nav-child" href="/documentations/extensions.html" data-doc-page="extensions.html">Introduction</a>
+    <a class="docs-nav-child" href="/documentations/extensions-developers.html" data-doc-page="extensions-developers.html">For developers</a>
+    <a class="docs-nav-child" href="/documentations/extensions-quickstart.html" data-doc-page="extensions-quickstart.html">Quick start</a>
+    <a class="docs-nav-child" href="/documentations/extensions-manifest.html" data-doc-page="extensions-manifest.html">Manifest reference</a>
+    <a class="docs-nav-child" href="/documentations/extensions-api.html" data-doc-page="extensions-api.html">JavaScript API</a>
+    <a class="docs-nav-child" href="/documentations/extensions-lifecycle.html" data-doc-page="extensions-lifecycle.html">Lifecycle &amp; cleanup</a>
+    <a class="docs-nav-child" href="/documentations/extensions-themes.html" data-doc-page="extensions-themes.html">Color themes</a>
+    <a class="docs-nav-child" href="/documentations/extensions-examples.html" data-doc-page="extensions-examples.html">Examples</a>
+    <a class="docs-nav-child" href="/documentations/extensions-security.html" data-doc-page="extensions-security.html">Security &amp; troubleshooting</a>
+    <a href="/documentations/development.html" data-doc-page="development.html">Build BeagleEditor</a>
+    <a href="/documentations/cli.html" data-doc-page="cli.html">Command-line status</a>
+    <a href="/documentations/plugins.html" data-doc-page="plugins.html">Legacy plugins</a>
+  </nav>
+  <a class="extensions-docs-back" href="https://github.com/beagleeditor/editor/issues" target="_blank" rel="noopener noreferrer">Report an issue ↗</a>
+</aside><article class="extensions-docs-content docs-prose">
+<p class="extensions-docs-eyebrow">BEAGLEEDITOR GUIDE</p>
+<h1 id="editor-settings-and-color-themes">Editor Settings and Color Themes</h1>
+
+<p>Open <strong>Settings</strong> from the activity bar or press <code>Cmd+,</code> on macOS / <code>Ctrl+,</code> on Windows and Linux. Changes are stored locally and restored when BeagleEditor starts.</p>
+<h2 id="appearance">Appearance</h2>
+<ul>
+<li><strong>Interface theme:</strong> Choose Dark, Light, or Follow system.</li>
+<li><strong>Editor color theme:</strong> Choose <strong>Match interface appearance</strong> or an installed JSON color theme extension.</li>
+<li><strong>Sidebar width:</strong> Set a width from 180 to 500 pixels, or drag the sidebar divider.</li>
+</ul>
+<p>The interface theme and editor color theme are separate settings. <strong>Match interface appearance</strong> selects the built-in editor theme that follows the interface&#x27;s light/dark appearance. An installed color theme can override the editor colors independently.</p>
+<h2 id="typography">Typography</h2>
+<p>Configure the font family, font size, line height, and font ligatures. The font must be available on your system for the preferred family to render as intended.</p>
+<h2 id="text-editing">Text editing</h2>
+<p>Settings include absolute, relative, or hidden line numbers; tab size; spaces versus tab characters; indentation detection; word wrap; whitespace and control-character rendering; current-line highlighting; quick suggestions; and format-on-paste or format-on-type.</p>
+<p>Automatic formatting depends on a formatter being available for the language. Enabling a formatting option does not install a formatter or language server by itself.</p>
+<h2 id="cursor-and-code-navigation">Cursor and code navigation</h2>
+<p>Adjust cursor shape and blinking, smooth caret animation, the minimap, code folding, sticky scroll, smooth scrolling, bracket-pair colors, indentation guides, bracket guides, and automatic bracket/quote closing.</p>
+<h2 id="reset-settings">Reset settings</h2>
+<p>Choose <strong>Reset defaults</strong> to restore the default values. BeagleEditor asks for confirmation before resetting; cancel the dialog to keep your current preferences.</p>
+<h2 id="install-a-json-color-theme">Install a JSON color theme</h2>
+<p>Color themes are extensions containing data only; they do not need a JavaScript entry point.</p>
+<ol>
+<li>Open <strong>Extensions</strong> in the activity bar.</li>
+<li>Choose <strong>Install from Folder</strong> and select a theme extension folder.</li>
+<li>Enable the theme if it is disabled.</li>
+<li>Open <strong>Settings → Editor color theme</strong> and select the theme by name.</li>
+</ol>
+<p>The included <a href="https://github.com/beagleeditor/editor/tree/main/examples/extensions/midnight-teal">Midnight Teal example</a> contains <code>manifest.json</code> and <code>theme.json</code>. For the manifest format, supported theme structure, and extension lifecycle, see the <a href="/documentations/extensions.html">Extension Development Guide</a>.</p>
+</article></div></main>
+<footer class="footer"><p>© 2026 BeagleSoftware. All rights reserved.</p></footer><script src="extensions-docs.js" defer></script>
+</body></html>

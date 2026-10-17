@@ -14,148 +14,1280 @@
     <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
 
     <link rel="stylesheet" href="style.css" />
+
+    <style>
+      /* ==========================================================
+     DOWNLOAD PAGE — STEP-BY-STEP EXPERIENCE
+     ========================================================== */
+
+      .download-page {
+        overflow: hidden;
+      }
+
+      /* ==========================================================
+     SHARED
+     ========================================================== */
+
+      .download-step {
+        min-height: 100vh;
+        min-height: 100svh;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 100px 40px;
+
+        position: relative;
+      }
+
+      .download-step-inner {
+        width: min(1200px, 100%);
+
+        margin: auto;
+
+        text-align: center;
+      }
+
+      .download-step h1,
+      .download-step h2 {
+        letter-spacing: -0.065em;
+        line-height: 0.98;
+      }
+
+      .download-step h2 {
+        font-size: clamp(3rem, 7vw, 6rem);
+      }
+
+      .download-step-description {
+        max-width: 650px;
+
+        margin: 30px auto 0;
+
+        color: var(--text-secondary);
+
+        font-size: 1.2rem;
+      }
+
+      /* ==========================================================
+     STEP INDICATOR
+     ========================================================== */
+
+      .download-progress {
+        position: fixed;
+
+        right: 28px;
+        top: 50%;
+
+        z-index: 900;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 10px;
+
+        transform: translateY(-50%);
+      }
+
+      .download-progress-dot {
+        width: 9px;
+        height: 9px;
+
+        padding: 0;
+
+        border: none;
+        border-radius: 50%;
+
+        background: var(--border);
+
+        cursor: pointer;
+
+        transition:
+          transform 0.3s ease,
+          background 0.3s ease;
+      }
+
+      .download-progress-dot.active {
+        background: var(--primary);
+
+        transform: scale(1.45);
+      }
+
+      /* ==========================================================
+     STEP 01 — HERO
+     ========================================================== */
+
+      .download-step-hero {
+        min-height: calc(100vh - 90px);
+        min-height: calc(100svh - 90px);
+      }
+
+      .download-step-hero .download-step-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .download-step-hero h1 {
+        max-width: 1000px;
+
+        margin: 0;
+
+        font-size: clamp(4rem, 10vw, 8rem);
+
+        font-weight: 900;
+      }
+
+      .download-step-hero h1 span {
+        display: block;
+
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+
+        -webkit-background-clip: text;
+        background-clip: text;
+
+        color: transparent;
+      }
+
+      .download-scroll-hint {
+        margin-top: 70px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        gap: 12px;
+
+        color: var(--text-secondary);
+
+        font-size: 0.8rem;
+        font-weight: 600;
+
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+
+        animation: downloadScrollHint 2s ease-in-out infinite;
+      }
+
+      .download-scroll-arrow {
+        font-size: 1.5rem;
+      }
+
+      @keyframes downloadScrollHint {
+        0%,
+        100% {
+          transform: translateY(0);
+          opacity: 0.6;
+        }
+
+        50% {
+          transform: translateY(8px);
+          opacity: 1;
+        }
+      }
+
+      /* ==========================================================
+     STEP 02 — PLATFORM
+     ========================================================== */
+
+      .download-platform-step {
+        background: radial-gradient(
+          circle at 50% 45%,
+          rgba(96, 165, 250, 0.12),
+          transparent 40%
+        );
+      }
+
+      .platform-step-heading {
+        margin-bottom: 70px;
+      }
+
+      .platform-step-heading h2 {
+        margin-bottom: 20px;
+      }
+
+      .platform-step-heading p {
+        max-width: 600px;
+
+        margin: auto;
+
+        font-size: 1.15rem;
+      }
+
+      .platform-grid {
+        display: grid;
+
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+
+        gap: 25px;
+
+        width: min(1000px, 100%);
+
+        margin: auto;
+      }
+
+      .platform-option {
+        appearance: none;
+
+        min-height: 280px;
+
+        padding: 40px 30px;
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+        justify-content: center;
+
+        gap: 14px;
+
+        font-family: inherit;
+
+        text-align: center;
+
+        background: rgba(248, 250, 252, 0.85);
+
+        border: 1px solid var(--border);
+
+        border-radius: 30px;
+
+        box-shadow: var(--shadow-sm);
+
+        cursor: pointer;
+
+        transition:
+          transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+          box-shadow 0.4s ease,
+          border-color 0.3s ease,
+          background 0.3s ease;
+      }
+
+      .platform-option:hover {
+        transform: translateY(-12px);
+
+        background: white;
+
+        border-color: rgba(37, 99, 235, 0.3);
+
+        box-shadow: var(--shadow-lg);
+      }
+
+      .platform-option.selected {
+        transform: translateY(-10px) scale(1.025);
+
+        background: white;
+
+        border-color: var(--primary);
+
+        box-shadow:
+          0 25px 70px rgba(37, 99, 235, 0.18),
+          0 0 0 4px rgba(37, 99, 235, 0.08);
+      }
+
+      .platform-option-icon {
+        width: 80px;
+        height: 80px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+        color: var(--text);
+      }
+
+      .platform-option-icon svg,
+      .download-platform-icon svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      .platform-option[data-os="windows"] .platform-option-icon { color: #0078d4; }
+      .platform-option[data-os="mac"] .platform-option-icon { color: #171717; }
+      .platform-option[data-os="linux"] .platform-option-icon { color: #242424; }
+
+      .platform-option-name {
+        color: var(--text);
+
+        font-size: 1.3rem;
+        font-weight: 700;
+      }
+
+      .platform-option-description {
+        color: var(--text-secondary);
+
+        font-size: 0.9rem;
+      }
+
+      /* ==========================================================
+     STEP 03 — DOWNLOAD
+     ========================================================== */
+
+      .download-download-step {
+        background: radial-gradient(circle at 50% 50%, #eef2ff, #ffffff 65%);
+      }
+
+      .download-card {
+        width: min(950px, 100%);
+
+        margin: 60px auto 0;
+
+        padding: 60px;
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        align-items: center;
+
+        gap: 60px;
+
+        text-align: left;
+
+        border-radius: 35px;
+
+        background: rgba(248, 250, 252, 0.85);
+
+        border: 1px solid var(--border);
+
+        box-shadow: var(--shadow-lg);
+
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+
+      .download-card h3 {
+        margin-bottom: 15px;
+
+        font-size: 2rem;
+      }
+
+      .download-card p {
+        margin: 0;
+
+        font-size: 1.05rem;
+      }
+
+      .download-card .button {
+        margin-top: 30px;
+      }
+
+      .download-platform-icon {
+        width: 110px;
+        height: 110px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 25px;
+        color: var(--text);
+      }
+
+      .download-platform-icon[data-os="windows"] { color: #0078d4; }
+      .download-platform-icon[data-os="mac"] { color: #171717; }
+      .download-platform-icon[data-os="linux"] { color: #242424; }
+
+      /* ==========================================================
+     TERMINAL
+     ========================================================== */
+
+      .download-terminal {
+        overflow: hidden;
+
+        border-radius: 22px;
+
+        background: #111827;
+
+        box-shadow: 0 35px 80px rgba(0, 0, 0, 0.22);
+
+        transform: rotate(2deg);
+
+        transition: transform 0.4s ease;
+      }
+
+      .download-terminal:hover {
+        transform: rotate(0) scale(1.02);
+      }
+
+      .terminal-header {
+        height: 45px;
+
+        display: flex;
+        align-items: center;
+
+        padding: 0 15px;
+
+        background: #f3f4f6;
+
+        color: #4b5563;
+
+        font-size: 0.8rem;
+      }
+
+      .terminal-header > span {
+        margin-left: 15px;
+
+        font-weight: 600;
+      }
+
+      .terminal-body {
+        min-height: 180px;
+
+        padding: 30px;
+
+        display: flex;
+        align-items: flex-start;
+
+        gap: 12px;
+
+        color: #d1d5db;
+
+        font-family:
+          "SFMono-Regular", "Cascadia Code", "JetBrains Mono", monospace;
+
+        font-size: 0.9rem;
+
+        line-height: 1.7;
+      }
+
+      .terminal-prompt {
+        color: #60a5fa;
+      }
+
+      #install-command {
+        white-space: pre-wrap;
+      }
+
+      /* ==========================================================
+     STEP 04 — INSTALL
+     ========================================================== */
+
+      .download-install-step {
+        background: linear-gradient(180deg, #ffffff, #f8fafc);
+      }
+
+      .install-layout {
+        width: min(1000px, 100%);
+
+        margin: 70px auto 0;
+
+        display: grid;
+
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+
+        gap: 25px;
+      }
+
+      .install-step {
+        padding: 40px 30px;
+
+        text-align: left;
+
+        border-radius: 26px;
+
+        background: white;
+
+        border: 1px solid var(--border);
+
+        box-shadow: var(--shadow-sm);
+
+        transition:
+          transform 0.4s ease,
+          box-shadow 0.4s ease;
+      }
+
+      .install-step:hover {
+        transform: translateY(-8px);
+
+        box-shadow: var(--shadow-lg);
+      }
+
+      .install-number {
+        width: 45px;
+        height: 45px;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        margin-bottom: 30px;
+
+        border-radius: 14px;
+
+        background: rgba(37, 99, 235, 0.1);
+
+        color: var(--primary);
+
+        font-weight: 800;
+      }
+
+      .install-step h3 {
+        margin-bottom: 12px;
+
+        font-size: 1.35rem;
+      }
+
+      .install-step p {
+        margin: 0;
+      }
+
+      /* ==========================================================
+     STEP 05 — LAUNCH
+     ========================================================== */
+
+      .download-launch-step {
+        background: radial-gradient(circle at center, #eef2ff, #ffffff 65%);
+      }
+
+      .launch-icon {
+        width: 150px;
+        height: 150px;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        margin: 0 auto 45px;
+
+        border-radius: 42px;
+
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+
+        color: white;
+
+        font-size: 4.5rem;
+
+        box-shadow: 0 35px 80px rgba(37, 99, 235, 0.3);
+
+        animation: launchFloat 4s ease-in-out infinite;
+      }
+
+      @keyframes launchFloat {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-14px);
+        }
+      }
+
+      .launch-button {
+        margin-top: 40px;
+      }
+
+      /* ==========================================================
+     STEP 06 — FINAL CTA
+     ========================================================== */
+
+      .download-final-step {
+        min-height: 90vh;
+
+        background: url("assets/gradient.png") center / cover;
+
+        color: white;
+      }
+
+      .download-final-step::before {
+        content: "";
+
+        position: absolute;
+
+        inset: 0;
+
+        background: rgba(37, 99, 235, 0.4);
+      }
+
+      .download-final-step-inner {
+        position: relative;
+
+        z-index: 1;
+      }
+
+      .download-final-step .eyebrow {
+        color: white;
+      }
+
+      .download-final-step h2 {
+        color: white;
+
+        font-size: clamp(4rem, 9vw, 8rem);
+      }
+
+      .download-final-step p {
+        max-width: 650px;
+
+        margin: 30px auto 40px;
+
+        color: rgba(255, 255, 255, 0.88);
+
+        font-size: 1.2rem;
+      }
+
+      .download-final-step .button.primary {
+        background: white;
+
+        color: var(--primary);
+
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+      }
+
+      /* ==========================================================
+     REVEAL
+     ========================================================== */
+
+      .download-reveal {
+        opacity: 0;
+
+        transform: translateY(50px);
+
+        transition:
+          opacity 0.9s ease,
+          transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .download-reveal.visible {
+        opacity: 1;
+
+        transform: translateY(0);
+      }
+
+      /* ==========================================================
+     RESPONSIVE
+     ========================================================== */
+
+      @media (max-width: 900px) {
+        .download-step {
+          padding: 100px 30px;
+        }
+
+        .platform-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .platform-option {
+          min-height: 220px;
+        }
+
+        .download-card {
+          grid-template-columns: 1fr;
+
+          padding: 45px;
+
+          gap: 45px;
+        }
+
+        .install-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .download-progress {
+          display: none;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .download-step {
+          padding: 80px 20px;
+        }
+
+        .download-step-hero h1 {
+          font-size: 3.7rem;
+        }
+
+        .download-step h2 {
+          font-size: 3rem;
+        }
+
+        .download-step-description {
+          font-size: 1rem;
+        }
+
+        .download-card {
+          padding: 30px 25px;
+
+          border-radius: 25px;
+        }
+
+        .download-terminal {
+          transform: none;
+        }
+
+        .download-terminal:hover {
+          transform: none;
+        }
+
+        .terminal-body {
+          padding: 22px;
+
+          font-size: 0.8rem;
+        }
+
+        .launch-icon {
+          width: 120px;
+          height: 120px;
+
+          border-radius: 34px;
+
+          font-size: 3.5rem;
+        }
+
+        .download-final-step h2 {
+          font-size: 3.8rem;
+        }
+      }
+
+      /* ==========================================================
+     REDUCED MOTION
+     ========================================================== */
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .download-scroll-hint,
+        .launch-icon {
+          animation: none !important;
+        }
+
+        .download-reveal {
+          opacity: 1 !important;
+
+          transform: none !important;
+
+          transition: none !important;
+        }
+
+        .platform-option,
+        .install-step {
+          transition: none !important;
+        }
+      }
+    </style>
+    <script src="/theme.js" defer></script>
+    <script src="/scroll-reveal.js?v=2" defer></script>
+      <script src="/site-nav.js" defer></script>
   </head>
 
   <body>
-    <header class="header">
-      <a href="/" class="logo"> BeagleEditor </a>
+      <!-- ========================================================
+       HEADER
+       ======================================================== -->
 
-      <nav class="nav-links">
-        <a href="/"> Home </a>
-
-        <a href="/download.html"> Download </a>
-
-        <a href="/screenshots.html"> Screenshots </a>
-
-        <a href="/marketplace.html"> Marketplace </a>
-
-        <a href="/docs.html"> Documentation </a>
-
-        <a href="/changelog.html"> Changelog </a>
-
-        <a href="features.html">Features</a>
-        <a href="roadmap.html">Roadmap</a>
-        <a href="contributing.html">Contributing</a>
-
-        <a
-          class="github-link"
-          href="https://github.com/beagleeditor/editor"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GitHub
-        </a>
+      <header class="header">
+      <a href="/" class="logo" aria-label="BeagleEditor homepage">BeagleEditor</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="/" data-nav-link>Home</a>
+        <a href="/features.html" data-nav-link>Features</a>
+        <a href="/download.html" data-nav-link>Download</a>
+        <a href="/screenshots.html" data-nav-link>Screenshots</a>
+        <a href="/docs.html" data-nav-link>Docs</a>
+        <a href="/roadmap.html" data-nav-link>Roadmap</a>
+        <a class="github-link" href="https://github.com/beagleeditor/editor" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
       </nav>
-
-      <button class="hamburger" id="hamburger" aria-label="Open menu">
-        ☰
-      </button>
+      <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">☰</button>
     </header>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" inert>
+      <a href="/">Home</a>
+      <a href="/features.html">Features</a>
+      <a href="/download.html">Download</a>
+      <a href="/screenshots.html">Screenshots</a>
+      <a href="/docs.html">Docs</a>
+      <a href="/roadmap.html">Roadmap</a>
+      <a href="https://github.com/beagleeditor/editor" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    </nav>
+<!-- ========================================================
+       PAGE PROGRESS
+       ======================================================== -->
 
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="/"> Home </a>
+      <div class="download-progress" aria-label="Download progress">
+        <button
+          class="download-progress-dot active"
+          data-target="step-1"
+          aria-label="Go to introduction"
+        ></button>
 
-      <a href="/download.html"> Download </a>
+        <button
+          class="download-progress-dot"
+          data-target="step-2"
+          aria-label="Go to platform selection"
+        ></button>
 
-      <a href="/screenshots.html"> Screenshots </a>
+        <button
+          class="download-progress-dot"
+          data-target="step-3"
+          aria-label="Go to download"
+        ></button>
 
-      <a href="/marketplace.html"> Marketplace </a>
+        <button
+          class="download-progress-dot"
+          data-target="step-4"
+          aria-label="Go to installation"
+        ></button>
 
-      <a href="/docs.html"> Documentation </a>
+        <button
+          class="download-progress-dot"
+          data-target="step-5"
+          aria-label="Go to launch"
+        ></button>
 
-      <a href="/changelog.html"> Changelog </a>
+        <button
+          class="download-progress-dot"
+          data-target="step-6"
+          aria-label="Go to final section"
+        ></button>
+      </div>
 
-      <a href="https://github.com/beagleeditor/editor"> GitHub </a>
-    </div>
+      <main class="download-page">
+        <!-- ======================================================
+         STEP 01 — INTRO
+         ====================================================== -->
 
-    <main>
-      <section class="download-page">
-        <div class="download-banner">
-          <h1>Download BeagleEditor</h1>
+        <section class="download-step download-step-hero" id="step-1">
+          <div class="download-step-inner download-reveal">
+            <p class="eyebrow">LET’S GET YOU SET UP</p>
 
-          <p>Choose your platform and start coding today.</p>
-        </div>
+            <h1>
+              Your code.
+              <span>Your playground.</span>
+            </h1>
 
-        <div class="download-card">
-          <label for="os"> Select your platform </label>
+            <p class="download-step-description">
+              A lightweight code editor for curious minds, bright ideas, and
+              the occasional bug that just won’t quit.
+            </p>
 
-          <select id="os">
-            <option value="">Select an option...</option>
+            <div class="download-scroll-hint">
+              <span>Let’s roll</span>
 
-            <option value="windows">Windows</option>
-
-            <option value="mac">macOS</option>
-
-            <option value="linux">Linux</option>
-          </select>
-
-          <a
-            id="download-button"
-            class="button primary"
-            href="https://github.com/beagleeditor/editor/releases"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Download
-          </a>
-
-          <div class="install-box">
-            <pre>
-<code id="install-command"></code>
-            </pre>
+              <span class="download-scroll-arrow"> ↓ </span>
+            </div>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
 
-    <footer class="footer">
-      <p>© 2026 BeagleSoftware. All rights reserved.</p>
-    </footer>
+        <!-- ======================================================
+         STEP 02 — PLATFORM
+         ====================================================== -->
 
-    <script>
-      const osSelector = document.getElementById("os");
+        <section class="download-step download-platform-step" id="step-2">
+          <div class="download-step-inner">
+            <div class="platform-step-heading download-reveal">
+              <p class="eyebrow">STEP 01</p>
 
-      const downloadButton = document.getElementById("download-button");
+              <h2>Pick your playground.</h2>
 
-      const installCommand = document.getElementById("install-command");
+              <p>
+                Windows, macOS, or Linux? Choose your home base and we’ll fetch
+                the right build for your machine.
+              </p>
+            </div>
 
-      osSelector.addEventListener("change", () => {
-        switch (osSelector.value) {
-          case "windows":
-            downloadButton.textContent = "Download for Windows";
+            <div class="platform-grid">
+              <button class="platform-option" data-os="windows" type="button">
+                <span class="platform-option-icon" aria-hidden="true">
+                  <svg viewBox="0 0 48 48" role="img"><path fill="currentColor" d="M4 9.5 21 7v15H4zm20-2.8 20-2.9V22H24zM4 25h17v15L4 37.5zm20 0h20v18.2l-20-2.8z"/></svg>
+                </span>
 
-            installCommand.textContent = "";
+                <span class="platform-option-name"> Windows </span>
 
-            break;
+                <span class="platform-option-description">
+                  Windows 10 and later
+                </span>
+              </button>
 
-          case "mac":
-            downloadButton.textContent = "Download for macOS";
+              <button class="platform-option" data-os="mac" type="button">
+                <span class="platform-option-icon" aria-hidden="true">
+                  <svg viewBox="0 0 48 48" role="img"><path fill="currentColor" d="M34.7 25.5c0-5.2 4.3-7.7 4.5-7.8-2.4-3.6-6.2-4.1-7.5-4.2-3.2-.3-6.2 1.9-7.8 1.9s-4.1-1.9-6.8-1.8c-3.5.1-6.7 2-8.5 5.1-3.6 6.2-.9 15.3 2.6 20.3 1.7 2.4 3.6 5.1 6.2 5 2.5-.1 3.5-1.6 6.6-1.6s4 1.6 6.7 1.5c2.8-.1 4.5-2.5 6.1-5 1.9-2.8 2.6-5.6 2.6-5.7-.1 0-4.7-1.8-4.7-7.7ZM29.5 10.1c1.4-1.7 2.3-4 2.1-6.3-2 .1-4.5 1.3-5.9 3-1.3 1.5-2.4 3.9-2.1 6.1 2.2.2 4.5-1.1 5.9-2.8Z"/></svg>
+                </span>
 
-            installCommand.textContent = "";
+                <span class="platform-option-name"> macOS </span>
 
-            break;
+                <span class="platform-option-description">
+                  Apple Silicon & Intel
+                </span>
+              </button>
 
-          case "linux":
-            downloadButton.textContent = "Linux Installation";
+              <button class="platform-option" data-os="linux" type="button">
+                <span class="platform-option-icon" aria-hidden="true">
+                  <svg viewBox="0 0 48 48" role="img"><path fill="#252525" d="M24 3c-7.7 0-12.8 6.8-12.8 14.2 0 4.1 1.3 7.1 2.8 9.5-3.4 2.1-5.5 5.8-6.8 10.1-.7 2.4.5 4.1 2.4 4.1 2.8 0 5.3-3.7 7.1-6.1 2.2 1.2 4.7 1.8 7.3 1.8s5.1-.6 7.3-1.8c1.8 2.4 4.3 6.1 7.1 6.1 1.9 0 3.1-1.7 2.4-4.1-1.3-4.3-3.4-8-6.8-10.1 1.5-2.4 2.8-5.4 2.8-9.5C36.8 9.8 31.7 3 24 3Z"/><path fill="#fff" d="M15 17c0-4.9 3.7-8.5 9-8.5s9 3.6 9 8.5c0 5.2-4 8.6-9 8.6s-9-3.4-9-8.6Z"/><ellipse cx="20" cy="16.5" rx="1.5" ry="2" fill="#222"/><ellipse cx="28" cy="16.5" rx="1.5" ry="2" fill="#222"/><path fill="#f2a900" d="m24 19 4 3.1-4 1.5-4-1.5zM15 36l-4 4.5 7 .2 2.5-3.4zm18 0 4 4.5-7 .2-2.5-3.4z"/></svg>
+                </span>
 
-            installCommand.textContent = "";
+                <span class="platform-option-name"> Linux </span>
 
-            break;
+                <span class="platform-option-description">
+                  Modern Linux distributions
+                </span>
+              </button>
+            </div>
+          </div>
+        </section>
 
-          default:
-            downloadButton.textContent = "Download";
+        <!-- ======================================================
+         STEP 03 — DOWNLOAD
+         ====================================================== -->
 
-            installCommand.textContent = "";
+        <section class="download-step download-download-step" id="step-3">
+          <div class="download-step-inner">
+            <p class="eyebrow download-reveal">STEP 02</p>
+
+            <h2 class="download-reveal">Fetch your editor.</h2>
+
+            <p
+              class="download-step-description download-reveal"
+              id="download-description"
+            >
+              Pick a platform above and your download adventure is underway.
+            </p>
+
+            <div class="download-card download-reveal">
+              <div>
+                <div class="download-platform-icon" id="platform-icon" aria-hidden="true"><span>Select an OS</span></div>
+
+                <h3 id="download-title">Pick your platform</h3>
+
+                <p id="download-card-description">
+                  Choose your operating system to find your build.
+                </p>
+
+                <a
+                  id="download-button"
+                  class="button primary"
+                  href="https://github.com/beagleeditor/editor/releases"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Browse releases
+                </a>
+              </div>
+
+              <div class="download-terminal">
+                <div class="terminal-header">
+                  <div class="window-controls">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+
+                  <span> Installation </span>
+                </div>
+
+                <div class="terminal-body">
+                  <span class="terminal-prompt"> $ </span>
+
+                  <code id="install-command"> Select a platform... </code>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ======================================================
+         STEP 04 — INSTALL
+         ====================================================== -->
+
+        <section class="download-step download-install-step" id="step-4">
+          <div class="download-step-inner">
+            <p class="eyebrow download-reveal">STEP 03</p>
+
+            <h2 class="download-reveal">Make it at home.</h2>
+
+            <p class="download-step-description download-reveal">
+              No setup maze. Just follow a couple of familiar steps and you’re in.
+            </p>
+
+            <div class="install-layout">
+              <article class="install-step download-reveal">
+                <div class="install-number">01</div>
+
+                <h3>Open your package</h3>
+
+                <p>
+                  Open the installer or package you downloaded in the previous
+                  step.
+                </p>
+              </article>
+
+              <article class="install-step download-reveal">
+                <div class="install-number">02</div>
+
+                <h3>Bring it aboard</h3>
+
+                <p>
+                  Follow your operating system's normal installation process.
+                </p>
+              </article>
+
+              <article class="install-step download-reveal">
+                <div class="install-number">03</div>
+
+                <h3>All systems go</h3>
+
+                <p>
+                  Once installation finishes, BeagleEditor is ready to launch.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- ======================================================
+         STEP 05 — LAUNCH
+         ====================================================== -->
+
+        <section class="download-step download-launch-step" id="step-5">
+          <div class="download-step-inner download-reveal">
+            <div class="launch-icon">B</div>
+
+            <p class="eyebrow">STEP 04</p>
+
+            <h2>Let the ideas loose.</h2>
+
+            <p class="download-step-description">
+              Fire up BeagleEditor, open a project, and see where your curiosity takes you.
+            </p>
+
+            <a href="/" class="button primary launch-button">
+              Meet BeagleEditor
+            </a>
+          </div>
+        </section>
+
+        <!-- ======================================================
+         STEP 06 — FINAL CTA
+         ====================================================== -->
+
+        <section class="download-step download-final-step" id="step-6">
+          <div
+            class="download-step-inner download-final-step-inner download-reveal"
+          >
+            <p class="eyebrow">BEAGLEEDITOR</p>
+
+            <h2>Ready to make a little magic?</h2>
+
+            <p>Grab BeagleEditor and turn that “what if?” into something real.</p>
+
+            <a
+              href="https://github.com/beagleeditor/editor/releases"
+              class="button primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Find your download
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <!-- ========================================================
+       FOOTER
+       ======================================================== -->
+
+      <footer class="footer">
+        <p>© 2026 BeagleSoftware. All rights reserved.</p>
+      </footer>
+
+      <script>
+        /* ========================================================
+       MOBILE MENU
+       ======================================================== */
+/* ========================================================
+       REVEAL
+       ======================================================== */
+
+        const revealElements = document.querySelectorAll(".download-reveal");
+
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+              }
+            });
+          },
+          {
+            threshold: 0.15,
+          },
+        );
+
+        revealElements.forEach((element) => {
+          revealObserver.observe(element);
+        });
+
+        /* ========================================================
+       PLATFORM SELECTION
+       ======================================================== */
+
+        const platformOptions = document.querySelectorAll(".platform-option");
+
+        const platformIcon = document.getElementById("platform-icon");
+
+        const platformLabel = document.getElementById("platform-label");
+
+        const downloadTitle = document.getElementById("download-title");
+
+        const downloadDescription = document.getElementById(
+          "download-description",
+        );
+
+        const downloadCardDescription = document.getElementById(
+          "download-card-description",
+        );
+
+        const downloadButton = document.getElementById("download-button");
+
+        const installCommand = document.getElementById("install-command");
+
+        const platformData = {
+          windows: {
+            icon: '<svg viewBox="0 0 48 48"><path fill="currentColor" d="M4 9.5 21 7v15H4zm20-2.8 20-2.9V22H24zM4 25h17v15L4 37.5zm20 0h20v18.2l-20-2.8z"/></svg>',
+
+            title: "BeagleEditor for Windows.",
+
+            description:
+              "Download the latest Windows release and start coding.",
+
+            cardDescription: "Compatible with Windows 10 and later.",
+
+            button: "Download for Windows",
+
+            command: "Download the latest .exe installer from GitHub Releases.",
+          },
+
+          mac: {
+            icon: '<svg viewBox="0 0 48 48"><path fill="currentColor" d="M34.7 25.5c0-5.2 4.3-7.7 4.5-7.8-2.4-3.6-6.2-4.1-7.5-4.2-3.2-.3-6.2 1.9-7.8 1.9s-4.1-1.9-6.8-1.8c-3.5.1-6.7 2-8.5 5.1-3.6 6.2-.9 15.3 2.6 20.3 1.7 2.4 3.6 5.1 6.2 5 2.5-.1 3.5-1.6 6.6-1.6s4 1.6 6.7 1.5c2.8-.1 4.5-2.5 6.1-5 1.9-2.8 2.6-5.6 2.6-5.7-.1 0-4.7-1.8-4.7-7.7ZM29.5 10.1c1.4-1.7 2.3-4 2.1-6.3-2 .1-4.5 1.3-5.9 3-1.3 1.5-2.4 3.9-2.1 6.1 2.2.2 4.5-1.1 5.9-2.8Z"/></svg>',
+
+            title: "BeagleEditor for macOS.",
+
+            description: "Built for a fast and lightweight macOS experience.",
+
+            cardDescription: "Available for Apple Silicon and Intel Macs.",
+
+            button: "Download for macOS",
+
+            command: "Download the latest .dmg from GitHub Releases.",
+          },
+
+          linux: {
+            icon: '<svg viewBox="0 0 48 48"><path fill="#252525" d="M24 3c-7.7 0-12.8 6.8-12.8 14.2 0 4.1 1.3 7.1 2.8 9.5-3.4 2.1-5.5 5.8-6.8 10.1-.7 2.4.5 4.1 2.4 4.1 2.8 0 5.3-3.7 7.1-6.1 2.2 1.2 4.7 1.8 7.3 1.8s5.1-.6 7.3-1.8c1.8 2.4 4.3 6.1 7.1 6.1 1.9 0 3.1-1.7 2.4-4.1-1.3-4.3-3.4-8-6.8-10.1 1.5-2.4 2.8-5.4 2.8-9.5C36.8 9.8 31.7 3 24 3Z"/><path fill="#fff" d="M15 17c0-4.9 3.7-8.5 9-8.5s9 3.6 9 8.5c0 5.2-4 8.6-9 8.6s-9-3.4-9-8.6Z"/><ellipse cx="20" cy="16.5" rx="1.5" ry="2" fill="#222"/><ellipse cx="28" cy="16.5" rx="1.5" ry="2" fill="#222"/><path fill="#f2a900" d="m24 19 4 3.1-4 1.5-4-1.5zM15 36l-4 4.5 7 .2 2.5-3.4zm18 0 4 4.5-7 .2-2.5-3.4z"/></svg>',
+
+            title: "BeagleEditor for Linux.",
+
+            description:
+              "Download the latest Linux release for your distribution.",
+
+            cardDescription:
+              "Choose the package appropriate for your distribution.",
+
+            button: "View Linux releases",
+
+            command: "Download the latest Linux package from GitHub Releases.",
+          },
+        };
+
+        function selectPlatform(os) {
+          const data = platformData[os];
+
+          if (!data) {
+            return;
+          }
+
+          platformOptions.forEach((option) => {
+            option.classList.toggle("selected", option.dataset.os === os);
+          });
+
+          platformIcon.dataset.os = os;
+          platformIcon.innerHTML = data.icon;
+
+          downloadTitle.textContent = data.title;
+
+          downloadDescription.textContent = data.description;
+
+          downloadCardDescription.textContent = data.cardDescription;
+
+          downloadButton.textContent = data.button;
+
+          installCommand.textContent = data.command;
+
+          /*
+           * Move the user into the next
+           * step after choosing a platform.
+           */
+
+          document.getElementById("step-3").scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
         }
-      });
 
-      const hamburger = document.getElementById("hamburger");
+        platformOptions.forEach((option) => {
+          option.addEventListener("click", () => {
+            selectPlatform(option.dataset.os);
+          });
+        });
 
-      const mobileMenu = document.getElementById("mobileMenu");
+        /* ========================================================
+       PAGE PROGRESS
+       ======================================================== */
 
-      hamburger.addEventListener("click", () => {
-        mobileMenu.classList.toggle("open");
-      });
-    </script>
-  </body>
+        const progressDots = document.querySelectorAll(
+          ".download-progress-dot",
+        );
+
+        const sections = document.querySelectorAll(".download-step");
+
+        const sectionObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) {
+                return;
+              }
+
+              progressDots.forEach((dot) => {
+                dot.classList.toggle(
+                  "active",
+                  dot.dataset.target === entry.target.id,
+                );
+              });
+            });
+          },
+          {
+            threshold: 0.55,
+          },
+        );
+
+        sections.forEach((section) => {
+          sectionObserver.observe(section);
+        });
+
+        progressDots.forEach((dot) => {
+          dot.addEventListener("click", () => {
+            const target = document.getElementById(dot.dataset.target);
+
+            if (!target) {
+              return;
+            }
+
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          });
+        });
+
+        /* ========================================================
+       REDUCED MOTION
+       ======================================================== */
+
+        const reducedMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        );
+
+        if (reducedMotion.matches) {
+          document.documentElement.classList.add("reduce-motion");
+        }
+      </script>
+    </body>
 </html>

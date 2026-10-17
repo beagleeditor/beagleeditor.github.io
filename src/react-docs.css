@@ -1,0 +1,52 @@
+/* React documentation layout shares the BeagleEditor site tokens and typography. */
+.react-docs-shell { min-height: calc(100vh - 150px); display: grid; grid-template-columns: 270px minmax(0, 1fr); background: var(--background); color: var(--text); font-family: Inter, "Segoe UI", sans-serif; }
+.react-docs-sidebar { position: sticky; top: 0; align-self: start; display: flex; flex-direction: column; height: fit-content; max-height: 100vh; padding: 24px 17px 18px; border-right: 1px solid var(--border); background: var(--bg, var(--surface)); overflow-y: auto; }
+.react-docs-brand { display: flex; align-items: center; gap: 11px; padding: 3px 7px 22px; }
+.react-docs-mark { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 7px; background: var(--primary); color: var(--background); font-weight: 850; font-size: 20px; }
+.react-docs-brand strong, .react-docs-brand small { display: block; }
+.react-docs-brand strong { font-size: 14px; letter-spacing: -.025em; }
+.react-docs-brand small { margin-top: 3px; color: var(--text-secondary); font-size: 11px; }
+.react-docs-search { display: flex; align-items: center; gap: 8px; margin: 0 3px 22px; padding: 9px 11px; border: 1px solid var(--border); border-radius: 5px; background: var(--surface); color: var(--text-secondary); }
+.react-docs-search input { width: 100%; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--text); font: inherit; font-size: 12px; }
+.react-docs-sidebar nav { display: block; flex: 0 0 auto; height: auto; min-height: 0; align-content: start; justify-content: flex-start; }
+.react-docs-nav-group { display: flex; flex-direction: column; gap: 0; margin: 0 0 8px; }
+.react-docs-nav-group h2 { margin: 0 0 7px; padding: 0 10px; color: var(--text-secondary); font-size: 10px; font-weight: 750; letter-spacing: .09em; text-transform: uppercase; }
+.react-docs-nav-group a { display: block; margin: 0; padding: 6px 10px; border-left: 2px solid transparent; border-radius: 0 5px 5px 0; color: var(--text-secondary); font-size: 12px; line-height: 1.4; text-decoration: none; transition: background .15s ease, color .15s ease; }
+.react-docs-nav-group a:hover { color: var(--text); background: var(--surface-2); }
+.react-docs-nav-group a.active { border-left-color: var(--primary); background: color-mix(in srgb, var(--primary) 10%, transparent); color: var(--text); font-weight: 650; }
+.react-docs-report { margin-top: 12px; padding: 12px 9px 4px; color: var(--text-secondary); font-size: 12px; text-decoration: none; }
+.react-docs-report:hover { color: var(--primary); }
+.react-docs-main { width: min(100%, 1040px); min-width: 0; margin: 0 auto; padding: 30px clamp(22px, 5vw, 72px) 36px; }
+.react-docs-breadcrumb { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; margin-bottom: 36px; color: var(--text-secondary); font-size: 11px; }
+.react-docs-breadcrumb a { color: var(--text-secondary); text-decoration: none; }
+.react-docs-breadcrumb a:hover { color: var(--primary); }
+.react-docs-article { max-width: 790px; margin: 0 auto; font-size: 15px; line-height: 1.55; overflow-wrap: anywhere; }
+.react-docs-article h1 { margin: 0 0 8px; font-size: clamp(2.1rem, 5vw, 3.15rem); line-height: 1.1; letter-spacing: -.055em; font-weight: 800; }
+.react-docs-article h2 { margin: .45em 0 .15em; padding-top: 0; border-top: 0; font-size: 1.55rem; line-height: 1.3; letter-spacing: -.035em; }
+.react-docs-article h3 { margin: .3em 0 .1em; font-size: 1.2rem; line-height: 1.3; }
+.react-docs-article p, .react-docs-article ul, .react-docs-article ol { margin: .15em 0; }
+.react-docs-article li { margin: 0; padding-left: .2em; }
+.react-docs-article a { color: var(--primary); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.react-docs-article img { display: block; max-width: 100%; height: auto; margin: 24px auto; border-radius: 8px; }
+.react-docs-article blockquote { margin: 1.5em 0; padding: 4px 0 4px 18px; border-left: 3px solid var(--primary); color: var(--text-secondary); }
+.react-docs-article pre { max-width: 100%; overflow-x: auto; padding: 18px; border: 1px solid var(--border); border-radius: 5px; background: var(--surface); font-size: 12px; line-height: 1.65; }
+.react-docs-article :not(pre) > code { padding: .15em .4em; border: 1px solid var(--border); border-radius: 4px; background: var(--surface-2); font-size: .87em; }
+.react-docs-article table { display: block; width: 100%; overflow-x: auto; border-collapse: collapse; font-size: 13px; }
+.react-docs-article th, .react-docs-article td { padding: 10px 13px; border: 1px solid var(--border); text-align: left; vertical-align: top; }
+.react-docs-article th { background: var(--surface); color: var(--text); font-weight: 700; }
+.react-docs-article tr:nth-child(even) td { background: color-mix(in srgb, var(--surface) 55%, transparent); }
+.react-docs-pager { display: flex; justify-content: space-between; gap: 16px; max-width: 790px; margin: 55px auto 25px; }
+.react-docs-page-link { display: flex; flex-direction: column; gap: 6px; max-width: 48%; padding: 14px 16px; border: 1px solid var(--border); border-radius: 5px; background: var(--surface); color: var(--text); cursor: pointer; text-align: left; }
+.react-docs-page-link:hover { border-color: var(--primary); }
+.react-docs-page-link span { color: var(--text-secondary); font-size: 11px; }
+.react-docs-page-link strong { font-size: 13px; }
+.react-docs-page-link.next { margin-left: auto; text-align: right; }
+.react-docs-footer { max-width: 790px; margin: 30px auto 0; padding-top: 20px; border-top: 1px solid var(--border); color: var(--text-secondary); font-size: 11px; }
+.react-docs-footer a { color: var(--text-secondary); }
+.react-docs-no-results { padding: 0 10px; color: var(--text-secondary); font-size: 12px; }
+.site-menu-scrim { position: fixed; z-index: 1000; inset: 0; border: 0; background: rgb(0 0 0 / 35%); }
+.mobile-theme-toggle { margin: 7px 4px; padding: 12px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); color: var(--text); text-align: left; }
+.legacy-page-test { padding: 32px; }
+@media (max-width: 850px) { .react-docs-shell { grid-template-columns: 230px minmax(0, 1fr); } .react-docs-sidebar { padding-inline: 12px; } .react-docs-main { padding-inline: 25px; } }
+@media (max-width: 680px) { .react-docs-shell { display: block; } .react-docs-sidebar { position: static; height: auto; max-height: none; padding: 16px 18px 8px; border-right: 0; border-bottom: 1px solid var(--border); } .react-docs-brand { padding-bottom: 14px; } .react-docs-sidebar nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 12px; } .react-docs-nav-group { margin-bottom: 8px; } .react-docs-nav-group h2 { grid-column: 1 / -1; } .react-docs-nav-group a { padding: 7px; } .react-docs-report { padding-top: 8px; } .react-docs-main { padding: 22px 18px 30px; } .react-docs-breadcrumb { margin-bottom: 25px; } .react-docs-article { font-size: 14px; } .react-docs-article h1 { font-size: 2.1rem; } }
+@media (prefers-reduced-motion: reduce) { .react-docs-nav-group a { transition: none; } }

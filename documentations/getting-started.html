@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Getting started — BeagleEditor Documentation</title>
+<meta name="description" content="Start here if you are new to BeagleEditor.">
+<link rel="icon" href="../assets/favicon.ico"><link rel="stylesheet" href="../style.css?v=20261017-docs-sidebar">
+<script src="/theme.js" defer></script><script src="/scroll-reveal.js?v=2" defer></script><script src="/site-nav.js" defer></script>
+</head>
+<body>
+<header class="header"><a href="/" class="logo" aria-label="BeagleEditor homepage">BeagleEditor</a><nav class="nav-links" aria-label="Main navigation"><a href="/" data-nav-link>Home</a><a href="/features.html" data-nav-link>Features</a><a href="/download.html" data-nav-link>Download</a><a href="/screenshots.html" data-nav-link>Screenshots</a><a href="/docs.html" data-nav-link>Docs</a><a href="/roadmap.html" data-nav-link>Roadmap</a><a class="github-link" href="https://github.com/beagleeditor/editor" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav><button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">☰</button></header>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" inert><a href="/">Home</a><a href="/features.html">Features</a><a href="/download.html">Download</a><a href="/screenshots.html">Screenshots</a><a href="/docs.html">Docs</a><a href="/roadmap.html">Roadmap</a><a href="https://github.com/beagleeditor/editor" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav>
+<main class="extensions-docs-page docs-site-page"><div class="extensions-docs-top"><a href="../docs.html">Documentation</a><span aria-hidden="true">/</span><span>Getting started</span></div><div class="extensions-docs-layout docs-site-layout"><aside class="extensions-docs-sidebar docs-site-sidebar" aria-label="Documentation navigation">
+  <p class="extensions-docs-kicker">BEAGLEEDITOR GUIDE</p><h2>Documentation</h2>
+  <nav aria-label="Documentation pages">
+    <a href="/docs.html" data-doc-page="docs.html">Welcome</a>
+    <a href="/documentations/getting-started.html" data-doc-page="getting-started.html">Getting started</a>
+    <a href="/documentations/keyboard-shortcuts.html" data-doc-page="keyboard-shortcuts.html">Keyboard shortcuts</a>
+    <a href="/documentations/editor-settings.html" data-doc-page="editor-settings.html">Editor settings &amp; themes</a>
+    <a href="/documentations/workspace-tools.html" data-doc-page="workspace-tools.html">Workspace tools</a>
+    <a href="/documentations/language-support.html" data-doc-page="language-support.html">Language support</a>
+    <a href="/documentations/troubleshooting.html" data-doc-page="troubleshooting.html">Troubleshooting</a>
+    <span class="docs-nav-group">Extensions</span>
+    <a class="docs-nav-child" href="/documentations/extensions.html" data-doc-page="extensions.html">Introduction</a>
+    <a class="docs-nav-child" href="/documentations/extensions-developers.html" data-doc-page="extensions-developers.html">For developers</a>
+    <a class="docs-nav-child" href="/documentations/extensions-quickstart.html" data-doc-page="extensions-quickstart.html">Quick start</a>
+    <a class="docs-nav-child" href="/documentations/extensions-manifest.html" data-doc-page="extensions-manifest.html">Manifest reference</a>
+    <a class="docs-nav-child" href="/documentations/extensions-api.html" data-doc-page="extensions-api.html">JavaScript API</a>
+    <a class="docs-nav-child" href="/documentations/extensions-lifecycle.html" data-doc-page="extensions-lifecycle.html">Lifecycle &amp; cleanup</a>
+    <a class="docs-nav-child" href="/documentations/extensions-themes.html" data-doc-page="extensions-themes.html">Color themes</a>
+    <a class="docs-nav-child" href="/documentations/extensions-examples.html" data-doc-page="extensions-examples.html">Examples</a>
+    <a class="docs-nav-child" href="/documentations/extensions-security.html" data-doc-page="extensions-security.html">Security &amp; troubleshooting</a>
+    <a href="/documentations/development.html" data-doc-page="development.html">Build BeagleEditor</a>
+    <a href="/documentations/cli.html" data-doc-page="cli.html">Command-line status</a>
+    <a href="/documentations/plugins.html" data-doc-page="plugins.html">Legacy plugins</a>
+  </nav>
+  <a class="extensions-docs-back" href="https://github.com/beagleeditor/editor/issues" target="_blank" rel="noopener noreferrer">Report an issue ↗</a>
+</aside><article class="extensions-docs-content docs-prose">
+<p class="extensions-docs-eyebrow">BEAGLEEDITOR GUIDE</p>
+<h1 id="getting-started">Getting Started</h1>
+
+<p>This guide covers the first few minutes with BeagleEditor.</p>
+<h2 id="open-a-project">Open a project</h2>
+<ol>
+<li>Launch BeagleEditor.</li>
+<li>Choose <strong>Open Folder</strong> and select your project directory.</li>
+<li>Select a file in the Explorer to open it in the editor.</li>
+<li>Edit the file and use <strong>Save</strong> (<code>Cmd+S</code> on macOS or <code>Ctrl+S</code> on Windows/Linux).</li>
+</ol>
+<p>The welcome screen also offers <strong>New File</strong> and <strong>Open File</strong>. Folders you open are listed under Recent Folders for quick access later.</p>
+<h2 id="know-the-interface">Know the interface</h2>
+<ul>
+<li><strong>Activity bar:</strong> Switch between Explorer, Search, Source Control, Extensions, and Settings.</li>
+<li><strong>Explorer:</strong> Browse the current workspace, open files, and create or manage files and folders.</li>
+<li><strong>Editor tabs:</strong> Switch between open documents. Unsaved changes are indicated by the tab state.</li>
+<li><strong>Bottom panel:</strong> Open Problems to review diagnostics, or Terminal to run shell commands.</li>
+<li><strong>Status bar:</strong> View editor status and open the Problems or Terminal panel.</li>
+<li><strong>Command palette:</strong> Search for available actions instead of hunting through the interface.</li>
+</ul>
+<h2 id="open-files-quickly">Open files quickly</h2>
+<ul>
+<li>Use <strong>Quick Open</strong> (<code>Cmd+P</code> on macOS; <code>Ctrl+P</code> on Windows/Linux) to filter workspace files by name.</li>
+<li>Use the <strong>Command Palette</strong> (<code>Cmd+Shift+P</code> or <code>Ctrl+Shift+P</code>) to find commands such as Format Document, Show Search, or Open Settings.</li>
+<li>Use <strong>Search</strong> in the activity bar to find text across files in the current workspace.</li>
+</ul>
+<h2 id="customize-the-editor">Customize the editor</h2>
+<p>Open <strong>Settings</strong> from the activity bar or use <code>Cmd+,</code> / <code>Ctrl+,</code>. You can adjust the interface theme, editor color theme, font, line numbers, indentation, cursor, code folding, and other editing preferences. Settings are persisted between sessions.</p>
+<p>For language-aware completion, navigation, diagnostics, and formatting, install the appropriate language server for your language. See <a href="/documentations/language-support.html">Language Support</a>.</p>
+<h2 id="work-safely">Work safely</h2>
+<p>Save important edits before closing or switching projects. Review file-operation prompts and error messages; if an operation fails, resolve the reported problem rather than assuming it succeeded. Only install JavaScript extensions you trust. JSON color themes do not execute JavaScript.</p>
+<p>Continue with <a href="/documentations/keyboard-shortcuts.html">Keyboard Shortcuts</a> or <a href="/documentations/workspace-tools.html">Workspace Tools</a>.</p>
+</article></div></main>
+<footer class="footer"><p>© 2026 BeagleSoftware. All rights reserved.</p></footer><script src="extensions-docs.js" defer></script>
+</body></html>

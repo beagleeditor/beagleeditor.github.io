@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workspace tools — BeagleEditor Documentation</title>
+<meta name="description" content="Use Explorer, Search, Git, terminal, Problems, Run, and Debug.">
+<link rel="icon" href="../assets/favicon.ico"><link rel="stylesheet" href="../style.css?v=20261017-docs-sidebar">
+<script src="/theme.js" defer></script><script src="/scroll-reveal.js?v=2" defer></script><script src="/site-nav.js" defer></script>
+</head>
+<body>
+<header class="header"><a href="/" class="logo" aria-label="BeagleEditor homepage">BeagleEditor</a><nav class="nav-links" aria-label="Main navigation"><a href="/" data-nav-link>Home</a><a href="/features.html" data-nav-link>Features</a><a href="/download.html" data-nav-link>Download</a><a href="/screenshots.html" data-nav-link>Screenshots</a><a href="/docs.html" data-nav-link>Docs</a><a href="/roadmap.html" data-nav-link>Roadmap</a><a class="github-link" href="https://github.com/beagleeditor/editor" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav><button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">☰</button></header>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" inert><a href="/">Home</a><a href="/features.html">Features</a><a href="/download.html">Download</a><a href="/screenshots.html">Screenshots</a><a href="/docs.html">Docs</a><a href="/roadmap.html">Roadmap</a><a href="https://github.com/beagleeditor/editor" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav>
+<main class="extensions-docs-page docs-site-page"><div class="extensions-docs-top"><a href="../docs.html">Documentation</a><span aria-hidden="true">/</span><span>Workspace tools</span></div><div class="extensions-docs-layout docs-site-layout"><aside class="extensions-docs-sidebar docs-site-sidebar" aria-label="Documentation navigation">
+  <p class="extensions-docs-kicker">BEAGLEEDITOR GUIDE</p><h2>Documentation</h2>
+  <nav aria-label="Documentation pages">
+    <a href="/docs.html" data-doc-page="docs.html">Welcome</a>
+    <a href="/documentations/getting-started.html" data-doc-page="getting-started.html">Getting started</a>
+    <a href="/documentations/keyboard-shortcuts.html" data-doc-page="keyboard-shortcuts.html">Keyboard shortcuts</a>
+    <a href="/documentations/editor-settings.html" data-doc-page="editor-settings.html">Editor settings &amp; themes</a>
+    <a href="/documentations/workspace-tools.html" data-doc-page="workspace-tools.html">Workspace tools</a>
+    <a href="/documentations/language-support.html" data-doc-page="language-support.html">Language support</a>
+    <a href="/documentations/troubleshooting.html" data-doc-page="troubleshooting.html">Troubleshooting</a>
+    <span class="docs-nav-group">Extensions</span>
+    <a class="docs-nav-child" href="/documentations/extensions.html" data-doc-page="extensions.html">Introduction</a>
+    <a class="docs-nav-child" href="/documentations/extensions-developers.html" data-doc-page="extensions-developers.html">For developers</a>
+    <a class="docs-nav-child" href="/documentations/extensions-quickstart.html" data-doc-page="extensions-quickstart.html">Quick start</a>
+    <a class="docs-nav-child" href="/documentations/extensions-manifest.html" data-doc-page="extensions-manifest.html">Manifest reference</a>
+    <a class="docs-nav-child" href="/documentations/extensions-api.html" data-doc-page="extensions-api.html">JavaScript API</a>
+    <a class="docs-nav-child" href="/documentations/extensions-lifecycle.html" data-doc-page="extensions-lifecycle.html">Lifecycle &amp; cleanup</a>
+    <a class="docs-nav-child" href="/documentations/extensions-themes.html" data-doc-page="extensions-themes.html">Color themes</a>
+    <a class="docs-nav-child" href="/documentations/extensions-examples.html" data-doc-page="extensions-examples.html">Examples</a>
+    <a class="docs-nav-child" href="/documentations/extensions-security.html" data-doc-page="extensions-security.html">Security &amp; troubleshooting</a>
+    <a href="/documentations/development.html" data-doc-page="development.html">Build BeagleEditor</a>
+    <a href="/documentations/cli.html" data-doc-page="cli.html">Command-line status</a>
+    <a href="/documentations/plugins.html" data-doc-page="plugins.html">Legacy plugins</a>
+  </nav>
+  <a class="extensions-docs-back" href="https://github.com/beagleeditor/editor/issues" target="_blank" rel="noopener noreferrer">Report an issue ↗</a>
+</aside><article class="extensions-docs-content docs-prose">
+<p class="extensions-docs-eyebrow">BEAGLEEDITOR GUIDE</p>
+<h1 id="workspace-tools">Workspace Tools</h1>
+
+<p>BeagleEditor groups project navigation and common development tools around the current workspace folder.</p>
+<h2 id="explorer">Explorer</h2>
+<p>Open a folder to populate the Explorer. Select a file to open it. Use the Explorer actions to create a file or folder, refresh the listing, or close the workspace. When creating a file or folder inline, enter a name and confirm; Escape cancels the operation. Rename and delete actions are available on eligible items.</p>
+<p>File operations can fail because of permissions, invalid names, or filesystem state. Read the displayed error and verify the destination before retrying. BeagleEditor avoids overwriting an existing destination during rename and does not follow a symbolic link when deleting its link entry.</p>
+<h2 id="quick-open">Quick Open</h2>
+<p>Press <code>Cmd+P</code> / <code>Ctrl+P</code> to filter workspace files by name. Use arrow keys and Enter to open a result. The file list respects Git ignore rules, so ignored build outputs and dependencies are generally excluded.</p>
+<h2 id="search-in-files">Search in files</h2>
+<p>Select <strong>Search</strong> in the activity bar and type a text query. Results show the matching file, line number, and line text. Select a result to open the file at that line. Search is case-insensitive and scans readable text files in the workspace; files that cannot be read as text are skipped. Git-ignored paths are excluded.</p>
+<h2 id="source-control">Source Control</h2>
+<p>Open <strong>Source Control</strong> to work with Git in the current workspace:</p>
+<ol>
+<li>If the folder is not yet a repository, choose <strong>Initialize Repository</strong>.</li>
+<li>Review the unstaged changes and stage the files you want to include.</li>
+<li>Unstage a file if you change your mind.</li>
+<li>Enter a commit message and create the commit.</li>
+<li>Use <strong>Pull</strong> or <strong>Push</strong> to synchronize with the configured remote.</li>
+</ol>
+<p>Git must be installed and available to the application. Configure remotes and authentication using your normal Git setup. Review staged changes and the commit message before committing; pull/push can fail if the repository has conflicts, no remote, or missing credentials.</p>
+<p>Select a changed filename to open the Monaco diff editor. Unstaged diffs compare the working tree with the index (or <code>HEAD</code> when the file is not staged); staged diffs compare the index with <code>HEAD</code>. Untracked files appear with an empty original side.</p>
+<h2 id="terminal">Terminal</h2>
+<p>Open Terminal from the bottom panel or use the terminal toggle shortcut (Ctrl+backtick). BeagleEditor starts your configured default shell (<code>$SHELL</code> on macOS/Linux, or <code>COMSPEC</code> on Windows) inside a real pseudo-terminal. It supports interactive programs, shell history, terminal control sequences and colors, terminal resizing, Ctrl+C, and programs such as <code>vim</code> and <code>htop</code>. Sessions remain alive when the panel is hidden; create multiple sessions, switch between tabs, or split the view to watch two sessions at once. Closing a session terminates its shell.</p>
+<p>Use the search action to find text in terminal scrollback, copy selected text, and click recognized <code>path:line[:column]</code> locations in compiler output to open that location in the editor. The task action detects common project commands from <code>Cargo.toml</code>, <code>package.json</code> scripts, Flutter <code>pubspec.yaml</code>, Python test configuration, and <code>Makefile</code>; tasks are only run when selected. Terminal output is rendered by xterm.js, with a 10,000-line scrollback buffer. Hiding the panel does not stop processes, but closing the application or an individual terminal ends that terminal session.</p>
+<p>The terminal runs a shell process with your user permissions. Commands can modify or delete files and access your environment, so run only commands you understand and trust.</p>
+<h2 id="problems">Problems</h2>
+<p>The Problems panel collects diagnostics reported for open documents by available language tooling. Select a problem to jump to its file and location. The panel can only show diagnostics that BeagleEditor or a configured language server provides; an empty list does not guarantee that code is error-free.</p>
+<h2 id="code-actions">Code actions</h2>
+<p>When a configured language server provides code actions, invoke <strong>Quick Fix…</strong> from the editor context menu or press <code>Cmd+.</code> on macOS / <code>Ctrl+.</code> on Windows and Linux. Actions that include text edits can be applied directly. Availability depends on the language server and the current document diagnostics.</p>
+<h2 id="run-and-debug">Run and Debug</h2>
+<p>Open <strong>Run and Debug</strong> in the activity bar. Set the executable in <strong>Program / executable</strong>, enter one argument per line, and optionally set a working directory. Run starts the process and streams stdout and stderr into the panel; use Stop to terminate it.</p>
+<p>Debug uses the Debug Adapter Protocol (DAP). Install a compatible adapter such as <code>lldb-dap</code>, set its executable and optional arguments, and configure the program and working directory. Enter comma-separated line numbers to set breakpoints in the active file before launch. Continue, Step Over, Pause, and Stop send standard DAP requests. Debug adapters and launch arguments are stored locally in BeagleEditor settings on this machine; adapter availability and launch fields can vary by debugger.</p>
+</article></div></main>
+<footer class="footer"><p>© 2026 BeagleSoftware. All rights reserved.</p></footer><script src="extensions-docs.js" defer></script>
+</body></html>

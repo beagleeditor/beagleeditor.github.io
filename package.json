@@ -1,0 +1,23 @@
+{
+  "name": "beagleeditor-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build && node scripts/assemble-pages.mjs",
+    "preview": "vite preview --host 0.0.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.7.0",
+    "vite": "^5.4.21"
+  },
+  "dependencies": {
+    "html-react-parser": "^6.1.8",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.18.4",
+    "rehype-raw": "^7.0.0",
+    "remark-gfm": "^4.0.1"
+  }
+}

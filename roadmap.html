@@ -8,74 +8,76 @@
 
     <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
+      <script src="/theme.js" defer></script>
+      <script src="/scroll-reveal.js?v=2" defer></script>
+      <script src="/site-nav.js" defer></script>
   </head>
 
   <body>
     <header class="header">
-      <a href="index.html" class="logo"> BeagleEditor </a>
-
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="features.html">Features</a>
-        <a href="roadmap.html">Roadmap</a>
-        <a href="docs.html">Documentation</a>
-        <a href="changelog.html">Changelog</a>
+      <a href="/" class="logo" aria-label="BeagleEditor homepage">BeagleEditor</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="/" data-nav-link>Home</a>
+        <a href="/features.html" data-nav-link>Features</a>
+        <a href="/download.html" data-nav-link>Download</a>
+        <a href="/screenshots.html" data-nav-link>Screenshots</a>
+        <a href="/docs.html" data-nav-link>Docs</a>
+        <a href="/roadmap.html" data-nav-link>Roadmap</a>
+        <a class="github-link" href="https://github.com/beagleeditor/editor" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
       </nav>
+      <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">☰</button>
     </header>
-
-    <main>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" inert>
+      <a href="/">Home</a>
+      <a href="/features.html">Features</a>
+      <a href="/download.html">Download</a>
+      <a href="/screenshots.html">Screenshots</a>
+      <a href="/docs.html">Docs</a>
+      <a href="/roadmap.html">Roadmap</a>
+      <a href="https://github.com/beagleeditor/editor" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    </nav>
+<main>
       <section class="roadmap-page">
         <h1>Roadmap</h1>
-
-        <p class="hero-description">The future direction of BeagleEditor.</p>
+        <p class="hero-description">Where BeagleEditor is today—and where we want to take it next. Priorities may change as the project evolves.</p>
 
         <div class="roadmap-grid">
           <section class="feature-card">
-            <h2>✅ Completed</h2>
-
+            <h2>Available now</h2>
             <ul>
-              <li>Explorer</li>
-
-              <li>Tabs</li>
-
-              <li>Quick Open</li>
-
-              <li>Session Restore</li>
-
-              <li>Markdown Preview</li>
-
-              <li>Beagle Themes</li>
+              <li>Workspace Explorer, file operations, and multi-tab editing</li>
+              <li>Quick Open and command palette</li>
+              <li>Session restoration and recent workspaces</li>
+              <li>Markdown preview with synchronized scrolling</li>
+              <li>Integrated terminal, search, Git, and Problems panels</li>
+              <li>Language-server diagnostics, completion, navigation, and formatting</li>
+              <li>JavaScript extensions and installable JSON color themes</li>
+              <li>Run and debug workflows</li>
             </ul>
           </section>
 
           <section class="feature-card">
-            <h2>🚧 In Progress</h2>
-
+            <h2>Near-term priorities</h2>
             <ul>
-              <li>Better plugin API</li>
-
-              <li>More language support</li>
-
-              <li>Improved editor performance</li>
-
-              <li>Better Linux support</li>
-
-              <li>BEdit CLI (Rust)</li>
+              <li>Make extension discovery, installation, and management smoother</li>
+              <li>Improve reliability and responsiveness in larger workspaces</li>
+              <li>Refine terminal, Git, and debugging workflows</li>
+              <li>Broaden language-server guidance and compatibility testing</li>
+              <li>Polish keyboard navigation, accessibility, and small-screen layouts</li>
             </ul>
           </section>
 
           <section class="feature-card">
-            <h2>📅 Planned</h2>
-
+            <h2>Longer-term direction</h2>
             <ul>
-              <li>Extension manager</li>
-
-              <li>LSP integration</li>
-
-              <li>More customization options</li>
+              <li>More useful workspace-wide navigation and code intelligence</li>
+              <li>A clearer, more capable extension ecosystem with better discovery and documentation</li>
+              <li>More flexible editor customization and workspace preferences</li>
+              <li>Consistent packaging and release experience across Windows, macOS, and Linux</li>
             </ul>
           </section>
         </div>
+        <p class="hero-description">This roadmap describes current direction, not guaranteed release dates. Follow development and report issues on <a href="https://github.com/beagleeditor/editor" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
       </section>
     </main>
 

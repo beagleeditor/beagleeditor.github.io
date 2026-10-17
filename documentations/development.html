@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Development setup — BeagleEditor Documentation</title>
+<meta name="description" content="Build, test, and contribute to the desktop application.">
+<link rel="icon" href="../assets/favicon.ico"><link rel="stylesheet" href="../style.css?v=20261017-docs-sidebar">
+<script src="/theme.js" defer></script><script src="/scroll-reveal.js?v=2" defer></script><script src="/site-nav.js" defer></script>
+</head>
+<body>
+<header class="header"><a href="/" class="logo" aria-label="BeagleEditor homepage">BeagleEditor</a><nav class="nav-links" aria-label="Main navigation"><a href="/" data-nav-link>Home</a><a href="/features.html" data-nav-link>Features</a><a href="/download.html" data-nav-link>Download</a><a href="/screenshots.html" data-nav-link>Screenshots</a><a href="/docs.html" data-nav-link>Docs</a><a href="/roadmap.html" data-nav-link>Roadmap</a><a class="github-link" href="https://github.com/beagleeditor/editor" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav><button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">☰</button></header>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" inert><a href="/">Home</a><a href="/features.html">Features</a><a href="/download.html">Download</a><a href="/screenshots.html">Screenshots</a><a href="/docs.html">Docs</a><a href="/roadmap.html">Roadmap</a><a href="https://github.com/beagleeditor/editor" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav>
+<main class="extensions-docs-page docs-site-page"><div class="extensions-docs-top"><a href="../docs.html">Documentation</a><span aria-hidden="true">/</span><span>Development setup</span></div><div class="extensions-docs-layout docs-site-layout"><aside class="extensions-docs-sidebar docs-site-sidebar" aria-label="Documentation navigation">
+  <p class="extensions-docs-kicker">BEAGLEEDITOR GUIDE</p><h2>Documentation</h2>
+  <nav aria-label="Documentation pages">
+    <a href="/docs.html" data-doc-page="docs.html">Welcome</a>
+    <a href="/documentations/getting-started.html" data-doc-page="getting-started.html">Getting started</a>
+    <a href="/documentations/keyboard-shortcuts.html" data-doc-page="keyboard-shortcuts.html">Keyboard shortcuts</a>
+    <a href="/documentations/editor-settings.html" data-doc-page="editor-settings.html">Editor settings &amp; themes</a>
+    <a href="/documentations/workspace-tools.html" data-doc-page="workspace-tools.html">Workspace tools</a>
+    <a href="/documentations/language-support.html" data-doc-page="language-support.html">Language support</a>
+    <a href="/documentations/troubleshooting.html" data-doc-page="troubleshooting.html">Troubleshooting</a>
+    <span class="docs-nav-group">Extensions</span>
+    <a class="docs-nav-child" href="/documentations/extensions.html" data-doc-page="extensions.html">Introduction</a>
+    <a class="docs-nav-child" href="/documentations/extensions-developers.html" data-doc-page="extensions-developers.html">For developers</a>
+    <a class="docs-nav-child" href="/documentations/extensions-quickstart.html" data-doc-page="extensions-quickstart.html">Quick start</a>
+    <a class="docs-nav-child" href="/documentations/extensions-manifest.html" data-doc-page="extensions-manifest.html">Manifest reference</a>
+    <a class="docs-nav-child" href="/documentations/extensions-api.html" data-doc-page="extensions-api.html">JavaScript API</a>
+    <a class="docs-nav-child" href="/documentations/extensions-lifecycle.html" data-doc-page="extensions-lifecycle.html">Lifecycle &amp; cleanup</a>
+    <a class="docs-nav-child" href="/documentations/extensions-themes.html" data-doc-page="extensions-themes.html">Color themes</a>
+    <a class="docs-nav-child" href="/documentations/extensions-examples.html" data-doc-page="extensions-examples.html">Examples</a>
+    <a class="docs-nav-child" href="/documentations/extensions-security.html" data-doc-page="extensions-security.html">Security &amp; troubleshooting</a>
+    <a href="/documentations/development.html" data-doc-page="development.html">Build BeagleEditor</a>
+    <a href="/documentations/cli.html" data-doc-page="cli.html">Command-line status</a>
+    <a href="/documentations/plugins.html" data-doc-page="plugins.html">Legacy plugins</a>
+  </nav>
+  <a class="extensions-docs-back" href="https://github.com/beagleeditor/editor/issues" target="_blank" rel="noopener noreferrer">Report an issue ↗</a>
+</aside><article class="extensions-docs-content docs-prose">
+<p class="extensions-docs-eyebrow">BEAGLEEDITOR GUIDE</p>
+<h1 id="development-setup">Development Setup</h1>
+
+<p>BeagleEditor uses a Vite + React + TypeScript frontend and a Rust/Tauri 2 desktop backend. Bun manages frontend dependencies and scripts.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li><a href="https://bun.sh/">Bun</a></li>
+<li><a href="https://www.rust-lang.org/tools/install">Rust toolchain</a></li>
+<li>Platform-specific dependencies required by <a href="https://v2.tauri.app/start/prerequisites/">Tauri 2</a></li>
+</ul>
+<p>On Linux, install the prerequisites for your distribution, including the required WebKitGTK development packages. On macOS, install the Apple command-line developer tools. On Windows, follow Tauri&#x27;s Windows setup guide.</p>
+<h2 id="install-and-run">Install and run</h2>
+<p>From the repository root:</p>
+<pre><code class="language-sh">bun install
+bun run tauri dev
+</code></pre>
+<p>This runs the Vite development server and launches the desktop app through Tauri. To run only the frontend in a browser for UI work, use <code>bun run dev</code>; native Tauri commands will not work as they do in the desktop app.</p>
+<h2 id="production-build">Production build</h2>
+<pre><code class="language-sh">bun run build
+bun run tauri build
+</code></pre>
+<p>The first command type-checks TypeScript and creates the frontend production bundle. The second packages the desktop application for the current platform. Tauri bundle output is written under <code>src-tauri/target/release/bundle/</code> for a standard build; target-specific builds may use a target-triple directory under <code>src-tauri/target/</code>.</p>
+<h2 id="rust-quality-checks">Rust quality checks</h2>
+<pre><code class="language-sh">cargo fmt --manifest-path src-tauri/Cargo.toml -- --check
+cargo test --offline --manifest-path src-tauri/Cargo.toml
+cargo clippy --offline --manifest-path src-tauri/Cargo.toml --all-targets -- -D warnings
+</code></pre>
+<p>Offline checks require the Rust dependencies to already be cached. If they are not, run the equivalent Cargo commands without <code>--offline</code> when network access is available.</p>
+<h2 id="project-map">Project map</h2>
+<pre><code class="language-text">src/                  React UI and TypeScript application logic
+  components/         Editor panels and reusable interface components
+  lib/                Settings and frontend helpers
+src-tauri/            Rust/Tauri desktop backend
+  src/fs.rs           File and extension operations
+  src/git.rs          Git integration
+  src/lsp/            Language-server integration
+  src/search.rs       Workspace file and text search
+  src/terminal.rs     Shell process management
+docs/                 User and developer documentation
+examples/extensions/  Example JavaScript extension and JSON theme
+</code></pre>
+<h2 id="contributing-changes">Contributing changes</h2>
+<p>Keep changes focused, preserve unrelated work in the working tree, and document user-facing behavior when it changes. Before submitting, run the frontend build, Rust formatting check, tests, Clippy, and <code>git diff --check</code> as appropriate for the files changed. For extension API changes, update <a href="/documentations/extensions.html">Extension Development</a> and the example extensions.</p>
+<h2 id="release-workflow">Release workflow</h2>
+<p>The GitHub Actions workflow at <code>.github/workflows/publish.yml</code> builds platform artifacts. Pushing a version tag matching <code>v*</code> also triggers the release-publishing job, which attaches installer assets to a GitHub Release. Check the Actions run and confirm every platform build and the publish job succeed before announcing the release. Never reuse an existing release tag for different contents.</p>
+</article></div></main>
+<footer class="footer"><p>© 2026 BeagleSoftware. All rights reserved.</p></footer><script src="extensions-docs.js" defer></script>
+</body></html>

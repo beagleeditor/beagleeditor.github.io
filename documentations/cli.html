@@ -4,12 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>BeagleEditor Documentation - CLI</title>
+    <title>Command-line editor status — BeagleEditor Documentation</title>
 
-    <meta
-      name="description"
-      content="Information about the BeagleEditor CLI history and the upcoming BEdit Rust-based terminal editor."
-    />
+    <meta name="description" content="Status of the retired standalone BeagleEditor CLI and the integrated terminal in the desktop app.">
 
     <link
       rel="shortcut icon"
@@ -17,171 +14,65 @@
       type="image/x-icon"
     />
 
-    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../style.css?v=20261017-docs-sidebar" />
+      <script src="/theme.js" defer></script>
+      <script src="/scroll-reveal.js?v=2" defer></script>
+      <script src="/site-nav.js" defer></script>
   </head>
 
   <body>
     <header class="header">
-      <a href="../index.html" class="logo"> BeagleEditor </a>
-
-      <nav class="nav-links">
-        <a href="../index.html"> Home </a>
-
-        <a href="../download.html"> Download </a>
-
-        <a href="../screenshots.html"> Screenshots </a>
-
-        <a href="../marketplace.html"> Marketplace </a>
-
-        <a href="../docs.html"> Documentation </a>
-
-        <a href="../changelog.html"> Changelog </a>
-
-        <a
-          class="github-link"
-          href="https://github.com/beagleeditor/editor"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GitHub
-        </a>
+      <a href="/" class="logo" aria-label="BeagleEditor homepage">BeagleEditor</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="/" data-nav-link>Home</a>
+        <a href="/features.html" data-nav-link>Features</a>
+        <a href="/download.html" data-nav-link>Download</a>
+        <a href="/screenshots.html" data-nav-link>Screenshots</a>
+        <a href="/docs.html" data-nav-link>Docs</a>
+        <a href="/roadmap.html" data-nav-link>Roadmap</a>
+        <a class="github-link" href="https://github.com/beagleeditor/editor" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
       </nav>
-
-      <button class="hamburger" id="hamburger" aria-label="Open menu">
-        ☰
-      </button>
+      <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">☰</button>
     </header>
-
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="../index.html"> Home </a>
-
-      <a href="../download.html"> Download </a>
-
-      <a href="../screenshots.html"> Screenshots </a>
-
-      <a href="../marketplace.html"> Marketplace </a>
-
-      <a href="../docs.html"> Documentation </a>
-
-      <a href="../changelog.html"> Changelog </a>
-
-      <a href="https://github.com/beagleeditor/editor"> GitHub </a>
-    </div>
-
-    <main>
-      <section class="docs-page">
-        <article class="docs-content">
-          <h1>BeagleEditor CLI</h1>
-
-          <p class="docs-lead">
-            Learn about the history of the original BeagleEditor CLI and the
-            upcoming next-generation terminal editor.
-          </p>
-
-          <div class="warning">
-            <h2>⚠ Legacy CLI Discontinued</h2>
-
-            <p>
-              The original BeagleEditor CLI was discontinued in version 3.0.1.
-              Maintaining the old CLI became difficult due to compatibility
-              issues and technical limitations.
-            </p>
-          </div>
-
-          <h2>What happened?</h2>
-
-          <p>
-            The first BeagleEditor CLI was created as a lightweight
-            terminal-based editor. It provided a simple editing experience
-            without requiring a graphical interface.
-          </p>
-
-          <p>
-            Over time, development moved toward the desktop version of
-            BeagleEditor, allowing better support for plugins, language
-            features, and a modern user interface.
-          </p>
-
-          <h2>CLI history</h2>
-
-          <div class="feature-card">
-            <h3>Development timeline</h3>
-
-            <p>Beta → Stable v1 → Deprecated v2 → Discontinued v3.0.1</p>
-          </div>
-
-          <h2>The future: BEdit</h2>
-
-          <p>
-            A new command-line editor is coming soon:
-            <strong>BEdit</strong>.
-          </p>
-
-          <p>
-            BEdit is a next-generation terminal editor written in
-            <strong>Rust</strong>, designed to be fast, lightweight, and
-            powerful.
-          </p>
-
-          <p>
-            Unlike the old CLI, BEdit will be developed as a new project with a
-            modern architecture focused on:
-          </p>
-
-          <ul>
-            <li>High performance</li>
-
-            <li>A clean terminal user interface</li>
-
-            <li>Extensibility and plugins</li>
-
-            <li>Modern editor features</li>
-          </ul>
-
-          <h2>BEdit status</h2>
-
-          <div class="feature-card">
-            <h3>🚧 Coming Soon</h3>
-
-            <p>
-              BEdit is currently planned and under development. More
-              information, releases, and documentation will be available soon.
-            </p>
-          </div>
-
-          <h2>What should I use now?</h2>
-
-          <p>
-            For the current BeagleEditor experience, use the desktop
-            application. It provides the actively developed editor experience
-            with features such as:
-          </p>
-
-          <ul>
-            <li>Fast code editing</li>
-
-            <li>Plugin support</li>
-
-            <li>Syntax highlighting</li>
-
-            <li>Language tooling support</li>
-          </ul>
-        </article>
-      </section>
-    </main>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" inert>
+      <a href="/">Home</a>
+      <a href="/features.html">Features</a>
+      <a href="/download.html">Download</a>
+      <a href="/screenshots.html">Screenshots</a>
+      <a href="/docs.html">Docs</a>
+      <a href="/roadmap.html">Roadmap</a>
+      <a href="https://github.com/beagleeditor/editor" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    </nav>
+<main class="extensions-docs-page docs-site-page"><div class="extensions-docs-top"><a href="../docs.html">Documentation</a><span aria-hidden="true">/</span><span>Command-line editor status</span></div><div class="extensions-docs-layout docs-site-layout"><aside class="extensions-docs-sidebar docs-site-sidebar" aria-label="Documentation navigation">
+  <p class="extensions-docs-kicker">BEAGLEEDITOR GUIDE</p><h2>Documentation</h2>
+  <nav aria-label="Documentation pages">
+    <a href="/docs.html" data-doc-page="docs.html">Welcome</a>
+    <a href="/documentations/getting-started.html" data-doc-page="getting-started.html">Getting started</a>
+    <a href="/documentations/keyboard-shortcuts.html" data-doc-page="keyboard-shortcuts.html">Keyboard shortcuts</a>
+    <a href="/documentations/editor-settings.html" data-doc-page="editor-settings.html">Editor settings &amp; themes</a>
+    <a href="/documentations/workspace-tools.html" data-doc-page="workspace-tools.html">Workspace tools</a>
+    <a href="/documentations/language-support.html" data-doc-page="language-support.html">Language support</a>
+    <a href="/documentations/troubleshooting.html" data-doc-page="troubleshooting.html">Troubleshooting</a>
+    <span class="docs-nav-group">Extensions</span>
+    <a class="docs-nav-child" href="/documentations/extensions.html" data-doc-page="extensions.html">Introduction</a>
+    <a class="docs-nav-child" href="/documentations/extensions-developers.html" data-doc-page="extensions-developers.html">For developers</a>
+    <a class="docs-nav-child" href="/documentations/extensions-quickstart.html" data-doc-page="extensions-quickstart.html">Quick start</a>
+    <a class="docs-nav-child" href="/documentations/extensions-manifest.html" data-doc-page="extensions-manifest.html">Manifest reference</a>
+    <a class="docs-nav-child" href="/documentations/extensions-api.html" data-doc-page="extensions-api.html">JavaScript API</a>
+    <a class="docs-nav-child" href="/documentations/extensions-lifecycle.html" data-doc-page="extensions-lifecycle.html">Lifecycle &amp; cleanup</a>
+    <a class="docs-nav-child" href="/documentations/extensions-themes.html" data-doc-page="extensions-themes.html">Color themes</a>
+    <a class="docs-nav-child" href="/documentations/extensions-examples.html" data-doc-page="extensions-examples.html">Examples</a>
+    <a class="docs-nav-child" href="/documentations/extensions-security.html" data-doc-page="extensions-security.html">Security &amp; troubleshooting</a>
+    <a href="/documentations/development.html" data-doc-page="development.html">Build BeagleEditor</a>
+    <a href="/documentations/cli.html" data-doc-page="cli.html">Command-line status</a>
+    <a href="/documentations/plugins.html" data-doc-page="plugins.html">Legacy plugins</a>
+  </nav>
+  <a class="extensions-docs-back" href="https://github.com/beagleeditor/editor/issues" target="_blank" rel="noopener noreferrer">Report an issue ↗</a>
+</aside><article class="extensions-docs-content docs-prose"><p class="extensions-docs-eyebrow">TOOLING STATUS</p><h1>Command-line tools</h1><p class="docs-lead">BeagleEditor is currently a desktop editor. The former standalone CLI is discontinued; the desktop app includes an integrated terminal for running your normal development tools.</p><div class="docs-callout docs-callout-warning"><strong>Compatibility note:</strong> Do not rely on old standalone CLI commands or assume they are included with current desktop releases.</div><h2>Use the integrated terminal</h2><p>Open the Terminal panel to run your shell, build tools, Git, language servers, and other command-line programs in the context of your workspace. Terminal sessions use your configured system shell and run with your user permissions.</p><p><a class="button primary" href="workspace-tools.html#terminal">Read the terminal guide →</a></p><h2>What happened to the old CLI?</h2><p>The earlier terminal-based editor was discontinued. Its commands and behavior are not part of the current desktop app's supported interface.</p><h2>Is a new standalone CLI available?</h2><p>This website does not currently document a supported standalone BeagleEditor CLI release. Check the <a href="https://github.com/beagleeditor/editor/releases" target="_blank" rel="noopener noreferrer">official releases</a> for the current downloadable application and release notes.</p><nav class="extensions-docs-pager" aria-label="Documentation navigation"><a href="../docs.html">← Documentation home</a><a href="extensions.html">Extension development →</a></nav></article></div></main>
 
     <footer class="footer">
       <p>© 2026 BeagleSoftware. All rights reserved.</p>
     </footer>
-
-    <script>
-      const hamburger = document.getElementById("hamburger");
-
-      const mobileMenu = document.getElementById("mobileMenu");
-
-      hamburger.addEventListener("click", () => {
-        mobileMenu.classList.toggle("open");
-      });
-    </script>
-  </body>
+<script src="/documentations/extensions-docs.js" defer></script>
+</body>
 </html>

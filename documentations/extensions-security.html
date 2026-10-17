@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BeagleEditor Extensions — Security and troubleshooting</title>
+  <meta name="description" content="Extension security model, limitations, and troubleshooting steps." />
+  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="../style.css?v=20261017-docs-sidebar" />
+  <script src="/theme.js" defer></script>
+  <script src="/scroll-reveal.js?v=2" defer></script>
+  <script src="/site-nav.js" defer></script>
+  <script src="/documentations/extensions-docs.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <a href="/" class="logo" aria-label="BeagleEditor homepage">BeagleEditor</a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="/" data-nav-link>Home</a><a href="/features.html" data-nav-link>Features</a><a href="/download.html" data-nav-link>Download</a><a href="/screenshots.html" data-nav-link>Screenshots</a><a href="/docs.html" data-nav-link>Docs</a><a href="/roadmap.html" data-nav-link>Roadmap</a><a class="github-link" href="https://github.com/beagleeditor/editor" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+    <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">☰</button>
+  </header>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" inert>
+    <a href="/">Home</a><a href="/features.html">Features</a><a href="/download.html">Download</a><a href="/screenshots.html">Screenshots</a><a href="/docs.html">Docs</a><a href="/roadmap.html">Roadmap</a><a href="https://github.com/beagleeditor/editor" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+  </nav>
+  <main class="extensions-docs-page docs-site-page">
+    <div class="extensions-docs-top"><a href="../docs.html">Documentation</a><span aria-hidden="true">/</span><span>Extensions API</span></div>
+    <section class="docs-page extensions-docs-layout docs-site-layout">
+      <aside class="extensions-docs-sidebar docs-site-sidebar" aria-label="Documentation navigation">
+  <p class="extensions-docs-kicker">BEAGLEEDITOR GUIDE</p><h2>Documentation</h2>
+  <nav aria-label="Documentation pages">
+    <a href="/docs.html" data-doc-page="docs.html">Welcome</a>
+    <a href="/documentations/getting-started.html" data-doc-page="getting-started.html">Getting started</a>
+    <a href="/documentations/keyboard-shortcuts.html" data-doc-page="keyboard-shortcuts.html">Keyboard shortcuts</a>
+    <a href="/documentations/editor-settings.html" data-doc-page="editor-settings.html">Editor settings &amp; themes</a>
+    <a href="/documentations/workspace-tools.html" data-doc-page="workspace-tools.html">Workspace tools</a>
+    <a href="/documentations/language-support.html" data-doc-page="language-support.html">Language support</a>
+    <a href="/documentations/troubleshooting.html" data-doc-page="troubleshooting.html">Troubleshooting</a>
+    <span class="docs-nav-group">Extensions</span>
+    <a class="docs-nav-child" href="/documentations/extensions.html" data-doc-page="extensions.html">Introduction</a>
+    <a class="docs-nav-child" href="/documentations/extensions-developers.html" data-doc-page="extensions-developers.html">For developers</a>
+    <a class="docs-nav-child" href="/documentations/extensions-quickstart.html" data-doc-page="extensions-quickstart.html">Quick start</a>
+    <a class="docs-nav-child" href="/documentations/extensions-manifest.html" data-doc-page="extensions-manifest.html">Manifest reference</a>
+    <a class="docs-nav-child" href="/documentations/extensions-api.html" data-doc-page="extensions-api.html">JavaScript API</a>
+    <a class="docs-nav-child" href="/documentations/extensions-lifecycle.html" data-doc-page="extensions-lifecycle.html">Lifecycle &amp; cleanup</a>
+    <a class="docs-nav-child" href="/documentations/extensions-themes.html" data-doc-page="extensions-themes.html">Color themes</a>
+    <a class="docs-nav-child" href="/documentations/extensions-examples.html" data-doc-page="extensions-examples.html">Examples</a>
+    <a class="docs-nav-child" href="/documentations/extensions-security.html" data-doc-page="extensions-security.html">Security &amp; troubleshooting</a>
+    <a href="/documentations/development.html" data-doc-page="development.html">Build BeagleEditor</a>
+    <a href="/documentations/cli.html" data-doc-page="cli.html">Command-line status</a>
+    <a href="/documentations/plugins.html" data-doc-page="plugins.html">Legacy plugins</a>
+  </nav>
+  <a class="extensions-docs-back" href="https://github.com/beagleeditor/editor/issues" target="_blank" rel="noopener noreferrer">Report an issue ↗</a>
+</aside>
+      <article class="docs-content extensions-docs-content">
+<p class="extensions-docs-eyebrow">BEAGLEEDITOR / EXTENSIONS</p>
+<h1 id="security-and-limitations">Security and limitations</h1>
+<h2 id="7-current-limitations">7. Current limitations</h2>
+<p>The current API is intentionally small. It does <strong>not</strong> currently provide:</p>
+<ul>
+<li>VS Code extension compatibility or a package marketplace.</li>
+<li>A dependency manager or extension installer.</li>
+<li>Custom editor actions or custom sidebar panels.</li>
+<li>Range-based editor edits, an editor save-command API, or filesystem watcher events.</li>
+<li>A stable public API guarantee across releases.</li>
+<li>A sandbox or permission system. Extensions execute in the editor web view and should be treated as trusted code.</li>
+</ul>
+<p>Entry files are loaded as JavaScript modules from source text. Relative imports from an extension&#x27;s entry file are not supported by this loading approach. For now, keep an extension self-contained in its entry file and use browser-standard JavaScript features available in the editor&#x27;s web view.</p>
+<h2 id="8-security">8. Security</h2>
+<p><strong>Only install extensions whose source you trust.</strong> Enabled extensions execute JavaScript in the same editor web view as BeagleEditor. They are not sandboxed and may be able to access data or capabilities available to the application. Review the source before enabling an extension, especially one obtained from another person or website. Do not treat an extension folder as safe merely because its manifest looks valid.</p>
+<h2 id="9-troubleshooting">9. Troubleshooting</h2>
+<h3 id="my-extension-does-not-appear">My extension does not appear</h3>
+<ul>
+<li>Confirm the folder is directly inside the extension directory shown in the Extensions view.</li>
+<li>Confirm the folder contains valid <code>manifest.json</code> and the entry file named by <code>main</code> (or <code>main.js</code> if omitted).</li>
+<li>Check that <code>id</code>, <code>name</code>, and <code>version</code> are non-empty strings.</li>
+<li>Click <strong>Reload extensions</strong> after changing files.</li>
+</ul>
+<h3 id="my-command-does-not-appear">My command does not appear</h3>
+<ul>
+<li>Confirm the extension is enabled.</li>
+<li>Confirm <code>main.js</code> exports <code>activate</code> and calls <code>api.registerCommand</code>.</li>
+<li>Make sure the command has a non-empty <code>id</code> and <code>title</code>, and <code>run</code> is a function.</li>
+<li>Open the command palette with <code>Cmd+Shift+P</code> (macOS) or <code>Ctrl+Shift+P</code> (Windows/Linux).</li>
+</ul>
+<h3 id="activation-fails">Activation fails</h3>
+<p>Open the developer console and inspect the error logged for the extension. Check JavaScript syntax and ensure the entry module uses <code>export function activate(api) { ... }</code>. Remember that relative module imports are not supported.</p>
+</article>
+    </section>
+  </main>
+  <footer class="footer"><p>© 2026 BeagleSoftware. All rights reserved.</p></footer>
+</body>
+</html>

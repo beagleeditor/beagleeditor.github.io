@@ -14,32 +14,35 @@
     <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
 
     <link rel="stylesheet" href="style.css" />
+      <script src="/theme.js" defer></script>
+      <script src="/scroll-reveal.js?v=2" defer></script>
+      <script src="/site-nav.js" defer></script>
   </head>
 
   <body>
     <header class="header">
-      <a href="index.html" class="logo"> BeagleEditor </a>
-
-      <nav class="nav-links">
-        <a href="index.html"> Home </a>
-
-        <a href="download.html"> Download </a>
-
-        <a href="screenshots.html"> Screenshots </a>
-
-        <a href="marketplace.html"> Marketplace </a>
-
-        <a href="docs.html"> Documentation </a>
-
-        <a href="changelog.html"> Changelog </a>
-
-        <a href="features.html">Features</a>
-        <a href="roadmap.html">Roadmap</a>
-        <a href="contributing.html">Contributing</a>
+      <a href="/" class="logo" aria-label="BeagleEditor homepage">BeagleEditor</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="/" data-nav-link>Home</a>
+        <a href="/features.html" data-nav-link>Features</a>
+        <a href="/download.html" data-nav-link>Download</a>
+        <a href="/screenshots.html" data-nav-link>Screenshots</a>
+        <a href="/docs.html" data-nav-link>Docs</a>
+        <a href="/roadmap.html" data-nav-link>Roadmap</a>
+        <a class="github-link" href="https://github.com/beagleeditor/editor" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
       </nav>
+      <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">☰</button>
     </header>
-
-    <main>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" inert>
+      <a href="/">Home</a>
+      <a href="/features.html">Features</a>
+      <a href="/download.html">Download</a>
+      <a href="/screenshots.html">Screenshots</a>
+      <a href="/docs.html">Docs</a>
+      <a href="/roadmap.html">Roadmap</a>
+      <a href="https://github.com/beagleeditor/editor" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    </nav>
+<main>
       <section class="screenshots-page">
         <h1>Screenshots</h1>
 
@@ -50,46 +53,57 @@
         <div class="screenshot-grid">
           <article class="screenshot-card">
             <img
-              src="screenshots/screenshot1.png"
-              alt="BeagleEditor main interface"
+              src="screenshots/hero.png"
+              alt="BeagleEditor main interface and coding workspace"
             />
 
-            <h3>Modern Editor Interface</h3>
+            <h3>Meet the Editor</h3>
 
             <p>A clean and focused workspace designed for coding.</p>
           </article>
 
           <article class="screenshot-card">
             <img
-              src="screenshots/screenshot2.png"
-              alt="BeagleEditor workspace"
+              src="screenshots/easyprojectmanaging.png"
+              alt="Managing project files and folders in BeagleEditor"
             />
 
-            <h3>Workspace Management</h3>
+            <h3>Project Management</h3>
 
             <p>Easily manage files and projects using Explorer.</p>
           </article>
 
           <article class="screenshot-card">
             <img
-              src="screenshots/screenshot3.png"
-              alt="BeagleEditor code editor"
+              src="screenshots/syntaxhighlighting.png"
+              alt="Source code with syntax highlighting in BeagleEditor"
             />
 
-            <h3>Code Editing</h3>
+            <h3>Syntax Highlighting</h3>
 
             <p>Syntax highlighting and a distraction-free coding experience.</p>
           </article>
 
           <article class="screenshot-card">
             <img
-              src="screenshots/screenshot4.png"
-              alt="BeagleEditor features"
+              src="screenshots/quickopen.png"
+              alt="Quick Open search for navigating project files in BeagleEditor"
             />
 
-            <h3>BeagleEditor Features</h3>
+            <h3>Quick Open</h3>
 
-            <p>Discover tools built for everyday programming.</p>
+            <p>Find the file you need without digging through folders.</p>
+          </article>
+          <article class="screenshot-card">
+            <img src="screenshots/sourcecontrol.png" alt="Source control view in BeagleEditor" loading="lazy" />
+            <h3>Source Control</h3>
+            <p>Review your project changes from the editor.</p>
+          </article>
+
+          <article class="screenshot-card">
+            <img src="screenshots/theme.png" alt="Color theme customization in BeagleEditor" loading="lazy" />
+            <h3>Editor Themes</h3>
+            <p>Personalize the editor's colors to suit your workspace.</p>
           </article>
         </div>
       </section>

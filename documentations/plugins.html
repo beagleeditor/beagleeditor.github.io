@@ -4,12 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>BeagleEditor Documentation - Plugins</title>
+    <title>Plugin system status — BeagleEditor Documentation</title>
 
-    <meta
-      name="description"
-      content="Learn how to install and create plugins for BeagleEditor."
-    />
+    <meta name="description" content="Current information about BeagleEditor extensions and the retired legacy plugin system.">
 
     <link
       rel="shortcut icon"
@@ -17,167 +14,65 @@
       type="image/x-icon"
     />
 
-    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../style.css?v=20261017-docs-sidebar" />
+      <script src="/theme.js" defer></script>
+      <script src="/scroll-reveal.js?v=2" defer></script>
+      <script src="/site-nav.js" defer></script>
   </head>
 
   <body>
     <header class="header">
-      <a href="../index.html" class="logo"> BeagleEditor </a>
-
-      <nav class="nav-links">
-        <a href="../index.html"> Home </a>
-
-        <a href="../download.html"> Download </a>
-
-        <a href="../screenshots.html"> Screenshots </a>
-
-        <a href="../marketplace.html"> Marketplace </a>
-
-        <a href="../docs.html"> Documentation </a>
-
-        <a href="../changelog.html"> Changelog </a>
-
-        <a
-          class="github-link"
-          href="https://github.com/beagleeditor/editor"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GitHub
-        </a>
+      <a href="/" class="logo" aria-label="BeagleEditor homepage">BeagleEditor</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="/" data-nav-link>Home</a>
+        <a href="/features.html" data-nav-link>Features</a>
+        <a href="/download.html" data-nav-link>Download</a>
+        <a href="/screenshots.html" data-nav-link>Screenshots</a>
+        <a href="/docs.html" data-nav-link>Docs</a>
+        <a href="/roadmap.html" data-nav-link>Roadmap</a>
+        <a class="github-link" href="https://github.com/beagleeditor/editor" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
       </nav>
+      <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">☰</button>
     </header>
-
-    <main>
-      <section class="docs-page">
-        <article class="docs-content">
-          <h1>BeagleEditor Plugins</h1>
-
-          <p class="docs-lead">
-            Plugins extend BeagleEditor with additional features, integrations,
-            and custom tools.
-          </p>
-
-          <div class="warning">
-            <h2>⚠ Documentation Notice</h2>
-
-            <p>
-              This guide describes the legacy plugin system. Updated plugin
-              documentation for the new BeagleEditor architecture is coming
-              soon.
-            </p>
-          </div>
-
-          <h2>What are plugins?</h2>
-
-          <p>
-            Plugins allow developers to add new functionality to BeagleEditor
-            without modifying the core editor. They can provide features such as
-            Git integration, terminal tools, custom commands, and more.
-          </p>
-
-          <p>
-            You can download available plugins from the
-            <a
-              href="https://github.com/MaArasteh/beagleeditor-plugins/releases"
-            >
-              BeagleEditor Plugins repository </a
-            >.
-          </p>
-
-          <h2>Installing plugins</h2>
-
-          <ol>
-            <li>Download a plugin from the plugin repository.</li>
-
-            <li>Extract the plugin files.</li>
-
-            <li>
-              Move the plugin folder into the
-              <code>plugins</code> directory inside BeagleEditor.
-            </li>
-
-            <li>Restart BeagleEditor.</li>
-
-            <li>The plugin will appear in the Plugins menu.</li>
-          </ol>
-
-          <h2>Creating a plugin</h2>
-
-          <p>
-            Plugins are written in Python. Create a Python file and add a
-            function named:
-          </p>
-
-          <pre><code>
-def run_from_beagleeditor():
-    print("Hello from BeagleEditor plugin!")
-</code></pre>
-
-          <h3>Using classes</h3>
-
-          <p>You can also organize your plugin using classes:</p>
-
-          <pre><code>
-class MyPlugin:
-
-    def __init__(self):
-        print("Plugin loaded")
-
-
-def run_from_beagleeditor():
-
-    plugin = MyPlugin()
-</code></pre>
-
-          <h3>Calling your own functions</h3>
-
-          <pre><code>
-def show_message(number):
-
-    print(f"Number is {number}")
-
-
-def run_from_beagleeditor():
-
-    show_message(10)
-</code></pre>
-
-          <h2>GUI plugin note</h2>
-
-          <p>
-            GUI plugins should avoid creating another Qt event loop. Using PyQt6
-            may cause:
-          </p>
-
-          <pre><code>
-QtCoreApplication::exec:
-The event loop is already running
-</code></pre>
-
-          <p>
-            Consider using alternatives such as Tkinter or wxPython when
-            available.
-          </p>
-
-          <h2>Testing your plugin</h2>
-
-          <p>
-            Place your plugin inside the
-            <code>plugins</code> folder and restart BeagleEditor. If everything
-            is correct, your plugin will load automatically.
-          </p>
-
-          <p>
-            Developers are also welcome to contribute plugins through pull
-            requests.
-          </p>
-        </article>
-      </section>
-    </main>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" inert>
+      <a href="/">Home</a>
+      <a href="/features.html">Features</a>
+      <a href="/download.html">Download</a>
+      <a href="/screenshots.html">Screenshots</a>
+      <a href="/docs.html">Docs</a>
+      <a href="/roadmap.html">Roadmap</a>
+      <a href="https://github.com/beagleeditor/editor" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    </nav>
+<main class="extensions-docs-page docs-site-page"><div class="extensions-docs-top"><a href="../docs.html">Documentation</a><span aria-hidden="true">/</span><span>Plugin system status</span></div><div class="extensions-docs-layout docs-site-layout"><aside class="extensions-docs-sidebar docs-site-sidebar" aria-label="Documentation navigation">
+  <p class="extensions-docs-kicker">BEAGLEEDITOR GUIDE</p><h2>Documentation</h2>
+  <nav aria-label="Documentation pages">
+    <a href="/docs.html" data-doc-page="docs.html">Welcome</a>
+    <a href="/documentations/getting-started.html" data-doc-page="getting-started.html">Getting started</a>
+    <a href="/documentations/keyboard-shortcuts.html" data-doc-page="keyboard-shortcuts.html">Keyboard shortcuts</a>
+    <a href="/documentations/editor-settings.html" data-doc-page="editor-settings.html">Editor settings &amp; themes</a>
+    <a href="/documentations/workspace-tools.html" data-doc-page="workspace-tools.html">Workspace tools</a>
+    <a href="/documentations/language-support.html" data-doc-page="language-support.html">Language support</a>
+    <a href="/documentations/troubleshooting.html" data-doc-page="troubleshooting.html">Troubleshooting</a>
+    <span class="docs-nav-group">Extensions</span>
+    <a class="docs-nav-child" href="/documentations/extensions.html" data-doc-page="extensions.html">Introduction</a>
+    <a class="docs-nav-child" href="/documentations/extensions-developers.html" data-doc-page="extensions-developers.html">For developers</a>
+    <a class="docs-nav-child" href="/documentations/extensions-quickstart.html" data-doc-page="extensions-quickstart.html">Quick start</a>
+    <a class="docs-nav-child" href="/documentations/extensions-manifest.html" data-doc-page="extensions-manifest.html">Manifest reference</a>
+    <a class="docs-nav-child" href="/documentations/extensions-api.html" data-doc-page="extensions-api.html">JavaScript API</a>
+    <a class="docs-nav-child" href="/documentations/extensions-lifecycle.html" data-doc-page="extensions-lifecycle.html">Lifecycle &amp; cleanup</a>
+    <a class="docs-nav-child" href="/documentations/extensions-themes.html" data-doc-page="extensions-themes.html">Color themes</a>
+    <a class="docs-nav-child" href="/documentations/extensions-examples.html" data-doc-page="extensions-examples.html">Examples</a>
+    <a class="docs-nav-child" href="/documentations/extensions-security.html" data-doc-page="extensions-security.html">Security &amp; troubleshooting</a>
+    <a href="/documentations/development.html" data-doc-page="development.html">Build BeagleEditor</a>
+    <a href="/documentations/cli.html" data-doc-page="cli.html">Command-line status</a>
+    <a href="/documentations/plugins.html" data-doc-page="plugins.html">Legacy plugins</a>
+  </nav>
+  <a class="extensions-docs-back" href="https://github.com/beagleeditor/editor/issues" target="_blank" rel="noopener noreferrer">Report an issue ↗</a>
+</aside><article class="extensions-docs-content docs-prose"><p class="extensions-docs-eyebrow">CURRENT EXTENSIBILITY</p><h1>Plugins and extensions</h1><p class="docs-lead">The old Python plugin instructions on this page no longer describe the current BeagleEditor application.</p><div class="docs-callout docs-callout-warning"><strong>Important:</strong> Do not follow the legacy steps below for the redesigned editor. The current app uses its own JavaScript extension API and JSON-only color theme format.</div><h2>What can I install today?</h2><ul><li><strong>JavaScript extensions</strong> can register commands, status-bar items, document/workspace helpers, and editor actions through the BeagleEditor extension API.</li><li><strong>JSON color themes</strong> customize Monaco and supported workbench colors without executing JavaScript.</li></ul><h2>Start with the current guide</h2><p>Open the Extensions view in BeagleEditor, then follow the current installation and development instructions.</p><p><a class="button primary" href="extensions.html">Read the extension development guide →</a></p><h2>About the old plugin system</h2><p>The former PyQt-based editor is maintained separately as <a href="https://github.com/beagleeditor/legacy" target="_blank" rel="noopener noreferrer">BeagleEditor Legacy</a>. Python plugin examples and installation steps belong to that legacy application and should not be assumed to work in the redesigned editor.</p><nav class="extensions-docs-pager" aria-label="Documentation navigation"><a href="../docs.html">← Documentation home</a><a href="extensions.html">Extension development →</a></nav></article></div></main>
 
     <footer class="footer">
       <p>© 2026 BeagleSoftware. All rights reserved.</p>
     </footer>
-  </body>
+  <script src="/documentations/extensions-docs.js" defer></script>
+</body>
 </html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Language support — BeagleEditor Documentation</title>
+<meta name="description" content="Set up language servers for code intelligence.">
+<link rel="icon" href="../assets/favicon.ico"><link rel="stylesheet" href="../style.css?v=20261017-docs-sidebar">
+<script src="/theme.js" defer></script><script src="/scroll-reveal.js?v=2" defer></script><script src="/site-nav.js" defer></script>
+</head>
+<body>
+<header class="header"><a href="/" class="logo" aria-label="BeagleEditor homepage">BeagleEditor</a><nav class="nav-links" aria-label="Main navigation"><a href="/" data-nav-link>Home</a><a href="/features.html" data-nav-link>Features</a><a href="/download.html" data-nav-link>Download</a><a href="/screenshots.html" data-nav-link>Screenshots</a><a href="/docs.html" data-nav-link>Docs</a><a href="/roadmap.html" data-nav-link>Roadmap</a><a class="github-link" href="https://github.com/beagleeditor/editor" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav><button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">☰</button></header>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" inert><a href="/">Home</a><a href="/features.html">Features</a><a href="/download.html">Download</a><a href="/screenshots.html">Screenshots</a><a href="/docs.html">Docs</a><a href="/roadmap.html">Roadmap</a><a href="https://github.com/beagleeditor/editor" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav>
+<main class="extensions-docs-page docs-site-page"><div class="extensions-docs-top"><a href="../docs.html">Documentation</a><span aria-hidden="true">/</span><span>Language support</span></div><div class="extensions-docs-layout docs-site-layout"><aside class="extensions-docs-sidebar docs-site-sidebar" aria-label="Documentation navigation">
+  <p class="extensions-docs-kicker">BEAGLEEDITOR GUIDE</p><h2>Documentation</h2>
+  <nav aria-label="Documentation pages">
+    <a href="/docs.html" data-doc-page="docs.html">Welcome</a>
+    <a href="/documentations/getting-started.html" data-doc-page="getting-started.html">Getting started</a>
+    <a href="/documentations/keyboard-shortcuts.html" data-doc-page="keyboard-shortcuts.html">Keyboard shortcuts</a>
+    <a href="/documentations/editor-settings.html" data-doc-page="editor-settings.html">Editor settings &amp; themes</a>
+    <a href="/documentations/workspace-tools.html" data-doc-page="workspace-tools.html">Workspace tools</a>
+    <a href="/documentations/language-support.html" data-doc-page="language-support.html">Language support</a>
+    <a href="/documentations/troubleshooting.html" data-doc-page="troubleshooting.html">Troubleshooting</a>
+    <span class="docs-nav-group">Extensions</span>
+    <a class="docs-nav-child" href="/documentations/extensions.html" data-doc-page="extensions.html">Introduction</a>
+    <a class="docs-nav-child" href="/documentations/extensions-developers.html" data-doc-page="extensions-developers.html">For developers</a>
+    <a class="docs-nav-child" href="/documentations/extensions-quickstart.html" data-doc-page="extensions-quickstart.html">Quick start</a>
+    <a class="docs-nav-child" href="/documentations/extensions-manifest.html" data-doc-page="extensions-manifest.html">Manifest reference</a>
+    <a class="docs-nav-child" href="/documentations/extensions-api.html" data-doc-page="extensions-api.html">JavaScript API</a>
+    <a class="docs-nav-child" href="/documentations/extensions-lifecycle.html" data-doc-page="extensions-lifecycle.html">Lifecycle &amp; cleanup</a>
+    <a class="docs-nav-child" href="/documentations/extensions-themes.html" data-doc-page="extensions-themes.html">Color themes</a>
+    <a class="docs-nav-child" href="/documentations/extensions-examples.html" data-doc-page="extensions-examples.html">Examples</a>
+    <a class="docs-nav-child" href="/documentations/extensions-security.html" data-doc-page="extensions-security.html">Security &amp; troubleshooting</a>
+    <a href="/documentations/development.html" data-doc-page="development.html">Build BeagleEditor</a>
+    <a href="/documentations/cli.html" data-doc-page="cli.html">Command-line status</a>
+    <a href="/documentations/plugins.html" data-doc-page="plugins.html">Legacy plugins</a>
+  </nav>
+  <a class="extensions-docs-back" href="https://github.com/beagleeditor/editor/issues" target="_blank" rel="noopener noreferrer">Report an issue ↗</a>
+</aside><article class="extensions-docs-content docs-prose">
+<p class="extensions-docs-eyebrow">BEAGLEEDITOR GUIDE</p>
+<h1 id="language-support">Language Support</h1>
+
+<p>Monaco Editor provides syntax highlighting and editing behavior for many languages. Deeper language features—such as semantic completion, hover information, go-to-definition, diagnostics, signatures, and formatting—depend on compatible language-server tooling being installed and available on your system.</p>
+<h2 id="install-a-language-server">Install a language server</h2>
+<p>Install the relevant server using its official instructions and make sure its executable is available on your <code>PATH</code> in the environment from which BeagleEditor is launched. Reopen the file or restart BeagleEditor after installing a server.</p>
+<div class="docs-table-wrap"><table class="docs-table"><thead><tr><th>Language</th><th>Server executable / command</th></tr></thead><tbody><tr><td>Rust</td><td><code>rust-analyzer</code></td></tr><tr><td>C / C++</td><td><code>clangd</code></td></tr><tr><td>Python</td><td><code>pyright-langserver --stdio</code></td></tr><tr><td>JavaScript / TypeScript</td><td><code>typescript-language-server --stdio</code></td></tr><tr><td>Go</td><td><code>gopls</code></td></tr><tr><td>Lua</td><td><code>lua-language-server</code></td></tr><tr><td>PHP</td><td><code>intelephense --stdio</code></td></tr><tr><td>Ruby</td><td><code>ruby-lsp</code></td></tr><tr><td>C#</td><td><code>OmniSharp --languageserver</code></td></tr><tr><td>Kotlin</td><td><code>kotlin-language-server</code></td></tr><tr><td>Swift</td><td><code>sourcekit-lsp</code></td></tr><tr><td>HTML / CSS / JSON</td><td>A compatible <code>vscode-*-language-server --stdio</code> executable</td></tr><tr><td>YAML</td><td><code>yaml-language-server --stdio</code></td></tr></tbody></table></div>
+<p>Executable names and installation steps vary by operating system and package manager. Consult the server&#x27;s official documentation for the supported installation method and prerequisites.</p>
+<h2 id="what-language-servers-provide">What language servers provide</h2>
+<p>Depending on the language server and its capabilities, BeagleEditor can request completion suggestions, hover details, definition navigation, signature help, diagnostics, and document formatting. Not every server implements every feature, and a server may require a project configuration or dependencies before it can analyze a workspace correctly.</p>
+<h2 id="troubleshooting-language-features">Troubleshooting language features</h2>
+<ol>
+<li>Confirm the server is installed and its command can be found from a terminal.</li>
+<li>Check that the command shown in the table matches the installed executable and required arguments.</li>
+<li>Open a file with the correct language mode and, when applicable, open the project root rather than an isolated file.</li>
+<li>Wait for the server to initialize and inspect the developer console for errors.</li>
+<li>Verify the server supports the feature you&#x27;re trying to use and that its project prerequisites are installed.</li>
+</ol>
+<p>For general app and build problems, see <a href="/documentations/troubleshooting.html">Troubleshooting</a>.</p>
+</article></div></main>
+<footer class="footer"><p>© 2026 BeagleSoftware. All rights reserved.</p></footer><script src="extensions-docs.js" defer></script>
+</body></html>

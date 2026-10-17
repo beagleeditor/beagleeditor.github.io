@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Troubleshooting — BeagleEditor Documentation</title>
+<meta name="description" content="Diagnose common app, tooling, and extension issues.">
+<link rel="icon" href="../assets/favicon.ico"><link rel="stylesheet" href="../style.css?v=20261017-docs-sidebar">
+<script src="/theme.js" defer></script><script src="/scroll-reveal.js?v=2" defer></script><script src="/site-nav.js" defer></script>
+</head>
+<body>
+<header class="header"><a href="/" class="logo" aria-label="BeagleEditor homepage">BeagleEditor</a><nav class="nav-links" aria-label="Main navigation"><a href="/" data-nav-link>Home</a><a href="/features.html" data-nav-link>Features</a><a href="/download.html" data-nav-link>Download</a><a href="/screenshots.html" data-nav-link>Screenshots</a><a href="/docs.html" data-nav-link>Docs</a><a href="/roadmap.html" data-nav-link>Roadmap</a><a class="github-link" href="https://github.com/beagleeditor/editor" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav><button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">☰</button></header>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" inert><a href="/">Home</a><a href="/features.html">Features</a><a href="/download.html">Download</a><a href="/screenshots.html">Screenshots</a><a href="/docs.html">Docs</a><a href="/roadmap.html">Roadmap</a><a href="https://github.com/beagleeditor/editor" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav>
+<main class="extensions-docs-page docs-site-page"><div class="extensions-docs-top"><a href="../docs.html">Documentation</a><span aria-hidden="true">/</span><span>Troubleshooting</span></div><div class="extensions-docs-layout docs-site-layout"><aside class="extensions-docs-sidebar docs-site-sidebar" aria-label="Documentation navigation">
+  <p class="extensions-docs-kicker">BEAGLEEDITOR GUIDE</p><h2>Documentation</h2>
+  <nav aria-label="Documentation pages">
+    <a href="/docs.html" data-doc-page="docs.html">Welcome</a>
+    <a href="/documentations/getting-started.html" data-doc-page="getting-started.html">Getting started</a>
+    <a href="/documentations/keyboard-shortcuts.html" data-doc-page="keyboard-shortcuts.html">Keyboard shortcuts</a>
+    <a href="/documentations/editor-settings.html" data-doc-page="editor-settings.html">Editor settings &amp; themes</a>
+    <a href="/documentations/workspace-tools.html" data-doc-page="workspace-tools.html">Workspace tools</a>
+    <a href="/documentations/language-support.html" data-doc-page="language-support.html">Language support</a>
+    <a href="/documentations/troubleshooting.html" data-doc-page="troubleshooting.html">Troubleshooting</a>
+    <span class="docs-nav-group">Extensions</span>
+    <a class="docs-nav-child" href="/documentations/extensions.html" data-doc-page="extensions.html">Introduction</a>
+    <a class="docs-nav-child" href="/documentations/extensions-developers.html" data-doc-page="extensions-developers.html">For developers</a>
+    <a class="docs-nav-child" href="/documentations/extensions-quickstart.html" data-doc-page="extensions-quickstart.html">Quick start</a>
+    <a class="docs-nav-child" href="/documentations/extensions-manifest.html" data-doc-page="extensions-manifest.html">Manifest reference</a>
+    <a class="docs-nav-child" href="/documentations/extensions-api.html" data-doc-page="extensions-api.html">JavaScript API</a>
+    <a class="docs-nav-child" href="/documentations/extensions-lifecycle.html" data-doc-page="extensions-lifecycle.html">Lifecycle &amp; cleanup</a>
+    <a class="docs-nav-child" href="/documentations/extensions-themes.html" data-doc-page="extensions-themes.html">Color themes</a>
+    <a class="docs-nav-child" href="/documentations/extensions-examples.html" data-doc-page="extensions-examples.html">Examples</a>
+    <a class="docs-nav-child" href="/documentations/extensions-security.html" data-doc-page="extensions-security.html">Security &amp; troubleshooting</a>
+    <a href="/documentations/development.html" data-doc-page="development.html">Build BeagleEditor</a>
+    <a href="/documentations/cli.html" data-doc-page="cli.html">Command-line status</a>
+    <a href="/documentations/plugins.html" data-doc-page="plugins.html">Legacy plugins</a>
+  </nav>
+  <a class="extensions-docs-back" href="https://github.com/beagleeditor/editor/issues" target="_blank" rel="noopener noreferrer">Report an issue ↗</a>
+</aside><article class="extensions-docs-content docs-prose">
+<p class="extensions-docs-eyebrow">BEAGLEEDITOR GUIDE</p>
+<h1 id="troubleshooting">Troubleshooting</h1>
+
+<p>This guide covers common setup and usage problems. Menu names may vary slightly by platform or release.</p>
+<h2 id="the-application-will-not-launch">The application will not launch</h2>
+<ul>
+<li>Download an installer that matches your operating system and CPU architecture from <a href="https://github.com/beagleeditor/editor/releases">GitHub Releases</a>.</li>
+<li>If you built from source, check the terminal output for the first error rather than only the final failure message.</li>
+<li>On Linux, ensure the system libraries required by Tauri and WebKitGTK are installed for your distribution.</li>
+<li>If an operating system blocks an unsigned build, verify the artifact came from a source you trust before changing security settings.</li>
+</ul>
+<h2 id="a-file-or-folder-operation-failed">A file or folder operation failed</h2>
+<ul>
+<li>Confirm the path exists and you have permission to access its parent directory.</li>
+<li>Check for invalid names, an existing destination, or a read-only location.</li>
+<li>If a file is open elsewhere or managed by a sync tool, check whether that process is locking or changing it.</li>
+<li>Re-read the error shown by BeagleEditor and verify the filesystem state before retrying.</li>
+</ul>
+<h2 id="completion-diagnostics-or-formatting-do-not-work">Completion, diagnostics, or formatting do not work</h2>
+<ul>
+<li>Install the language server for the language; syntax highlighting alone does not require a language server.</li>
+<li>Verify the server command is on <code>PATH</code> and can run independently.</li>
+<li>Open the project folder and confirm project dependencies/configuration are available.</li>
+<li>For formatting, confirm the server or formatter actually supports formatting for that language.</li>
+<li>Inspect the developer console for startup or protocol errors.</li>
+</ul>
+<h2 id="a-workspace-search-misses-files">A workspace search misses files</h2>
+<p>Search respects Git ignore rules and skips files it cannot read as text. Check whether the missing path is ignored or whether the content is binary/unreadable. Try a narrower query and ensure the intended folder is the open workspace.</p>
+<h2 id="an-extension-does-not-appear-or-activate">An extension does not appear or activate</h2>
+<ul>
+<li>Confirm the extension folder is directly inside the extension directory displayed in the Extensions view.</li>
+<li>Validate <code>manifest.json</code> and check the filename specified by <code>main</code> (default <code>main.js</code>) for JavaScript extensions.</li>
+<li>Click <strong>Reload extensions</strong> after editing extension files and ensure the extension is enabled.</li>
+<li>For themes, set <code>&quot;type&quot;: &quot;theme&quot;</code>, provide a valid theme JSON file, and select the enabled theme in Settings.</li>
+<li>Read the <a href="/documentations/extensions.html">Extension Development Guide</a> for API details, lifecycle behavior, and security limitations.</li>
+</ul>
+<h2 id="git-push-or-pull-fails">Git push or pull fails</h2>
+<p>Confirm the workspace is a Git repository, a remote is configured, and authentication works in your normal Git environment. Resolve merge conflicts and repository errors before retrying. BeagleEditor does not replace Git&#x27;s credential or remote configuration.</p>
+<h2 id="report-a-bug">Report a bug</h2>
+<p>When filing an issue, include:</p>
+<ul>
+<li>BeagleEditor version and operating system / CPU architecture.</li>
+<li>What you expected and what happened instead.</li>
+<li>Minimal reproduction steps and whether the issue happens every time.</li>
+<li>Relevant error output, with credentials, tokens, private paths, and sensitive project content removed.</li>
+</ul>
+</article></div></main>
+<footer class="footer"><p>© 2026 BeagleSoftware. All rights reserved.</p></footer><script src="extensions-docs.js" defer></script>
+</body></html>

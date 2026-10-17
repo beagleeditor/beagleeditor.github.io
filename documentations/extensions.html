@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BeagleEditor Extensions — Extensions API</title>
+  <meta name="description" content="Build local JavaScript extensions and JSON color themes for BeagleEditor." />
+  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="../style.css?v=20261017-docs-sidebar" />
+  <script src="/theme.js" defer></script>
+  <script src="/scroll-reveal.js?v=2" defer></script>
+  <script src="/site-nav.js" defer></script>
+  <script src="/documentations/extensions-docs.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <a href="/" class="logo" aria-label="BeagleEditor homepage">BeagleEditor</a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="/" data-nav-link>Home</a><a href="/features.html" data-nav-link>Features</a><a href="/download.html" data-nav-link>Download</a><a href="/screenshots.html" data-nav-link>Screenshots</a><a href="/docs.html" data-nav-link>Docs</a><a href="/roadmap.html" data-nav-link>Roadmap</a><a class="github-link" href="https://github.com/beagleeditor/editor" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+    <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">☰</button>
+  </header>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" inert>
+    <a href="/">Home</a><a href="/features.html">Features</a><a href="/download.html">Download</a><a href="/screenshots.html">Screenshots</a><a href="/docs.html">Docs</a><a href="/roadmap.html">Roadmap</a><a href="https://github.com/beagleeditor/editor" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+  </nav>
+  <main class="extensions-docs-page docs-site-page">
+    <div class="extensions-docs-top"><a href="../docs.html">Documentation</a><span aria-hidden="true">/</span><span>Extensions API</span></div>
+    <section class="docs-page extensions-docs-layout docs-site-layout">
+      <aside class="extensions-docs-sidebar docs-site-sidebar" aria-label="Documentation navigation">
+  <p class="extensions-docs-kicker">BEAGLEEDITOR GUIDE</p><h2>Documentation</h2>
+  <nav aria-label="Documentation pages">
+    <a href="/docs.html" data-doc-page="docs.html">Welcome</a>
+    <a href="/documentations/getting-started.html" data-doc-page="getting-started.html">Getting started</a>
+    <a href="/documentations/keyboard-shortcuts.html" data-doc-page="keyboard-shortcuts.html">Keyboard shortcuts</a>
+    <a href="/documentations/editor-settings.html" data-doc-page="editor-settings.html">Editor settings &amp; themes</a>
+    <a href="/documentations/workspace-tools.html" data-doc-page="workspace-tools.html">Workspace tools</a>
+    <a href="/documentations/language-support.html" data-doc-page="language-support.html">Language support</a>
+    <a href="/documentations/troubleshooting.html" data-doc-page="troubleshooting.html">Troubleshooting</a>
+    <span class="docs-nav-group">Extensions</span>
+    <a class="docs-nav-child" href="/documentations/extensions.html" data-doc-page="extensions.html">Introduction</a>
+    <a class="docs-nav-child" href="/documentations/extensions-developers.html" data-doc-page="extensions-developers.html">For developers</a>
+    <a class="docs-nav-child" href="/documentations/extensions-quickstart.html" data-doc-page="extensions-quickstart.html">Quick start</a>
+    <a class="docs-nav-child" href="/documentations/extensions-manifest.html" data-doc-page="extensions-manifest.html">Manifest reference</a>
+    <a class="docs-nav-child" href="/documentations/extensions-api.html" data-doc-page="extensions-api.html">JavaScript API</a>
+    <a class="docs-nav-child" href="/documentations/extensions-lifecycle.html" data-doc-page="extensions-lifecycle.html">Lifecycle &amp; cleanup</a>
+    <a class="docs-nav-child" href="/documentations/extensions-themes.html" data-doc-page="extensions-themes.html">Color themes</a>
+    <a class="docs-nav-child" href="/documentations/extensions-examples.html" data-doc-page="extensions-examples.html">Examples</a>
+    <a class="docs-nav-child" href="/documentations/extensions-security.html" data-doc-page="extensions-security.html">Security &amp; troubleshooting</a>
+    <a href="/documentations/development.html" data-doc-page="development.html">Build BeagleEditor</a>
+    <a href="/documentations/cli.html" data-doc-page="cli.html">Command-line status</a>
+    <a href="/documentations/plugins.html" data-doc-page="plugins.html">Legacy plugins</a>
+  </nav>
+  <a class="extensions-docs-back" href="https://github.com/beagleeditor/editor/issues" target="_blank" rel="noopener noreferrer">Report an issue ↗</a>
+</aside>
+      <article class="docs-content extensions-docs-content">
+<p class="extensions-docs-eyebrow">BEAGLEEDITOR / EXTENSIONS</p>
+<h1 id="beagleeditor-extension-development">BeagleEditor Extension Development</h1>
+<p>This guide explains how to create, install, test, and troubleshoot extensions for BeagleEditor.</p>
+<blockquote>
+<p><strong>Current scope:</strong> BeagleEditor supports local JavaScript extensions and JSON-only color theme extensions. This is an early extension API, not a compatibility layer for Visual Studio Code extensions.</p>
+</blockquote>
+<h2 id="1-how-extensions-work">1. How extensions work</h2>
+<p>An extension is a folder containing a <code>manifest.json</code> file and either a JavaScript entry point or a JSON color theme. BeagleEditor discovers extension folders in its application configuration directory. From the <strong>Extensions</strong> view you can open that directory, reload the list, install an extension from a folder, enable or disable it, and remove it with confirmation.</p>
+<p>Each extension&#x27;s entry module exports an <code>activate(api)</code> function. BeagleEditor calls it when the extension is enabled. The function can register command-palette commands and use the small API described below. Return a cleanup function (or an object with a <code>dispose()</code> method) to release resources when the extension is disabled or reloaded.</p>
+<p>This guide is organized into focused pages. Continue with <a href="extensions-quickstart.html">Quick start</a>, or use the sidebar for the manifest, theme, API, lifecycle, examples, and security references.</p>
+</article>
+    </section>
+  </main>
+  <footer class="footer"><p>© 2026 BeagleSoftware. All rights reserved.</p></footer>
+</body>
+</html>

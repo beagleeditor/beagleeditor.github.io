@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BeagleEditor Extensions — JavaScript API reference</title>
+  <meta name="description" content="Complete reference for BeagleEditor’s current JavaScript extension API." />
+  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="../style.css?v=20261017-docs-sidebar" />
+  <script src="/theme.js" defer></script>
+  <script src="/scroll-reveal.js?v=2" defer></script>
+  <script src="/site-nav.js" defer></script>
+  <script src="/documentations/extensions-docs.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <a href="/" class="logo" aria-label="BeagleEditor homepage">BeagleEditor</a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="/" data-nav-link>Home</a><a href="/features.html" data-nav-link>Features</a><a href="/download.html" data-nav-link>Download</a><a href="/screenshots.html" data-nav-link>Screenshots</a><a href="/docs.html" data-nav-link>Docs</a><a href="/roadmap.html" data-nav-link>Roadmap</a><a class="github-link" href="https://github.com/beagleeditor/editor" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+    <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">☰</button>
+  </header>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" inert>
+    <a href="/">Home</a><a href="/features.html">Features</a><a href="/download.html">Download</a><a href="/screenshots.html">Screenshots</a><a href="/docs.html">Docs</a><a href="/roadmap.html">Roadmap</a><a href="https://github.com/beagleeditor/editor" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+  </nav>
+  <main class="extensions-docs-page docs-site-page">
+    <div class="extensions-docs-top"><a href="../docs.html">Documentation</a><span aria-hidden="true">/</span><span>Extensions API</span></div>
+    <section class="docs-page extensions-docs-layout docs-site-layout">
+      <aside class="extensions-docs-sidebar docs-site-sidebar" aria-label="Documentation navigation">
+  <p class="extensions-docs-kicker">BEAGLEEDITOR GUIDE</p><h2>Documentation</h2>
+  <nav aria-label="Documentation pages">
+    <a href="/docs.html" data-doc-page="docs.html">Welcome</a>
+    <a href="/documentations/getting-started.html" data-doc-page="getting-started.html">Getting started</a>
+    <a href="/documentations/keyboard-shortcuts.html" data-doc-page="keyboard-shortcuts.html">Keyboard shortcuts</a>
+    <a href="/documentations/editor-settings.html" data-doc-page="editor-settings.html">Editor settings &amp; themes</a>
+    <a href="/documentations/workspace-tools.html" data-doc-page="workspace-tools.html">Workspace tools</a>
+    <a href="/documentations/language-support.html" data-doc-page="language-support.html">Language support</a>
+    <a href="/documentations/troubleshooting.html" data-doc-page="troubleshooting.html">Troubleshooting</a>
+    <span class="docs-nav-group">Extensions</span>
+    <a class="docs-nav-child" href="/documentations/extensions.html" data-doc-page="extensions.html">Introduction</a>
+    <a class="docs-nav-child" href="/documentations/extensions-developers.html" data-doc-page="extensions-developers.html">For developers</a>
+    <a class="docs-nav-child" href="/documentations/extensions-quickstart.html" data-doc-page="extensions-quickstart.html">Quick start</a>
+    <a class="docs-nav-child" href="/documentations/extensions-manifest.html" data-doc-page="extensions-manifest.html">Manifest reference</a>
+    <a class="docs-nav-child" href="/documentations/extensions-api.html" data-doc-page="extensions-api.html">JavaScript API</a>
+    <a class="docs-nav-child" href="/documentations/extensions-lifecycle.html" data-doc-page="extensions-lifecycle.html">Lifecycle &amp; cleanup</a>
+    <a class="docs-nav-child" href="/documentations/extensions-themes.html" data-doc-page="extensions-themes.html">Color themes</a>
+    <a class="docs-nav-child" href="/documentations/extensions-examples.html" data-doc-page="extensions-examples.html">Examples</a>
+    <a class="docs-nav-child" href="/documentations/extensions-security.html" data-doc-page="extensions-security.html">Security &amp; troubleshooting</a>
+    <a href="/documentations/development.html" data-doc-page="development.html">Build BeagleEditor</a>
+    <a href="/documentations/cli.html" data-doc-page="cli.html">Command-line status</a>
+    <a href="/documentations/plugins.html" data-doc-page="plugins.html">Legacy plugins</a>
+  </nav>
+  <a class="extensions-docs-back" href="https://github.com/beagleeditor/editor/issues" target="_blank" rel="noopener noreferrer">Report an issue ↗</a>
+</aside>
+      <article class="docs-content extensions-docs-content">
+<p class="extensions-docs-eyebrow">BEAGLEEDITOR / EXTENSIONS</p>
+<h1 id="extension-api-reference">Extension API reference</h1>
+<h2 id="5-extension-api-reference">5. Extension API reference</h2>
+<h3 id="activate-api"><code>activate(api)</code></h3>
+<p>Your entry module must export <code>activate</code>. It is called when BeagleEditor activates the extension. The function may return a cleanup function or an object with a <code>dispose()</code> method. Async activation is supported.</p>
+<p>The <code>api</code> object contains the following members:</p>
+<h3 id="api-extension"><code>api.extension</code></h3>
+<p>The parsed manifest for the current extension, including <code>id</code>, <code>name</code>, <code>version</code>, and any optional <code>description</code> or <code>main</code> fields.</p>
+<h3 id="api-registercommand-id-title-run"><code>api.registerCommand({ id, title, run })</code></h3>
+<p>Registers a command in the command palette and returns an unregister callback.</p>
+<ul>
+<li><code>id</code>: command identifier local to your extension.</li>
+<li><code>title</code>: command title displayed to the user.</li>
+<li><code>run</code>: function called when the user selects the command. It may be synchronous or return a promise.</li>
+</ul>
+<p>The full command ID is namespaced as <code>&lt;extension-id&gt;.&lt;command-id&gt;</code>. For example, <code>word-counter.count-words</code>. Use distinct command IDs within your extension. Keep the returned callback and call it during cleanup if you need to unregister a command before the extension is deactivated.</p>
+<h3 id="api-registerstatusbaritem-id-text-tooltip-alignment-priority-run"><code>api.registerStatusBarItem({ id, text, tooltip?, alignment?, priority?, run? })</code></h3>
+<p>Adds a small item to the BeagleEditor status bar and returns an unregister callback. Items are removed automatically when the extension is deactivated.</p>
+<ul>
+<li><code>id</code>: identifier local to your extension.</li>
+<li><code>text</code>: short text displayed in the status bar.</li>
+<li><code>tooltip</code>: optional hover text.</li>
+<li><code>alignment</code>: <code>&quot;left&quot;</code> or <code>&quot;right&quot;</code>; defaults to <code>&quot;left&quot;</code>.</li>
+<li><code>priority</code>: optional number; higher-priority items appear first within their side.</li>
+<li><code>run</code>: optional callback invoked when the item is clicked; it may return a promise.</li>
+</ul>
+<pre><code class="language-js">export function activate(api) {
+  const item = api.registerStatusBarItem({
+    id: &quot;workspace-greeting&quot;,
+    text: &quot;Hello, Beagle&quot;,
+    tooltip: &quot;Show an extension message&quot;,
+    alignment: &quot;right&quot;,
+    run: () =&gt; api.showMessage(&quot;Your extension is running.&quot;),
+  });
+  return () =&gt; item();
+}
+</code></pre>
+<h3 id="api-showmessage-message"><code>api.showMessage(message)</code></h3>
+<p>Displays a native web-view alert prefixed with the extension name. The value is converted to a string. Use it for simple messages; it is not a custom notification or status-bar API.</p>
+<h3 id="api-getactivedocument"><code>api.getActiveDocument()</code></h3>
+<p>Returns a snapshot of the active editor tab, or <code>null</code> when there is no active document.</p>
+<p>When a document is open, the returned object has:</p>
+<div class="docs-table-wrap"><table class="docs-table"><thead><tr><th>Property</th><th>Type</th><th>Meaning</th></tr></thead><tbody><tr><td><code>name</code></td><td><code>string</code></td><td>Tab/document name.</td></tr><tr><td><code>path</code></td><td><code>string | null</code></td><td>File path, or <code>null</code> for an unsaved document.</td></tr><tr><td><code>language</code></td><td><code>string</code></td><td>Current editor language identifier.</td></tr><tr><td><code>content</code></td><td><code>string</code></td><td>Current content snapshot.</td></tr><tr><td><code>dirty</code></td><td><code>boolean</code></td><td>Whether the tab has unsaved changes.</td></tr></tbody></table></div>
+<p>The snapshot includes <code>id</code>, a session-local identifier for the open tab. The returned object is a snapshot, not a live object; read it again to get current values.</p>
+<h3 id="api-getopendocuments"><code>api.getOpenDocuments()</code></h3>
+<p>Returns an array of snapshots for all open tabs, using the same fields as <code>getActiveDocument()</code>. The array and its objects are snapshots; changing them does not change editor state.</p>
+<h3 id="api-getworkspacedirectory"><code>api.getWorkspaceDirectory()</code></h3>
+<p>Returns the current workspace folder path, or <code>null</code> when no folder is open.</p>
+<h3 id="api-readfile-path-and-api-writefile-path-content"><code>api.readFile(path)</code> and <code>api.writeFile(path, content)</code></h3>
+<p>Read UTF-8 text from a path or write UTF-8 text to a path. Both return promises; filesystem errors reject the promise. <code>writeFile</code> updates the content and saved state of an already-open tab at the same path. These APIs use the editor&#x27;s filesystem backend and are not restricted to the current workspace, so only use paths you trust.</p>
+<h3 id="additional-filesystem-apis">Additional filesystem APIs</h3>
+<p>These APIs use BeagleEditor&#x27;s filesystem backend and return promises:</p>
+<ul>
+<li><code>api.readDirectory(path)</code> — returns entries with <code>name</code>, <code>path</code>, and <code>is_dir</code> fields for the requested directory.</li>
+<li><code>api.pathExists(path)</code> — resolves to <code>true</code> if the path exists, otherwise <code>false</code>.</li>
+<li><code>api.createFile(path)</code> — creates an empty file. It rejects if creation fails.</li>
+<li><code>api.createDirectory(path)</code> — creates one directory. Its parent must already exist, and the destination must not already exist.</li>
+<li><code>api.renamePath(oldPath, newPath)</code> — renames or moves a filesystem path, subject to filesystem rules and permissions.</li>
+<li><code>api.deletePath(path)</code> — deletes the requested path. Use carefully; this operation can remove user data.</li>
+<li><code>api.revealPath(path)</code> — asks the operating system to reveal the path in the file manager.</li>
+</ul>
+<pre><code class="language-js">export async function activate(api) {
+  const root = api.getWorkspaceDirectory();
+  if (!root) {
+    api.showMessage(&quot;Open a workspace first.&quot;);
+    return;
+  }
+
+  const entries = await api.readDirectory(root);
+  const files = entries.filter((entry) =&gt; !entry.is_dir);
+  api.showMessage(`Found ${files.length} files in the workspace root.`);
+}
+</code></pre>
+<p>These APIs are not confined to the open workspace. Extensions have no filesystem permission prompts or sandbox, so only use paths you trust and avoid destructive operations without explicit user intent.</p>
+<h3 id="api-searchworkspace-query"><code>api.searchWorkspace(query)</code></h3>
+<p>Searches file contents in the open workspace and returns matches with <code>path</code>, <code>line</code>, and <code>text</code> fields. Returns an empty array for a blank query and rejects if no workspace is open or a search fails.</p>
+<h3 id="api-geteditorselection"><code>api.getEditorSelection()</code></h3>
+<p>Returns <code>null</code> if there is no active editor model. Otherwise returns the selected <code>text</code>, <code>startLineNumber</code>, <code>startColumn</code>, <code>endLineNumber</code>, <code>endColumn</code>, and <code>isEmpty</code> fields.</p>
+<h3 id="api-replaceeditorselection-text"><code>api.replaceEditorSelection(text)</code></h3>
+<p>Replaces the current editor selection with the supplied string, focuses the editor, and returns <code>true</code>. Returns <code>false</code> if there is no active editor selection/model. The replacement is an editor edit, so the document becomes modified. <code>text</code> must be a string.</p>
+<h3 id="api-geteditorposition"><code>api.getEditorPosition()</code></h3>
+<p>Returns the cursor position as <code>{ lineNumber, column }</code>, or <code>null</code> when no editor position is available. Both coordinates are one-based.</p>
+<h3 id="api-geteditorlanguage-and-api-seteditorlanguage-language"><code>api.getEditorLanguage()</code> and <code>api.setEditorLanguage(language)</code></h3>
+<p><code>getEditorLanguage()</code> returns the active Monaco language identifier, or <code>null</code> if no editor model is active.</p>
+<p><code>setEditorLanguage(language)</code> changes the active editor model&#x27;s language and updates the active tab&#x27;s language metadata. It returns <code>true</code> on success or <code>false</code> when the argument is invalid or no active editor/document is available. Supply a Monaco language identifier such as <code>typescript</code>, <code>python</code>, <code>json</code>, or <code>markdown</code>.</p>
+<h3 id="api-geteditorlinecount-and-api-geteditorlinecontent-linenumber"><code>api.getEditorLineCount()</code> and <code>api.getEditorLineContent(lineNumber)</code></h3>
+<ul>
+<li><code>getEditorLineCount()</code> returns the active document&#x27;s number of lines, or <code>null</code> if no model is active.</li>
+<li><code>getEditorLineContent(lineNumber)</code> returns the text of a one-based line, or <code>null</code> if no model is active or the line number is invalid.</li>
+</ul>
+<pre><code class="language-js">export function activate(api) {
+  return api.registerCommand({
+    id: &quot;show-line-count&quot;,
+    title: &quot;Show Active Document Line Count&quot;,
+    run: () =&gt; {
+      const count = api.getEditorLineCount();
+      api.showMessage(count === null ? &quot;No active document.&quot; : `Lines: ${count}`);
+    },
+  });
+}
+</code></pre>
+<h3 id="api-seteditorposition-linenumber-column"><code>api.setEditorPosition(lineNumber, column)</code></h3>
+<p>Moves the cursor to the requested one-based line and column, reveals it in the editor, and focuses the editor. Coordinates are clamped to the document&#x27;s valid range. Returns <code>true</code> on success or <code>false</code> if the editor is unavailable or the coordinates are invalid.</p>
+<h3 id="api-inserttextatcursor-text"><code>api.insertTextAtCursor(text)</code></h3>
+<p>Inserts text at the current cursor position and focuses the editor. Returns <code>true</code> if inserted or <code>false</code> if no active editor position is available. The edit marks the document as modified.</p>
+<h3 id="api-seteditordecorations-decorations"><code>api.setEditorDecorations(decorations)</code></h3>
+<p>Adds line decorations to the current editor model and returns a cleanup function. Calling the cleanup removes only the decorations created by that call. Invalid line numbers are ignored; if no editor model is active, the function returns a no-op cleanup callback.</p>
+<p>Each decoration accepts <code>lineNumber</code> (required), <code>className</code>, <code>glyphMarginClassName</code>, <code>hoverMessage</code>, and <code>isWholeLine</code>. Class names are CSS classes, so an extension that supplies custom classes must also provide the corresponding styles. Decorations attach to the model that was active when the API was called.</p>
+<pre><code class="language-js">export function activate(api) {
+  const decorate = () =&gt; {
+    const document = api.getActiveDocument();
+    if (!document) return;
+    return api.setEditorDecorations([
+      { lineNumber: 1, isWholeLine: true, hoverMessage: &quot;Marked by my extension&quot; },
+    ]);
+  };
+
+  const clear = decorate();
+  return () =&gt; clear?.();
+}
+</code></pre>
+<p>Example — uppercase selected text:</p>
+<pre><code class="language-js">export function activate(api) {
+  return api.registerCommand({
+    id: &quot;uppercase-selection&quot;,
+    title: &quot;Uppercase Selection&quot;,
+    run: () =&gt; {
+      const selection = api.getEditorSelection();
+      if (!selection || selection.isEmpty) {
+        api.showMessage(&quot;Select some text first.&quot;);
+        return;
+      }
+      api.replaceEditorSelection(selection.text.toUpperCase());
+    },
+  });
+}
+</code></pre>
+<h3 id="api-updateactivedocument-content"><code>api.updateActiveDocument(content)</code></h3>
+<p>Replaces the active document&#x27;s entire content and marks the tab as having unsaved changes. Returns <code>true</code> if a document was open and updated, or <code>false</code> if no document was active. <code>content</code> must be a string. This is a whole-document replacement API, not a range-edit API; keep a copy of the original text if you need to compute a diff.</p>
+<h3 id="api-ondidchangeactivedocument-listener"><code>api.onDidChangeActiveDocument(listener)</code></h3>
+<p>Subscribes to active-tab changes. The listener is called immediately with the current document snapshot (or <code>null</code>), then again when the active tab changes. Returns an unsubscribe function; call it during cleanup. Listener errors are caught and logged so they do not break the editor.</p>
+<h3 id="api-ondidchangeeditorselection-listener"><code>api.onDidChangeEditorSelection(listener)</code></h3>
+<p>Subscribes to editor selection/cursor changes and returns an unsubscribe function. The listener receives <code>null</code> if the editor or selection is unavailable; otherwise it receives <code>text</code>, <code>startLineNumber</code>, <code>startColumn</code>, <code>endLineNumber</code>, <code>endColumn</code>, and <code>isEmpty</code>. Coordinates are one-based. The callback is triggered by selection changes; it is not called immediately upon registration.</p>
+<pre><code class="language-js">export function activate(api) {
+  const unsubscribe = api.onDidChangeEditorSelection((selection) =&gt; {
+    if (selection &amp;&amp; !selection.isEmpty) {
+      console.log(&quot;Selected text:&quot;, selection.text);
+    }
+  });
+  return unsubscribe;
+}
+</code></pre>
+<h3 id="api-ondidchangetextdocument-listener"><code>api.onDidChangeTextDocument(listener)</code></h3>
+<p>Subscribes to content changes in the active editor model and returns an unsubscribe function. The listener receives:</p>
+<ul>
+<li><code>document</code>: the current document snapshot.</li>
+<li><code>changes</code>: Monaco content-change entries, including <code>range</code>, <code>rangeOffset</code>, <code>rangeLength</code>, and inserted <code>text</code>.</li>
+<li><code>versionId</code>: the model version after the change.</li>
+<li><code>isUndoing</code> and <code>isRedoing</code>: whether the change is part of an undo or redo operation.</li>
+</ul>
+<p>The callback is not called immediately on registration. It reports changes made to the editor model; it is not a filesystem watcher and does not notify extensions about external file changes that have not been loaded into the editor.</p>
+<pre><code class="language-js">export function activate(api) {
+  const unsubscribe = api.onDidChangeTextDocument(({ document, changes }) =&gt; {
+    console.log(`${document.name}: ${changes.length} content change(s)`);
+  });
+  return unsubscribe;
+}
+</code></pre>
+<p>The runtime automatically disposes these event subscriptions when the extension is deactivated, even if the extension forgets to call its returned unsubscribe function. Extensions should still unsubscribe when they no longer need a listener.</p>
+<p>Example:</p>
+<pre><code class="language-js">export function activate(api) {
+  const unsubscribe = api.onDidChangeActiveDocument((document) =&gt; {
+    console.log(&quot;Active document:&quot;, document?.path ?? document?.name ?? &quot;None&quot;);
+  });
+
+  const command = api.registerCommand({
+    id: &quot;uppercase-document&quot;,
+    title: &quot;Uppercase Active Document&quot;,
+    run: () =&gt; {
+      const document = api.getActiveDocument();
+      if (!document) return api.showMessage(&quot;Open a document first.&quot;);
+      api.updateActiveDocument(document.content.toUpperCase());
+    },
+  });
+
+  return () =&gt; {
+    unsubscribe();
+    command();
+  };
+}
+</code></pre>
+</article>
+    </section>
+  </main>
+  <footer class="footer"><p>© 2026 BeagleSoftware. All rights reserved.</p></footer>
+</body>
+</html>
