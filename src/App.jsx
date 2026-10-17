@@ -180,7 +180,6 @@ function DocsSidebar({ activeSlug, query, setQuery }) {
   const filteredGroups = useMemo(() => docGroups.map(group => ({ ...group, items: group.slugs.map(slug => docs.find(doc => doc.slug === slug)).filter(Boolean).filter(doc => !query || doc.title.toLowerCase().includes(query.toLowerCase()) || doc.content.toLowerCase().includes(query.toLowerCase())) })).filter(group => group.items.length), [query])
   const extras = docs.filter(doc => !docGroups.some(group => group.slugs.includes(doc.slug))).filter(doc => !query || doc.title.toLowerCase().includes(query.toLowerCase()) || doc.content.toLowerCase().includes(query.toLowerCase()))
   return <aside className="react-docs-sidebar">
-    <div className="react-docs-brand"><span className="react-docs-mark">B</span><div><strong>BeagleEditor</strong><small>Documentation</small></div></div>
     <label className="react-docs-search"><span aria-hidden="true">⌕</span><input type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder="Search documentation" aria-label="Search documentation" /></label>
     <nav aria-label="Documentation pages">
       {filteredGroups.map(group => <section key={group.title} className="react-docs-nav-group"><h2>{group.title}</h2>{group.items.map(doc => <Link key={doc.slug} to={docHref(doc.slug)} className={activeSlug === doc.slug ? 'active' : ''} aria-current={activeSlug === doc.slug ? 'page' : undefined}>{doc.title}</Link>)}</section>)}
