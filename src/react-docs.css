@@ -26,6 +26,13 @@
 .react-docs-article img { display: block; max-width: 100%; height: auto; margin: 24px auto; border-radius: 8px; }
 .react-docs-article blockquote { margin: 1.5em 0; padding: 4px 0 4px 18px; border-left: 3px solid var(--primary); color: var(--text-secondary); }
 .react-docs-article pre { max-width: 100%; overflow-x: auto; padding: 18px; border: 1px solid var(--border); border-radius: 5px; background: var(--surface); font-size: 12px; line-height: 1.65; }
+.react-docs-article pre code { color: var(--text); font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
+.react-docs-article .syntax-keyword { color: #c792ea; }
+.react-docs-article .syntax-string { color: #a5d6a7; }
+.react-docs-article .syntax-number, .react-docs-article .syntax-literal { color: #f6c177; }
+.react-docs-article .syntax-comment { color: var(--text-secondary); font-style: italic; }
+.react-docs-article .syntax-function { color: #82aaff; }
+.react-docs-article .syntax-operator { color: #89ddff; }
 .react-docs-article :not(pre) > code { padding: .15em .4em; border: 1px solid var(--border); border-radius: 4px; background: var(--surface-2); font-size: .87em; }
 .react-docs-article table { display: block; width: 100%; overflow-x: auto; border-collapse: collapse; font-size: 13px; }
 .react-docs-article th, .react-docs-article td { padding: 10px 13px; border: 1px solid var(--border); text-align: left; vertical-align: top; }

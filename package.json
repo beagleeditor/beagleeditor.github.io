@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "vite build && node scripts/assemble-pages.mjs",
-    "preview": "vite preview --host 0.0.0.0"
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "node --test src/rehypeCodeHighlight.test.js"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.7.0",

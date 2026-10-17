@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown'
 import parse from 'html-react-parser'
 import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
+import rehypeCodeHighlight from './rehypeCodeHighlight.js'
 import legacyPages from './content/legacyPages.json'
 
 const BASE = '/'
@@ -215,7 +216,7 @@ function DocumentationPage() {
     <DocsSidebar activeSlug={slug} query={query} setQuery={setQuery} />
     <main className="react-docs-main">
       <div className="react-docs-breadcrumb"><Link to="/docs/">Documentation</Link><span>/</span><span>{page.title}</span></div>
-      <article className="react-docs-article"><ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]} components={markdownComponents}>{page.content}</ReactMarkdown></article>
+      <article className="react-docs-article"><ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw, rehypeCodeHighlight]} components={markdownComponents}>{page.content}</ReactMarkdown></article>
       <nav className="react-docs-pager" aria-label="Documentation pagination">
         {previous ? <button type="button" className="react-docs-page-link previous" onClick={() => navigate(docHref(previous.slug))}><span>← Previous</span><strong>{previous.title}</strong></button> : <span />}
         {next ? <button type="button" className="react-docs-page-link next" onClick={() => navigate(docHref(next.slug))}><span>Next →</span><strong>{next.title}</strong></button> : <span />}
