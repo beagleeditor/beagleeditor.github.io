@@ -3904,3 +3904,23 @@ html.theme-dark .home-page .language-image img {
     transition: none;
   }
 }
+
+/* Homepage feature spotlights: give real editor workflows room to breathe. */
+.home-feature-stories{max-width:1500px;margin:0 auto;padding:35px clamp(24px,7vw,104px) 70px}
+.feature-story{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,.8fr);align-items:center;gap:clamp(38px,7vw,110px);padding:75px 0;border-bottom:1px solid var(--border)}
+.feature-story:last-child{border-bottom:0}
+.feature-story-explorer .feature-story-image{order:2}
+.feature-story-explorer .feature-story-copy{order:1}
+.feature-story-image{min-width:0;margin:0;background:#202124;box-shadow:10px 10px 0 #e5e1d7}
+.feature-story-image img{display:block;width:100%;height:auto;object-fit:contain}
+.feature-story-image figcaption{display:flex;justify-content:space-between;flex-wrap:wrap;gap:9px;padding:13px 15px;color:#bfc2b8;font-size:.72rem}
+.feature-story-image figcaption span:first-child{color:#e6a17b;font:10px ui-monospace,SFMono-Regular,monospace;letter-spacing:.08em}
+.feature-story-copy{max-width:460px}
+.feature-story-copy .eyebrow{margin-bottom:20px}
+.feature-story-copy h2{margin:0;font-size:clamp(2.8rem,5.2vw,5.4rem);font-weight:680;line-height:.98;letter-spacing:-.075em}
+.feature-story-copy h2 em{color:var(--primary);font-family:Georgia,"Times New Roman",serif;font-weight:400}
+.feature-story-copy>p:not(.eyebrow){max-width:410px;margin:24px 0;color:var(--text-secondary);font-size:.97rem;line-height:1.85}
+html.theme-dark .feature-story-image{box-shadow:10px 10px 0 #302b25}
+html.theme-dark .feature-story-image figcaption{color:var(--text-secondary)}
+@media(max-width:1000px){.feature-story{gap:38px;grid-template-columns:minmax(0,1fr) minmax(250px,.85fr)}.feature-story-copy h2{font-size:clamp(2.6rem,5vw,4rem)}}
+@media(max-width:760px){.home-feature-stories{padding:10px 24px 35px}.feature-story{grid-template-columns:1fr;gap:28px;padding:50px 0}.feature-story-explorer .feature-story-image,.feature-story-explorer .feature-story-copy{order:initial}.feature-story-copy h2{font-size:clamp(2.8rem,11vw,4.2rem)}.feature-story-image{box-shadow:6px 6px 0 #e5e1d7}.feature-story-image figcaption{font-size:.68rem}}
