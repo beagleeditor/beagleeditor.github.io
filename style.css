@@ -3378,6 +3378,27 @@ body:not(:has(.home-page)) .docs-site-layout.docs-page .docs-site-sidebar nav a{
 body:not(:has(.home-page)) .docs-site-layout.docs-page .docs-site-sidebar nav a:hover,
 body:not(:has(.home-page)) .docs-site-layout.docs-page .docs-site-sidebar nav a[aria-current=page]{color:var(--text)}
 
+/* Sidebar links must keep their theme colors, even when broad article-link rules match. */
+body:not(:has(.home-page)) .extensions-docs-sidebar nav a,
+body:not(:has(.home-page)) .docs-site-sidebar nav a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+body:not(:has(.home-page)) .extensions-docs-sidebar nav a:hover,
+body:not(:has(.home-page)) .extensions-docs-sidebar nav a[aria-current=page],
+body:not(:has(.home-page)) .docs-site-sidebar nav a:hover,
+body:not(:has(.home-page)) .docs-site-sidebar nav a[aria-current=page] {
+  color: var(--text);
+}
+body:not(:has(.home-page)) .react-docs-shell .react-docs-sidebar .react-docs-nav-group a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+body:not(:has(.home-page)) .react-docs-shell .react-docs-sidebar .react-docs-nav-group a:hover,
+body:not(:has(.home-page)) .react-docs-shell .react-docs-sidebar .react-docs-nav-group a[aria-current=page] {
+  color: var(--text);
+}
+
 
 /* Expanded homepage content: workspace tools, language support, and customization. */
 .home-workspace{padding:clamp(76px,10vw,132px) clamp(24px,7vw,100px);background:#f0eee7;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
@@ -3924,3 +3945,138 @@ html.theme-dark .feature-story-image{box-shadow:10px 10px 0 #302b25}
 html.theme-dark .feature-story-image figcaption{color:var(--text-secondary)}
 @media(max-width:1000px){.feature-story{gap:38px;grid-template-columns:minmax(0,1fr) minmax(250px,.85fr)}.feature-story-copy h2{font-size:clamp(2.6rem,5vw,4rem)}}
 @media(max-width:760px){.home-feature-stories{padding:10px 24px 35px}.feature-story{grid-template-columns:1fr;gap:28px;padding:50px 0}.feature-story-explorer .feature-story-image,.feature-story-explorer .feature-story-copy{order:initial}.feature-story-copy h2{font-size:clamp(2.8rem,11vw,4.2rem)}.feature-story-image{box-shadow:6px 6px 0 #e5e1d7}.feature-story-image figcaption{font-size:.68rem}}
+
+/* A standalone, editorial hero for BeagleEditor's lightweight architecture. */
+.electron-hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(260px,.9fr);align-items:center;gap:clamp(36px,8vw,120px);padding:clamp(76px,10vw,140px) clamp(24px,9vw,132px);background:#292522;color:#f5f3ed;overflow:hidden}
+.electron-hero-copy{max-width:760px}.electron-hero .eyebrow{display:flex;align-items:center;gap:9px;color:#e6a17b;font-size:.69rem;font-weight:750;letter-spacing:.13em}.electron-hero .status-dot{background:#e6a17b}.electron-hero h2{margin:0;font-size:clamp(3.2rem,7vw,7rem);font-weight:650;line-height:.94;letter-spacing:-.08em}.electron-hero h2 em{color:#e6a17b;font-family:Georgia,"Times New Roman",serif;font-weight:400}.electron-hero-copy>p:not(.eyebrow){max-width:560px;margin:26px 0;color:#c9c0b5;font-size:1.03rem;line-height:1.85}.electron-hero .text-link{color:#f5f3ed}.electron-hero-stamp{display:flex;flex-direction:column;justify-content:space-between;gap:26px;min-height:300px;padding:26px;border:1px solid rgba(245,243,237,.24);transform:rotate(2deg)}.electron-hero-stamp span{color:#e6a17b;font:10px ui-monospace,SFMono-Regular,monospace;letter-spacing:.13em}.electron-hero-stamp strong{font-size:clamp(2.2rem,4.6vw,4.6rem);font-weight:700;line-height:.92;letter-spacing:-.075em}
+html.theme-dark .electron-hero{background:#211f1b}
+@media(max-width:800px){.electron-hero{grid-template-columns:1fr;gap:42px;padding:76px 24px}.electron-hero-stamp{min-height:230px;transform:none}.electron-hero-stamp strong{font-size:clamp(2.8rem,11vw,4.5rem)}}
+@media(prefers-reduced-motion:reduce){.electron-hero.reveal{opacity:1;transform:none;transition:none}}
+
+/* Full-page, one-section-at-a-time scrolling for the homepage story. */
+@supports (scroll-snap-type: y mandatory) {
+  html:has(.home-page) {
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: 72px;
+  }
+
+  .home-page > section,
+  .home-page .feature-story,
+  body:has(.home-page) > #root .footer {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  /* The story wrapper is a layout group, not an extra snap stop. */
+  .home-page > .home-feature-stories {
+    scroll-snap-align: none;
+    scroll-snap-stop: normal;
+  }
+}
+
+@media (max-width: 800px) {
+  @supports (scroll-snap-type: y mandatory) {
+    html:has(.home-page) { scroll-padding-top: 66px; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:has(.home-page) { scroll-snap-type: y proximity; }
+  .home-page > section,
+  .home-page .feature-story,
+  body:has(.home-page) > #root .footer { scroll-snap-stop: normal; }
+}
+
+@supports (scroll-snap-type: y mandatory) {
+  .home-page > section:not(.home-feature-stories),
+  .home-page .feature-story {
+    min-height: calc(100svh - 72px);
+  }
+}
+
+@media (max-width: 800px) {
+  @supports (scroll-snap-type: y mandatory) {
+    .home-page > section:not(.home-feature-stories),
+    .home-page .feature-story {
+      min-height: calc(100svh - 66px);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-page > section:not(.home-feature-stories),
+  .home-page .feature-story { min-height: 0; }
+}
+
+/* Give the second homepage scene a real glimpse of the editor. */
+.home-page .manifesto {
+  grid-template-columns: minmax(0, 1fr) minmax(280px, .9fr);
+  align-items: center;
+  gap: clamp(30px, 6vw, 88px);
+  min-height: calc(100svh - 72px);
+}
+.home-page .manifesto-copy { min-width: 0; }
+.home-page .manifesto-note { max-width: 400px; }
+.home-page .manifesto-image {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  background: #202124;
+  box-shadow: 12px 12px 0 #d8d4c9;
+}
+.home-page .manifesto-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+html.theme-dark .home-page .manifesto-image { box-shadow: 12px 12px 0 #302b25; }
+@media (max-width: 1000px) {
+  .home-page .manifesto { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 800px) {
+  .home-page .manifesto {
+    grid-template-columns: 1fr;
+    min-height: calc(100svh - 66px);
+    gap: 24px;
+  }
+  .home-page .manifesto-image { box-shadow: 6px 6px 0 #d8d4c9; }
+  html.theme-dark .home-page .manifesto-image { box-shadow: 6px 6px 0 #302b25; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-page .manifesto { min-height: 0; }
+}
+
+/* Show the real theme screenshot in the homepage customization feature. */
+.home-customize .customize-art {
+  display: block;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: transparent;
+}
+.home-customize .customize-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 560px;
+  object-fit: contain;
+  box-shadow: 12px 12px 0 #dcd9cf;
+}
+html.theme-dark .home-customize .customize-art img {
+  box-shadow: 12px 12px 0 #302b25;
+}
+@media (max-width: 800px) {
+  .home-customize .customize-art { min-height: 0; }
+  .home-customize .customize-art img { box-shadow: 6px 6px 0 #dcd9cf; }
+  html.theme-dark .home-customize .customize-art img { box-shadow: 6px 6px 0 #302b25; }
+}
+.home-customize .customize-theme-caption {
+  padding-top: 14px;
+  color: #686b62;
+  font-size: .78rem;
+  letter-spacing: .04em;
+}
+html.theme-dark .home-customize .customize-theme-caption {
+  color: var(--text-secondary);
+}

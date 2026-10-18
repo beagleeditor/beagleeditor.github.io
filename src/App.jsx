@@ -114,9 +114,9 @@ function LegacyPage({ pageKey }) {
     }
 
     const platformData = {
-      windows: { title: 'BeagleEditor for Windows.', description: 'Download the latest Windows release and start coding.', card: 'Compatible with Windows 10 and later.', button: 'Download for Windows', command: 'Download the latest .exe installer from GitHub Releases.' },
-      mac: { title: 'BeagleEditor for macOS.', description: 'Built for a fast and lightweight macOS experience.', card: 'Available for Apple Silicon and Intel Macs.', button: 'Download for macOS', command: 'Download the latest .dmg from GitHub Releases.' },
-      linux: { title: 'BeagleEditor for Linux.', description: 'Download the latest Linux release for your distribution.', card: 'Choose the package appropriate for your distribution.', button: 'View Linux releases', command: 'Download the latest Linux package from GitHub Releases.' },
+      windows: { title: 'BeagleEditor for Windows.', description: 'Download the latest Windows release and start coding.', card: 'Compatible with Windows 10 and later.', button: 'Download for Windows', command: 'Download the latest .exe installer from GitHub Releases.', icon: '<svg viewBox="0 0 48 48" aria-hidden="true"><path fill="currentColor" d="M4 9.5 21 7v15H4zm20-2.8 20-2.9V22H24zM4 25h17v15L4 37.5zm20 0h20v18.2l-20-2.8z"/></svg>' },
+      mac: { title: 'BeagleEditor for macOS.', description: 'Built for a fast and lightweight macOS experience.', card: 'Available for Apple Silicon and Intel Macs.', button: 'Download for macOS', command: 'Download the latest .dmg from GitHub Releases.', icon: '<svg viewBox="0 0 48 48" aria-hidden="true"><path fill="currentColor" d="M34.7 25.5c0-5.2 4.3-7.7 4.5-7.8-2.4-3.6-6.2-4.1-7.5-4.2-3.2-.3-6.2 1.9-7.8 1.9s-4.1-1.9-6.8-1.8c-3.5.1-6.7 2-8.5 5.1-3.6 6.2-.9 15.3 2.6 20.3 1.7 2.4 3.6 5.1 6.2 5 2.5-.1 3.5-1.6 6.6-1.6s4 1.6 6.7 1.5c2.8-.1 4.5-2.5 6.1-5 1.9-2.8 2.6-5.6 2.6-5.7-.1 0-4.7-1.8-4.7-7.7ZM29.5 10.1c1.4-1.7 2.3-4 2.1-6.3-2 .1-4.5 1.3-5.9 3-1.3 1.5-2.4 3.9-2.1 6.1 2.2.2 4.5-1.1 5.9-2.8Z"/></svg>' },
+      linux: { title: 'BeagleEditor for Linux.', description: 'Download the latest Linux release for your distribution.', card: 'Choose the package appropriate for your distribution.', button: 'View Linux releases', command: 'Download the latest Linux package from GitHub Releases.', icon: `<img src="${BASE}assets/tux.svg" alt="Tux, the Linux mascot" />` },
     }
     const platformOptions = [...document.querySelectorAll('.platform-option')]
     const choosePlatform = option => {
@@ -130,7 +130,10 @@ function LegacyPage({ pageKey }) {
       setText('download-button', data.button)
       setText('install-command', data.command)
       const icon = document.getElementById('platform-icon')
-      if (icon) icon.dataset.os = option.dataset.os
+      if (icon) {
+        icon.dataset.os = option.dataset.os
+        icon.innerHTML = data.icon
+      }
       document.getElementById('step-3')?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' })
     }
     const platformHandlers = platformOptions.map(option => {
