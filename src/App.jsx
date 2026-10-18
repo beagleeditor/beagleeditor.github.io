@@ -26,7 +26,7 @@ const docs = Object.entries(markdownModules).map(([path, content]) => {
 const docGroups = [
   { title: 'Start here', slugs: ['index', 'getting-started', 'keyboard-shortcuts', 'editor-settings', 'workspace-tools', 'language-support', 'troubleshooting'] },
   { title: 'Extensions', slugs: ['extensions', 'extensions-developers', 'extensions-quickstart', 'extensions-manifest', 'extensions-api', 'extensions-lifecycle', 'extensions-themes', 'extensions-examples', 'extensions-security'] },
-  { title: 'Development and reference', slugs: ['development', 'cli', 'plugins', 'website-development', 'website-editor-settings', 'website-getting-started', 'website-keyboard-shortcuts', 'website-language-support', 'website-troubleshooting', 'website-workspace-tools'] },
+  { title: 'Development and reference', slugs: ['development', 'cli', 'plugins'] },
 ]
 const sidebarOrder = docGroups.flatMap(group => group.slugs)
 docs.sort((a, b) => {
